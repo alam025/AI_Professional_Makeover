@@ -1,0 +1,18 @@
+# Core Computer Vision
+opencv-python==4.8.1.78
+opencv-contrib-python==4.8.1.78
+
+# Numerical Computing
+numpy==1.24.3
+
+# Image Processing
+Pillow==10.0.0
+
+# Optional: For better performance
+scikit-image==0.21.0
+
+# Optional: If you want to add MediaPipe later for better hand tracking
+# mediapipe==0.10.5
+
+# Optional: For advanced pose detection (currently not used)
+# mediapipe==0.10.5
