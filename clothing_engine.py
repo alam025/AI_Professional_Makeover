@@ -90,8 +90,8 @@ class ProfessionalClothingEngine:
         # Exclude arms
         arm_exclusion_left = np.zeros((h, w), dtype=np.uint8)
         arm_exclusion_right = np.zeros((h, w), dtype=np.uint8)
-        cv2.rectangle(arm_exclusion_left, (0, 0), (int(w * 0.32), h), 255, -1)
-        cv2.rectangle(arm_exclusion_right, (int(w * 0.68), 0), (w, h), 255, -1)
+        cv2.rectangle(arm_exclusion_left, (0, 0), (int(w * 0.28), h), 255, -1)
+        cv2.rectangle(arm_exclusion_right, (int(w * 0.72), 0), (w, h), 255, -1)
         mask = cv2.subtract(mask, arm_exclusion_left)
         mask = cv2.subtract(mask, arm_exclusion_right)
         
