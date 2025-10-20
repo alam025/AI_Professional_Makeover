@@ -42,7 +42,7 @@ class ProfessionalMakeoverApp:
             self.clothing_engine = ProfessionalClothingEngine()
             
             # Application state
-            self.current_step = "welcome"  # START WITH WELCOME SCREEN!
+            self.current_step = "welcome"
             self.face_detected_time = 0
             self.selected_background = None
             self.selected_clothing_type = None
@@ -107,10 +107,10 @@ class ProfessionalMakeoverApp:
         print("   C       - Capture Screenshot")
         print("\n")
         
-        # Create window
+        # Create borderless fullscreen window (no title bar)
         window_name = 'AI Professional Makeover'
         cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
-        cv2.resizeWindow(window_name, 1280, 720)
+        cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
         
         while True:
             try:
@@ -167,7 +167,7 @@ class ProfessionalMakeoverApp:
                     self.restart_application()
                 elif key == ord('c'):
                     self.capture_screenshot(frame)
-                elif key == ord(' '):  # Space key to start from welcome
+                elif key == ord(' '):
                     if self.current_step == "welcome":
                         self.current_step = "face_detection"
                         print("🎬 Starting face detection...")
@@ -184,30 +184,14 @@ class ProfessionalMakeoverApp:
         """Welcome screen with instructions"""
         frame = self.ui.draw_welcome_screen(frame)
         
-        # Add start instruction
-        cv2.putText(frame, "Press SPACE to start", (480, 500),
-                   cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 255), 2)
-        
-        # Show clothing detection status
-        tshirt_count = len(self.clothing_engine.get_available_clothing("tshirts"))
-        shirt_count = len(self.clothing_engine.get_available_clothing("shirts"))
-        
-        cv2.putText(frame, f"T-shirts detected: {tshirt_count}", (480, 560),
-                   cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-        cv2.putText(frame, f"Shirts detected: {shirt_count}", (480, 590),
-                   cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-        
-        # Auto-start after 3 seconds OR space key
+        # Auto-start after 5 seconds
         if not hasattr(self, 'welcome_start_time'):
             self.welcome_start_time = time.time()
         
         elapsed = time.time() - self.welcome_start_time
-        if elapsed > 3.0:
-            cv2.putText(frame, "Starting automatically...", (480, 640),
-                       cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2)
-            if elapsed > 5.0:
-                self.current_step = "face_detection"
-                print("🎬 Starting face detection...")
+        if elapsed > 5.0:
+            self.current_step = "face_detection"
+            print("🎬 Starting face detection...")
         
         return frame
     
@@ -454,7 +438,7 @@ class ProfessionalMakeoverApp:
         """Restart application"""
         print("\n🔄 Restarting...")
         
-        self.current_step = "welcome"  # RESTART FROM WELCOME
+        self.current_step = "welcome"
         self.face_detected_time = 0
         self.selected_background = None
         self.selected_clothing_type = None
