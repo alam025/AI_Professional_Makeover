@@ -57,29 +57,32 @@ class ProfessionalClothingEngine:
     
     def create_simple_upper_body_mask(self, frame):
         """
-        Create TRAPEZOIDAL mask for T-SHIRT color replacement
-        WIDER to cover shoulders and sleeves
+        Create PROPER TRAPEZOIDAL mask for T-SHIRT color replacement
+        - NARROWER at top (shoulders)
+        - WIDER at bottom (waist)
+        - Reduced bottom width
         """
         h, w = frame.shape[:2]
         mask = np.zeros((h, w), dtype=np.uint8)
         
-        # T-shirt area (trapezoidal shape) - MUCH WIDER NOW
+        # T-shirt area - PROPER TRAPEZOID (narrow top, wider bottom)
         top_y = int(h * 0.65)
         bottom_y = int(h * 1.00)
         
-        # WIDER at top (covers shoulders and sleeves)
-        top_left_x = int(w * 0.25)    # Changed from 0.40 to 0.25 (15% wider on left)
-        top_right_x = int(w * 0.75)   # Changed from 0.60 to 0.75 (15% wider on right)
+        # NARROW at top (shoulders) - creates trapezoid shape
+        top_left_x = int(w * 0.35)    # Narrower at top
+        top_right_x = int(w * 0.65)   # Narrower at top
         
-        # WIDER at bottom (covers full torso)
-        bottom_left_x = int(w * 0.20)   # Changed from 0.35 to 0.20 (15% wider on left)
-        bottom_right_x = int(w * 0.80)  # Changed from 0.65 to 0.80 (15% wider on right)
+        # WIDER at bottom but REDUCED by 1cm (about 5% less width)
+        bottom_left_x = int(w * 0.25)   # Wider at bottom (but reduced from 0.20)
+        bottom_right_x = int(w * 0.75)  # Wider at bottom (but reduced from 0.80)
         
+        # Create TRAPEZOID points (narrow->wide from top to bottom)
         trapezoid_points = np.array([
-            [top_left_x, top_y],
-            [top_right_x, top_y],
-            [bottom_right_x, bottom_y],
-            [bottom_left_x, bottom_y]
+            [top_left_x, top_y],        # Top-left (narrow)
+            [top_right_x, top_y],       # Top-right (narrow)
+            [bottom_right_x, bottom_y], # Bottom-right (wide)
+            [bottom_left_x, bottom_y]   # Bottom-left (wide)
         ], dtype=np.int32)
         
         cv2.fillPoly(mask, [trapezoid_points], 255)
@@ -92,14 +95,11 @@ class ProfessionalClothingEngine:
         cv2.circle(face_mask, (face_center_x, face_center_y), face_radius, 255, -1)
         mask = cv2.subtract(mask, face_mask)
         
-        # REDUCED arm exclusion (allows wider mask to include sleeves)
+        # Minimal arm exclusion (only far edges)
         arm_exclusion_left = np.zeros((h, w), dtype=np.uint8)
         arm_exclusion_right = np.zeros((h, w), dtype=np.uint8)
-        
-        # Less aggressive exclusion - only exclude FAR edges
-        cv2.rectangle(arm_exclusion_left, (0, 0), (int(w * 0.15), h), 255, -1)   # Changed from 0.32 to 0.15
-        cv2.rectangle(arm_exclusion_right, (int(w * 0.85), 0), (w, h), 255, -1)  # Changed from 0.68 to 0.85
-        
+        cv2.rectangle(arm_exclusion_left, (0, 0), (int(w * 0.18), h), 255, -1)
+        cv2.rectangle(arm_exclusion_right, (int(w * 0.82), 0), (w, h), 255, -1)
         mask = cv2.subtract(mask, arm_exclusion_left)
         mask = cv2.subtract(mask, arm_exclusion_right)
         
@@ -370,12 +370,13 @@ class ProfessionalClothingEngine:
             result = frame.copy()
             
             h, w = frame.shape[:2]
+            # Updated to match new WIDER mask dimensions
             top_y = int(h * 0.65)
             bottom_y = int(h * 1.00)
-            top_left_x = int(w * 0.40)
-            top_right_x = int(w * 0.60)
-            bottom_left_x = int(w * 0.35)
-            bottom_right_x = int(w * 0.65)
+            top_left_x = int(w * 0.25)
+            top_right_x = int(w * 0.75)
+            bottom_left_x = int(w * 0.20)
+            bottom_right_x = int(w * 0.80)
             
             trapezoid_points = np.array([
                 [top_left_x, top_y],
@@ -386,9 +387,9 @@ class ProfessionalClothingEngine:
             
             cv2.polylines(result, [trapezoid_points], True, (0, 255, 255), 2)
             
-            cv2.putText(result, "T-SHIRT MASK AREA", (10, 30),
+            cv2.putText(result, "T-SHIRT MASK AREA (WIDER)", (10, 30),
                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
-            cv2.putText(result, "Trapezoid Shape", (10, 60),
+            cv2.putText(result, "Covers Shoulders & Sleeves", (10, 60),
                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
             
             return result
