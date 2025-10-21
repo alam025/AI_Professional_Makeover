@@ -178,6 +178,7 @@ class ProfessionalClothingEngine:
     def detect_upper_body_region(self, frame):
         """
         Detect upper body region for SHIRT overlay placement
+        FIXED: Starts BELOW face (not covering face)
         """
         h, w = frame.shape[:2]
         
@@ -188,33 +189,38 @@ class ProfessionalClothingEngine:
         if len(faces) > 0:
             fx, fy, fw, fh = max(faces, key=lambda x: x[2] * x[3])
             
-            # Start well below face
-            collar_y = fy + fh + int(fh * 0.3)
+            # CRITICAL: Start WELL BELOW face (at neck/collar area)
+            # Increased gap to ensure face is never covered
+            collar_y = fy + fh + int(fh * 0.5)  # Changed from 0.3 to 0.5 (more gap below chin)
             
-            # Width
-            torso_width = int(fw * 3.5)
+            # Width - reasonable for shirt
+            torso_width = int(fw * 3.0)  # Reduced from 3.5 to 3.0 (narrower shirt)
             torso_x = fx + fw // 2 - torso_width // 2
             
-            # Length - extend to bottom
+            # Length - extend to bottom but not too long
             clothing_height = h - collar_y
-            min_height = int(fh * 5.0)
+            min_height = int(fh * 4.0)  # Reduced from 5.0 to 4.0
             if clothing_height < min_height:
                 clothing_height = min_height
             
+            # Ensure clothing doesn't go too high (protect face)
+            if collar_y < fy + fh:
+                collar_y = fy + fh + 20  # Force minimum 20px gap below face
+            
             # Bounds check
             torso_x = max(0, min(torso_x, w - torso_width))
-            collar_y = max(0, min(collar_y, h - clothing_height))
+            collar_y = max(fy + fh + 20, min(collar_y, h - clothing_height))  # Never above face
             torso_width = min(torso_width, w - torso_x)
             clothing_height = min(clothing_height, h - collar_y)
             
             return (torso_x, collar_y, torso_width, clothing_height)
         
-        # Fallback
+        # Fallback - ensure starts below top
         center_x = w // 2
-        default_width = int(w * 0.5)
-        default_height = int(h * 0.7)
+        default_width = int(w * 0.45)  # Reduced from 0.5
+        default_height = int(h * 0.6)  # Reduced from 0.7
         default_x = center_x - default_width // 2
-        default_y = int(h * 0.3)
+        default_y = int(h * 0.35)  # Start lower (was 0.3)
         
         return (default_x, default_y, default_width, default_height)
     
@@ -241,22 +247,71 @@ class ProfessionalClothingEngine:
         return mask, 0
     
     def prepare_clothing_overlay(self, clothing_img, target_width, target_height):
-        """Prepare clothing for overlay"""
+        """
+        Prepare clothing for overlay with AGGRESSIVE BACKGROUND REMOVAL
+        """
         corner_radius = int(target_width * 0.08)
         tshirt_mask, sleeve_extension = self.create_tshirt_mask_with_sleeves(
             target_width, target_height, corner_radius
         )
         
+        # Resize clothing
         resized_clothing = cv2.resize(clothing_img, (target_width, target_height))
         
+        # CRITICAL: Aggressive background removal for all images
         if resized_clothing.shape[2] == 4:
+            # Has alpha channel - use it BUT also check for white
             bgr = resized_clothing[:, :, :3]
-            alpha = resized_clothing[:, :, 3]
+            alpha_original = resized_clothing[:, :, 3]
+            
+            # Also remove white background even if alpha exists
+            hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
+            lower_white = np.array([0, 0, 220])
+            upper_white = np.array([180, 25, 255])
+            white_mask = cv2.inRange(hsv, lower_white, upper_white)
+            alpha_from_white = cv2.bitwise_not(white_mask)
+            
+            # Combine both alphas (intersection)
+            alpha = cv2.bitwise_and(alpha_original, alpha_from_white)
         else:
+            # No alpha channel - AGGRESSIVE WHITE BACKGROUND REMOVAL
             bgr = resized_clothing
-            alpha = np.ones((target_height, target_width), dtype=np.uint8) * 255
+            
+            # Method 1: HSV-based white detection (more aggressive)
+            hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
+            lower_white = np.array([0, 0, 220])    # Very sensitive to white
+            upper_white = np.array([180, 25, 255]) # Catch all whites
+            white_mask = cv2.inRange(hsv, lower_white, upper_white)
+            
+            # Method 2: RGB-based bright pixel detection
+            gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
+            _, bright_mask = cv2.threshold(gray, 230, 255, cv2.THRESH_BINARY)
+            
+            # Combine both methods (union - remove more background)
+            combined_bg_mask = cv2.bitwise_or(white_mask, bright_mask)
+            
+            # Invert - we want shirt, not background
+            alpha = cv2.bitwise_not(combined_bg_mask)
+            
+            # Clean up with morphological operations
+            kernel_small = np.ones((3, 3), np.uint8)
+            kernel_large = np.ones((7, 7), np.uint8)
+            
+            # Remove small noise
+            alpha = cv2.morphologyEx(alpha, cv2.MORPH_OPEN, kernel_small)
+            # Fill small holes in shirt
+            alpha = cv2.morphologyEx(alpha, cv2.MORPH_CLOSE, kernel_large)
+            # Erode slightly to remove edge artifacts
+            alpha = cv2.erode(alpha, kernel_small, iterations=2)
+            # Smooth edges
+            alpha = cv2.GaussianBlur(alpha, (7, 7), 0)
         
+        # Final cleanup - ensure no stray pixels
+        _, alpha = cv2.threshold(alpha, 50, 255, cv2.THRESH_BINARY)
+        
+        # Combine with T-shirt mask
         combined_alpha = cv2.bitwise_and(alpha, tshirt_mask)
+        
         return bgr, combined_alpha, sleeve_extension
     
     def apply_shirt_overlay(self, frame, clothing_item):
@@ -370,13 +425,13 @@ class ProfessionalClothingEngine:
             result = frame.copy()
             
             h, w = frame.shape[:2]
-            # Updated to match new WIDER mask dimensions
+            # Updated to match PROPER TRAPEZOID dimensions
             top_y = int(h * 0.65)
             bottom_y = int(h * 1.00)
-            top_left_x = int(w * 0.25)
-            top_right_x = int(w * 0.75)
-            bottom_left_x = int(w * 0.20)
-            bottom_right_x = int(w * 0.80)
+            top_left_x = int(w * 0.35)    # Narrow at top
+            top_right_x = int(w * 0.65)   # Narrow at top
+            bottom_left_x = int(w * 0.25) # Wide at bottom
+            bottom_right_x = int(w * 0.75) # Wide at bottom
             
             trapezoid_points = np.array([
                 [top_left_x, top_y],
@@ -387,9 +442,9 @@ class ProfessionalClothingEngine:
             
             cv2.polylines(result, [trapezoid_points], True, (0, 255, 255), 2)
             
-            cv2.putText(result, "T-SHIRT MASK AREA (WIDER)", (10, 30),
+            cv2.putText(result, "TRAPEZOID MASK (Narrow->Wide)", (10, 30),
                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
-            cv2.putText(result, "Covers Shoulders & Sleeves", (10, 60),
+            cv2.putText(result, "Top: Narrow | Bottom: Wide", (10, 60),
                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
             
             return result
