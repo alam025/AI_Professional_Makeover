@@ -336,12 +336,14 @@ class ProfessionalClothingEngine:
         """Apply shirt with perfect neck/shoulder alignment"""
         try:
             h, w = frame.shape[:2]
+            print(f"\n🔍 Starting shirt overlay...")
+            print(f"Frame size: {w}x{h}")
             
             # Detect neck and shoulders
             body_points = self.detect_neck_and_shoulders(frame)
             
             if not body_points:
-                print("⚠️ No body detected")
+                print("❌ No body detected - face detection failed")
                 return frame
             
             neck_x, neck_y = body_points['neck']
@@ -350,13 +352,20 @@ class ProfessionalClothingEngine:
             shoulder_width = body_points['shoulder_width']
             face_height = body_points['face_height']
             
+            print(f"✅ Neck detected at: ({neck_x}, {neck_y})")
+            print(f"✅ Shoulders: Left({left_shoulder_x}, {shoulder_y}), Right({right_shoulder_x}, {shoulder_y})")
+            print(f"✅ Shoulder width: {shoulder_width}px, Face height: {face_height}px")
+            
             # Shirt dimensions
-            shirt_width = int(shoulder_width * 1.5)  # Wider than shoulders
-            shirt_height = int(face_height * 5.5)  # Proportional to face
+            shirt_width = int(shoulder_width * 1.5)
+            shirt_height = int(face_height * 5.5)
             
             # Position: Collar should be AT the neck
             shirt_x = neck_x - shirt_width // 2
-            shirt_y = neck_y - int(shirt_height * 0.05)  # Collar slightly above neck
+            shirt_y = neck_y - int(shirt_height * 0.05)
+            
+            print(f"📏 Calculated shirt size: {shirt_width}x{shirt_height}")
+            print(f"📍 Initial position: ({shirt_x}, {shirt_y})")
             
             # Bounds check
             shirt_x = max(0, min(shirt_x, w - 50))
@@ -364,28 +373,45 @@ class ProfessionalClothingEngine:
             shirt_width = min(shirt_width, w - shirt_x)
             shirt_height = min(shirt_height, h - shirt_y)
             
+            print(f"📍 Final position after bounds: ({shirt_x}, {shirt_y})")
+            print(f"📏 Final size after bounds: {shirt_width}x{shirt_height}")
+            
             if shirt_width <= 0 or shirt_height <= 0:
+                print(f"❌ Invalid dimensions after bounds check")
                 return frame
             
             # Load and process shirt image
             clothing_img = clothing_item['image']
+            print(f"👔 Original shirt image shape: {clothing_img.shape}")
             
             # Resize shirt
             resized_shirt = cv2.resize(clothing_img, (shirt_width, shirt_height))
+            print(f"👔 Resized shirt shape: {resized_shirt.shape}")
             
             # Remove white background AGGRESSIVELY
             shirt_bgr, shirt_alpha = self.remove_white_background_aggressive(resized_shirt)
+            print(f"🎨 Background removed - BGR shape: {shirt_bgr.shape}, Alpha shape: {shirt_alpha.shape}")
+            print(f"🎨 Alpha channel stats - Min: {shirt_alpha.min()}, Max: {shirt_alpha.max()}, Mean: {shirt_alpha.mean():.1f}")
             
             # Apply shirt-shaped mask
             shirt_shape_mask = self.create_shirt_shaped_mask(shirt_width, shirt_height)
+            print(f"✂️ Shirt shape mask created - non-zero pixels: {cv2.countNonZero(shirt_shape_mask)}")
             
             # Combine masks
             final_alpha = cv2.bitwise_and(shirt_alpha, shirt_shape_mask)
+            print(f"✅ Final alpha combined - non-zero pixels: {cv2.countNonZero(final_alpha)}")
+            
+            if cv2.countNonZero(final_alpha) == 0:
+                print(f"❌ Final alpha is completely black - no shirt will be visible!")
+                print(f"   This means background removal removed everything or shirt shape mask failed")
+                return frame
             
             # Get ROI
             roi = frame[shirt_y:shirt_y + shirt_height, shirt_x:shirt_x + shirt_width]
+            print(f"📦 ROI shape: {roi.shape}")
             
             if roi.shape[0] != shirt_height or roi.shape[1] != shirt_width:
+                print(f"❌ ROI size mismatch!")
                 return frame
             
             # Alpha blend
@@ -398,7 +424,7 @@ class ProfessionalClothingEngine:
             
             result[shirt_y:shirt_y + shirt_height, shirt_x:shirt_x + shirt_width] = blended.astype(np.uint8)
             
-            print(f"✅ Shirt fitted at neck ({neck_x}, {neck_y})")
+            print(f"✅✅✅ Shirt successfully fitted at neck ({neck_x}, {neck_y})!")
             return result
             
         except Exception as e:
