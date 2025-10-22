@@ -278,27 +278,38 @@ class ProfessionalClothingEngine:
         return bgr, shirt_mask
     
     def warp_shirt_to_body(self, shirt_img, shirt_alpha, body_points):
-        """Warp shirt to fit body shape using perspective transform"""
+        """Warp shirt to fit body shape - FIXED: Start from neck, not shoulders"""
         
         h, w = shirt_img.shape[:2]
         
-        # Shirt corners (source points - rectangular shirt)
-        src_points = np.float32([
-            [w * 0.2, h * 0.1],   # Top-left (left shoulder)
-            [w * 0.8, h * 0.1],   # Top-right (right shoulder)
-            [w * 0.85, h * 0.9],  # Bottom-right (right waist)
-            [w * 0.15, h * 0.9]   # Bottom-left (left waist)
-        ])
-        
-        # Body shape points (destination - your actual body)
+        # Get body points
+        neck = body_points['neck']
         left_shoulder = body_points['left_shoulder']
         right_shoulder = body_points['right_shoulder']
         left_waist = body_points['left_waist']
         right_waist = body_points['right_waist']
         
-        # Calculate bounding box for warped shirt
-        all_x = [left_shoulder[0], right_shoulder[0], left_waist[0], right_waist[0]]
-        all_y = [left_shoulder[1], right_shoulder[1], left_waist[1], right_waist[1]]
+        # CRITICAL FIX: Use NECK as top points, not shoulders!
+        # Shirt collar should be AT the neck
+        neck_x, neck_y = neck
+        collar_width = body_points['shoulder_width'] // 2  # Collar narrower than shoulders
+        
+        # Top points of shirt (at neck/collar level)
+        top_left = (neck_x - collar_width, neck_y)
+        top_right = (neck_x + collar_width, neck_y)
+        
+        # Shirt corners (source points - rectangular shirt)
+        # Map shirt TOP to NECK (not shoulders!)
+        src_points = np.float32([
+            [w * 0.25, h * 0.05],   # Top-left of shirt → neck left
+            [w * 0.75, h * 0.05],   # Top-right of shirt → neck right
+            [w * 0.85, h * 0.95],   # Bottom-right → right waist
+            [w * 0.15, h * 0.95]    # Bottom-left → left waist
+        ])
+        
+        # Calculate bounding box
+        all_x = [top_left[0], top_right[0], left_waist[0], right_waist[0]]
+        all_y = [top_left[1], top_right[1], left_waist[1], right_waist[1]]
         
         min_x, max_x = min(all_x), max(all_x)
         min_y, max_y = min(all_y), max(all_y)
@@ -306,12 +317,12 @@ class ProfessionalClothingEngine:
         out_w = max_x - min_x
         out_h = max_y - min_y
         
-        # Destination points (relative to output image)
+        # Destination points (shirt top at NECK level!)
         dst_points = np.float32([
-            [left_shoulder[0] - min_x, left_shoulder[1] - min_y],
-            [right_shoulder[0] - min_x, right_shoulder[1] - min_y],
-            [right_waist[0] - min_x, right_waist[1] - min_y],
-            [left_waist[0] - min_x, left_waist[1] - min_y]
+            [top_left[0] - min_x, top_left[1] - min_y],        # Neck left
+            [top_right[0] - min_x, top_right[1] - min_y],      # Neck right
+            [right_waist[0] - min_x, right_waist[1] - min_y],  # Right waist
+            [left_waist[0] - min_x, left_waist[1] - min_y]     # Left waist
         ])
         
         # Get perspective transform matrix
@@ -324,10 +335,10 @@ class ProfessionalClothingEngine:
         return warped_shirt, warped_alpha, (min_x, min_y)
     
     def apply_shirt_overlay(self, frame, clothing_item):
-        """Apply shirt with perspective warp to fit body"""
+        """Apply shirt with perspective warp to fit body - FIXED: Collar at neck"""
         try:
             h, w = frame.shape[:2]
-            print(f"\n🔍 Applying shirt with body fitting...")
+            print(f"\n🔍 Applying shirt with collar at neck...")
             
             # Detect body
             body_points = self.detect_neck_and_shoulders(frame)
@@ -336,7 +347,8 @@ class ProfessionalClothingEngine:
                 print("❌ No face/body detected")
                 return frame
             
-            print(f"✅ Body detected")
+            neck_x, neck_y = body_points['neck']
+            print(f"✅ Neck position: ({neck_x}, {neck_y})")
             print(f"   Shoulders: {body_points['left_shoulder']} to {body_points['right_shoulder']}")
             print(f"   Waist: {body_points['left_waist']} to {body_points['right_waist']}")
             
@@ -353,7 +365,7 @@ class ProfessionalClothingEngine:
             print(f"🎨 Background removed: {percentage:.1f}% of image is shirt")
             
             if non_zero < 500:
-                print("⚠️ Almost no shirt detected - background removal too aggressive")
+                print("⚠️ Almost no shirt detected")
                 return frame
             
             # Warp shirt to fit body shape
@@ -365,6 +377,16 @@ class ProfessionalClothingEngine:
             wh, ww = warped_shirt.shape[:2]
             
             print(f"✂️ Warped shirt: {ww}x{wh} at offset ({offset_x}, {offset_y})")
+            
+            # CRITICAL FIX: Move shirt UP so collar touches neck
+            # The warped shirt top should be at neck_y, but offset_y might be below it
+            vertical_adjustment = neck_y - offset_y
+            print(f"🔧 Vertical adjustment needed: {vertical_adjustment}px (moving UP)")
+            
+            # Apply the adjustment - move shirt UP to neck level
+            offset_y = neck_y - 5  # Start 5px above neck for proper collar placement
+            
+            print(f"📍 Adjusted position: ({offset_x}, {offset_y})")
             
             # Bounds check
             if offset_x < 0 or offset_y < 0 or offset_x + ww > w or offset_y + wh > h:
@@ -390,7 +412,7 @@ class ProfessionalClothingEngine:
             roi = frame[offset_y:offset_y + wh, offset_x:offset_x + ww]
             
             if roi.shape[:2] != (wh, ww):
-                print(f"❌ ROI mismatch")
+                print(f"❌ ROI mismatch: {roi.shape} vs ({wh}, {ww})")
                 return frame
             
             # Alpha blend
@@ -403,7 +425,7 @@ class ProfessionalClothingEngine:
             
             result[offset_y:offset_y + wh, offset_x:offset_x + ww] = blended.astype(np.uint8)
             
-            print(f"✅✅✅ Shirt perfectly fitted to body shape!")
+            print(f"✅✅✅ Shirt collar placed at neck level!")
             return result
             
         except Exception as e:
