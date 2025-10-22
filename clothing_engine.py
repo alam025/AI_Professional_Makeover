@@ -53,7 +53,7 @@ class ProfessionalClothingEngine:
         return True
     
     def detect_neck_and_shoulders(self, frame):
-        """Detect body key points"""
+        """Detect body key points - FIXED: Shoulders closer to neck"""
         h, w = frame.shape[:2]
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         faces = self.face_cascade.detectMultiScale(gray, 1.1, 5, minSize=(100, 100))
@@ -62,17 +62,19 @@ class ProfessionalClothingEngine:
             fx, fy, fw, fh = max(faces, key=lambda x: x[2] * x[3])
             
             neck_x = fx + fw // 2
-            neck_y = fy + fh
+            neck_y = fy + fh  # Bottom of face = neck
             
             shoulder_width = int(fw * 2.5)
             left_shoulder_x = neck_x - shoulder_width // 2
             right_shoulder_x = neck_x + shoulder_width // 2
-            shoulder_y = neck_y + int(fh * 0.35)
+            
+            # FIXED: Shoulders much closer to neck (was 0.35, now 0.15)
+            shoulder_y = neck_y + int(fh * 0.15)  # Just below neck!
             
             # Waist points
-            torso_height = int(fh * 4.5)
+            torso_height = int(fh * 4.8)  # Slightly longer
             waist_y = shoulder_y + torso_height
-            waist_width = int(shoulder_width * 1.15)
+            waist_width = int(shoulder_width * 1.2)
             left_waist_x = neck_x - waist_width // 2
             right_waist_x = neck_x + waist_width // 2
             
