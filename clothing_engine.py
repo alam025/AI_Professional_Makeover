@@ -1,8 +1,6 @@
 """
-PROFESSIONAL CLOTHING ENGINE
-- T-shirt: HSV color replacement
-- Shirt: Image overlay with proper bottom extension
-- Simple face detection for placement
+SIMPLE DIRECT SHIRT PLACEMENT
+No complex warping - just resize and place at neck
 """
 
 import cv2
@@ -221,10 +219,10 @@ class ProfessionalClothingEngine:
         return bgr, shirt_mask
     
     def apply_shirt_overlay(self, frame, clothing_item):
-        """KEEP neck perfect, EXTEND bottom 3cm longer"""
+        """KEEP neck perfect, MAXIMIZE bottom extension to screen edge"""
         try:
             h, w = frame.shape[:2]
-            print(f"\n🔍 Extending shirt 3cm longer from bottom...")
+            print(f"\n🔍 Maximizing bottom length to screen edge...")
             
             # Detect face/neck
             face_info = self.detect_face_and_neck(frame)
@@ -244,26 +242,29 @@ class ProfessionalClothingEngine:
             # Calculate 1cm in pixels
             one_cm_pixels = 35
             
-            # Width: +2cm total (1cm each side)
-            base_width = int(fw * 3.0)
-            shirt_width = base_width + (2 * one_cm_pixels)
+            # Width: INCREASED to cover shoulders completely
+            # Base width calculation
+            base_width = int(fw * 3.5)  # Increased from 3.0 to 3.5
             
-            # KEEP PERFECT NECK POSITION (don't change this!)
-            shirt_y = neck_y - one_cm_pixels
+            # Add even MORE width to ensure shoulder coverage
+            # +4cm total (2cm each side) instead of 2cm
+            extra_width_pixels = 4 * one_cm_pixels  # 4cm = 140 pixels
+            shirt_width = base_width + extra_width_pixels
             
-            # CRITICAL FIX: Add 3cm extra length to reach beyond screen bottom
-            # First calculate normal height to screen bottom
-            normal_height = h - shirt_y
+            print(f"📏 Base width: {base_width}px")
+            print(f"📏 Added width: +{extra_width_pixels}px (4cm)")
+            print(f"📏 Total width: {shirt_width}px (WIDER to cover shoulders!)")
             
-            # ADD 3cm extra length (105 pixels)
-            extra_length_pixels = 3 * one_cm_pixels  # 3cm = 105 pixels
-            shirt_height = normal_height + extra_length_pixels
+            # CRITICAL: Start EXACTLY at neck (not 1cm above!)
+            shirt_y = neck_y  # Start right at neck position
+            
+            # CRITICAL: Make height go EXACTLY to screen bottom (y=h)
+            # Calculate maximum possible height
+            shirt_height = h - shirt_y  # From current position to screen bottom
             
             print(f"📏 Neck position: {shirt_y}px (LOCKED - perfect!)")
-            print(f"📏 Normal height to bottom: {normal_height}px")
-            print(f"📏 Added 3cm extra: +{extra_length_pixels}px")
-            print(f"📏 Total shirt height: {shirt_height}px")
-            print(f"📏 Bottom will be at: {shirt_y + shirt_height}px (screen bottom: {h}px)")
+            print(f"📏 Maximum height available: {shirt_height}px")
+            print(f"📏 Bottom will be at: {shirt_y + shirt_height}px (should be {h}px)")
             
             # Center horizontally
             shirt_x = neck_x - shirt_width // 2
@@ -276,16 +277,13 @@ class ProfessionalClothingEngine:
                 shirt_width = w - shirt_x
             
             # For Y: Only check if shirt_y is valid, but DON'T reduce height
-            # Even if shirt goes below screen, we'll handle it in ROI
             if shirt_y < 0:
-                # If shirt starts above screen, adjust
+                # If shirt starts above screen, shift down
                 shirt_height = shirt_height + shirt_y  # Reduce by amount above screen
                 shirt_y = 0
             
-            # Final safety check - if shirt goes below screen, crop it
-            if shirt_y + shirt_height > h:
-                # Shirt extends below screen - this is OK, we'll crop it
-                print(f"📏 Shirt extends {shirt_y + shirt_height - h}px below screen (INTENTIONAL)")
+            # Ensure height reaches exactly to screen bottom
+            shirt_height = h - shirt_y  # Force full height to bottom
             
             if shirt_width <= 0 or shirt_height <= 0:
                 print("❌ Invalid dimensions")
@@ -294,15 +292,15 @@ class ProfessionalClothingEngine:
             print(f"📍 FINAL dimensions: {shirt_width}x{shirt_height} at ({shirt_x}, {shirt_y})")
             print(f"📍 Bottom edge: y={shirt_y + shirt_height} (screen bottom: y={h})")
             
-            if shirt_y + shirt_height >= h:
-                print(f"✅✅✅ Shirt extends to/past screen bottom!")
+            if shirt_y + shirt_height < h:
+                print(f"⚠️ WARNING: Shirt doesn't reach bottom! Gap: {h - (shirt_y + shirt_height)}px")
             else:
-                print(f"⚠️ Shirt bottom at {shirt_y + shirt_height}, screen at {h}")
+                print(f"✅ Shirt reaches screen bottom perfectly!")
             
             # Load and process shirt
             clothing_img = clothing_item['image']
             
-            # Resize shirt to calculated dimensions (including extra 3cm)
+            # Resize shirt to calculated dimensions
             resized_shirt = cv2.resize(clothing_img, (shirt_width, shirt_height))
             
             # Remove background
@@ -315,54 +313,28 @@ class ProfessionalClothingEngine:
                 print("⚠️ Too few pixels, using full image")
                 shirt_alpha = np.ones((shirt_height, shirt_width), dtype=np.uint8) * 200
             
-            # Handle ROI - shirt might extend below screen, so crop accordingly
-            roi_y_end = min(shirt_y + shirt_height, h)
-            roi_height = roi_y_end - shirt_y
+            # Get ROI - this MUST be exact size
+            roi = frame[shirt_y:shirt_y + shirt_height, shirt_x:shirt_x + shirt_width]
             
-            # Get ROI - crop if shirt extends below screen
-            roi = frame[shirt_y:roi_y_end, shirt_x:shirt_x + shirt_width]
+            if roi.shape[:2] != (shirt_height, shirt_width):
+                print(f"❌ ROI mismatch: ROI={roi.shape}, Expected=({shirt_height}, {shirt_width})")
+                print(f"   This means shirt doesn't fit in frame properly")
+                return frame
             
-            if roi.shape[:2] != (roi_height, shirt_width):
-                print(f"❌ ROI mismatch: ROI={roi.shape}, Expected=({roi_height}, {shirt_width})")
-                # Handle the mismatch by adjusting the shirt to fit available ROI
-                actual_height = min(roi.shape[0], roi_height)
-                actual_width = min(roi.shape[1], shirt_width)
-                
-                if actual_height <= 0 or actual_width <= 0:
-                    return frame
-                    
-                # Resize shirt to fit available ROI (only the visible part)
-                shirt_bgr_visible = cv2.resize(shirt_bgr, (actual_width, actual_height))
-                shirt_alpha_visible = cv2.resize(shirt_alpha, (actual_width, actual_height))
-                
-                # Alpha blend for visible portion
-                alpha_norm = shirt_alpha_visible.astype(float) / 255.0
-                alpha_3d = np.stack([alpha_norm] * 3, axis=2)
-                
-                result = frame.copy()
-                blended = (shirt_bgr_visible.astype(float) * alpha_3d + 
-                          roi.astype(float) * (1.0 - alpha_3d))
-                
-                result[shirt_y:shirt_y + actual_height, shirt_x:shirt_x + actual_width] = blended.astype(np.uint8)
-            else:
-                # Perfect fit - use the entire shirt (or cropped portion)
-                shirt_bgr_visible = shirt_bgr[:roi_height, :]
-                shirt_alpha_visible = shirt_alpha[:roi_height, :]
-                
-                # Alpha blend
-                alpha_norm = shirt_alpha_visible.astype(float) / 255.0
-                alpha_3d = np.stack([alpha_norm] * 3, axis=2)
-                
-                result = frame.copy()
-                blended = (shirt_bgr_visible.astype(float) * alpha_3d + 
-                          roi.astype(float) * (1.0 - alpha_3d))
-                
-                result[shirt_y:roi_y_end, shirt_x:shirt_x + shirt_width] = blended.astype(np.uint8)
+            # Alpha blend
+            alpha_norm = shirt_alpha.astype(float) / 255.0
+            alpha_3d = np.stack([alpha_norm] * 3, axis=2)
+            
+            result = frame.copy()
+            blended = (shirt_bgr.astype(float) * alpha_3d + 
+                      roi.astype(float) * (1.0 - alpha_3d))
+            
+            result[shirt_y:shirt_y + shirt_height, shirt_x:shirt_x + shirt_width] = blended.astype(np.uint8)
             
             print(f"✅✅✅ SHIRT APPLIED!")
             print(f"    ✅ Neck: PERFECT at y={shirt_y}")
-            print(f"    ✅ Bottom: EXTENDED +3cm to y={shirt_y + shirt_height}")
-            print(f"    ✅ Visible portion: {roi_height}px height")
+            print(f"    ✅ Bottom: MAXIMIZED to screen edge y={shirt_y + shirt_height}")
+            print(f"    ✅ Your t-shirt should be COMPLETELY hidden!")
             return result
             
         except Exception as e:
@@ -422,7 +394,7 @@ class ProfessionalClothingEngine:
     
     def reset_pose_history(self):
         self.tshirt_mask = None
-
+    
     def clear_cache(self):
         for clothing_type in self.clothing_templates:
             for item in self.clothing_templates[clothing_type]:
