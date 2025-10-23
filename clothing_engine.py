@@ -219,10 +219,10 @@ class ProfessionalClothingEngine:
         return bgr, shirt_mask
     
     def apply_shirt_overlay(self, frame, clothing_item):
-        """SIMPLE APPROACH: Resize shirt and place directly at neck"""
+        """PRECISE ADJUSTMENTS: +1cm sides, +1cm top, extend to bottom"""
         try:
             h, w = frame.shape[:2]
-            print(f"\n🔍 Simple shirt placement...")
+            print(f"\n🔍 Applying shirt with precise adjustments...")
             
             # Detect face/neck
             face_info = self.detect_face_and_neck(frame)
@@ -238,31 +238,46 @@ class ProfessionalClothingEngine:
             
             print(f"✅ Neck at: ({neck_x}, {neck_y})")
             
-            # Simple shirt dimensions based on face
-            shirt_width = int(fw * 3.0)
-            shirt_height = int(fh * 6.0)
+            # Calculate 1cm in pixels (approximately)
+            # Assuming typical webcam: 1cm ≈ 30-40 pixels
+            one_cm_pixels = 35
             
-            # CRITICAL: Position shirt to start AT neck (not below it!)
+            # Shirt dimensions with adjustments
+            base_width = int(fw * 3.0)
+            shirt_width = base_width + (2 * one_cm_pixels)  # +1cm left, +1cm right
+            
+            # Height: from (neck - 1cm) to screen bottom
+            shirt_y = neck_y - one_cm_pixels  # Start 1cm ABOVE neck
+            shirt_height = h - shirt_y  # Extend to bottom of screen
+            
+            # Center horizontally
             shirt_x = neck_x - shirt_width // 2
-            shirt_y = neck_y  # Start exactly at neck!
             
-            print(f"📏 Shirt: {shirt_width}x{shirt_height} at ({shirt_x}, {shirt_y})")
+            print(f"📏 Original width: {base_width}px")
+            print(f"📏 Adjusted width: {shirt_width}px (+{2*one_cm_pixels}px = +2cm)")
+            print(f"📏 Top adjustment: {shirt_y} (moved UP {one_cm_pixels}px = 1cm)")
+            print(f"📏 Height: {shirt_height}px (extends to screen bottom)")
+            print(f"📍 Position: ({shirt_x}, {shirt_y})")
             
-            # Bounds check
+            # Bounds check for X (horizontal)
             if shirt_x < 0:
                 shirt_width += shirt_x
                 shirt_x = 0
+            if shirt_x + shirt_width > w:
+                shirt_width = w - shirt_x
+            
+            # Bounds check for Y (vertical)
             if shirt_y < 0:
                 shirt_height += shirt_y
                 shirt_y = 0
-            if shirt_x + shirt_width > w:
-                shirt_width = w - shirt_x
             if shirt_y + shirt_height > h:
                 shirt_height = h - shirt_y
             
             if shirt_width <= 0 or shirt_height <= 0:
-                print("❌ Invalid dimensions")
+                print("❌ Invalid dimensions after bounds check")
                 return frame
+            
+            print(f"📍 Final: {shirt_width}x{shirt_height} at ({shirt_x}, {shirt_y})")
             
             # Load and process shirt
             clothing_img = clothing_item['image']
@@ -284,7 +299,7 @@ class ProfessionalClothingEngine:
             roi = frame[shirt_y:shirt_y + shirt_height, shirt_x:shirt_x + shirt_width]
             
             if roi.shape[:2] != (shirt_height, shirt_width):
-                print(f"❌ ROI mismatch")
+                print(f"❌ ROI mismatch: {roi.shape} vs ({shirt_height}, {shirt_width})")
                 return frame
             
             # Alpha blend
@@ -297,7 +312,10 @@ class ProfessionalClothingEngine:
             
             result[shirt_y:shirt_y + shirt_height, shirt_x:shirt_x + shirt_width] = blended.astype(np.uint8)
             
-            print(f"✅✅✅ Shirt placed at neck!")
+            print(f"✅✅✅ Shirt perfectly fitted!")
+            print(f"    - Width extended by 2cm (1cm each side)")
+            print(f"    - Top moved up 1cm to neck")
+            print(f"    - Bottom extends to screen edge")
             return result
             
         except Exception as e:
