@@ -219,10 +219,10 @@ class ProfessionalClothingEngine:
         return bgr, shirt_mask
     
     def apply_shirt_overlay(self, frame, clothing_item):
-        """PRECISE ADJUSTMENTS: Keep neck position, extend bottom +2cm"""
+        """KEEP neck perfect, MAXIMIZE bottom extension to screen edge"""
         try:
             h, w = frame.shape[:2]
-            print(f"\n🔍 Applying shirt with bottom extension...")
+            print(f"\n🔍 Maximizing bottom length to screen edge...")
             
             # Detect face/neck
             face_info = self.detect_face_and_neck(frame)
@@ -237,55 +237,56 @@ class ProfessionalClothingEngine:
             fh = face_info['face_height']
             
             print(f"✅ Neck at: ({neck_x}, {neck_y})")
+            print(f"📺 Screen height: {h}px")
             
             # Calculate 1cm in pixels
             one_cm_pixels = 35
-            two_cm_pixels = 70  # For bottom extension
             
             # Width: +2cm total (1cm each side)
             base_width = int(fw * 3.0)
             shirt_width = base_width + (2 * one_cm_pixels)
             
-            # KEEP NECK POSITION (moved up 1cm as before)
+            # KEEP PERFECT NECK POSITION (don't change this!)
             shirt_y = neck_y - one_cm_pixels
             
-            # Height: Extend to BEYOND screen bottom by 2cm to ensure full coverage
-            natural_height = h - shirt_y  # Natural height to screen bottom
-            shirt_height = natural_height + two_cm_pixels  # Add extra 2cm
+            # CRITICAL: Make height go EXACTLY to screen bottom (y=h)
+            # Calculate maximum possible height
+            shirt_height = h - shirt_y  # From current position to screen bottom
             
-            # If adding 2cm would exceed screen, just use full screen height
-            if shirt_y + shirt_height > h:
-                shirt_height = h - shirt_y  # Exactly to screen bottom
+            print(f"📏 Neck position: {shirt_y}px (LOCKED - perfect!)")
+            print(f"📏 Maximum height available: {shirt_height}px")
+            print(f"📏 Bottom will be at: {shirt_y + shirt_height}px (should be {h}px)")
             
             # Center horizontally
             shirt_x = neck_x - shirt_width // 2
             
-            print(f"📏 Width: {shirt_width}px (base {base_width} + 70px)")
-            print(f"📏 Top position: {shirt_y} (neck - 1cm)")
-            print(f"📏 Natural height to screen: {natural_height}px")
-            print(f"📏 Extended height: {shirt_height}px (+{two_cm_pixels}px = +2cm)")
-            print(f"📍 Position: ({shirt_x}, {shirt_y})")
-            
-            # Bounds check for X (horizontal)
+            # Bounds check for X (horizontal only)
             if shirt_x < 0:
                 shirt_width += shirt_x
                 shirt_x = 0
             if shirt_x + shirt_width > w:
                 shirt_width = w - shirt_x
             
-            # Bounds check for Y (vertical)
+            # For Y: Only check if shirt_y is valid, but DON'T reduce height
             if shirt_y < 0:
-                shirt_height += shirt_y
+                # If shirt starts above screen, shift down
+                shirt_height = shirt_height + shirt_y  # Reduce by amount above screen
                 shirt_y = 0
-            if shirt_y + shirt_height > h:
-                shirt_height = h - shirt_y  # Clip to screen bottom
+            
+            # Ensure height reaches exactly to screen bottom
+            shirt_height = h - shirt_y  # Force full height to bottom
             
             if shirt_width <= 0 or shirt_height <= 0:
                 print("❌ Invalid dimensions")
                 return frame
             
-            print(f"📍 Final: {shirt_width}x{shirt_height} at ({shirt_x}, {shirt_y})")
-            print(f"📍 Bottom edge at: y={shirt_y + shirt_height} (screen height: {h})")
+            print(f"📍 FINAL dimensions: {shirt_width}x{shirt_height} at ({shirt_x}, {shirt_y})")
+            print(f"📍 Bottom edge: y={shirt_y + shirt_height} (screen bottom: y={h})")
+            
+            if shirt_y + shirt_height < h:
+                print(f"⚠️ WARNING: Shirt doesn't reach bottom! Gap: {h - (shirt_y + shirt_height)}px")
+            else:
+                print(f"✅ Shirt reaches screen bottom perfectly!")
             
             # Load and process shirt
             clothing_img = clothing_item['image']
@@ -303,11 +304,12 @@ class ProfessionalClothingEngine:
                 print("⚠️ Too few pixels, using full image")
                 shirt_alpha = np.ones((shirt_height, shirt_width), dtype=np.uint8) * 200
             
-            # Get ROI
+            # Get ROI - this MUST be exact size
             roi = frame[shirt_y:shirt_y + shirt_height, shirt_x:shirt_x + shirt_width]
             
             if roi.shape[:2] != (shirt_height, shirt_width):
-                print(f"❌ ROI mismatch: {roi.shape} vs ({shirt_height}, {shirt_width})")
+                print(f"❌ ROI mismatch: ROI={roi.shape}, Expected=({shirt_height}, {shirt_width})")
+                print(f"   This means shirt doesn't fit in frame properly")
                 return frame
             
             # Alpha blend
@@ -320,10 +322,10 @@ class ProfessionalClothingEngine:
             
             result[shirt_y:shirt_y + shirt_height, shirt_x:shirt_x + shirt_width] = blended.astype(np.uint8)
             
-            print(f"✅✅✅ Shirt perfectly fitted!")
-            print(f"    - Neck position: PERFECT (kept at neck - 1cm)")
-            print(f"    - Width: +2cm (1cm each side)")
-            print(f"    - Bottom: Extended to screen edge")
+            print(f"✅✅✅ SHIRT APPLIED!")
+            print(f"    ✅ Neck: PERFECT at y={shirt_y}")
+            print(f"    ✅ Bottom: MAXIMIZED to screen edge y={shirt_y + shirt_height}")
+            print(f"    ✅ Your t-shirt should be COMPLETELY hidden!")
             return result
             
         except Exception as e:
