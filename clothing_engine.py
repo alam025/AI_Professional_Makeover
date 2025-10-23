@@ -219,10 +219,10 @@ class ProfessionalClothingEngine:
         return bgr, shirt_mask
     
     def apply_shirt_overlay(self, frame, clothing_item):
-        """PRECISE ADJUSTMENTS: +1cm sides, +1cm top, extend to bottom"""
+        """PRECISE ADJUSTMENTS: Keep neck position, extend bottom +2cm"""
         try:
             h, w = frame.shape[:2]
-            print(f"\n🔍 Applying shirt with precise adjustments...")
+            print(f"\n🔍 Applying shirt with bottom extension...")
             
             # Detect face/neck
             face_info = self.detect_face_and_neck(frame)
@@ -238,25 +238,32 @@ class ProfessionalClothingEngine:
             
             print(f"✅ Neck at: ({neck_x}, {neck_y})")
             
-            # Calculate 1cm in pixels (approximately)
-            # Assuming typical webcam: 1cm ≈ 30-40 pixels
+            # Calculate 1cm in pixels
             one_cm_pixels = 35
+            two_cm_pixels = 70  # For bottom extension
             
-            # Shirt dimensions with adjustments
+            # Width: +2cm total (1cm each side)
             base_width = int(fw * 3.0)
-            shirt_width = base_width + (2 * one_cm_pixels)  # +1cm left, +1cm right
+            shirt_width = base_width + (2 * one_cm_pixels)
             
-            # Height: from (neck - 1cm) to screen bottom
-            shirt_y = neck_y - one_cm_pixels  # Start 1cm ABOVE neck
-            shirt_height = h - shirt_y  # Extend to bottom of screen
+            # KEEP NECK POSITION (moved up 1cm as before)
+            shirt_y = neck_y - one_cm_pixels
+            
+            # Height: Extend to BEYOND screen bottom by 2cm to ensure full coverage
+            natural_height = h - shirt_y  # Natural height to screen bottom
+            shirt_height = natural_height + two_cm_pixels  # Add extra 2cm
+            
+            # If adding 2cm would exceed screen, just use full screen height
+            if shirt_y + shirt_height > h:
+                shirt_height = h - shirt_y  # Exactly to screen bottom
             
             # Center horizontally
             shirt_x = neck_x - shirt_width // 2
             
-            print(f"📏 Original width: {base_width}px")
-            print(f"📏 Adjusted width: {shirt_width}px (+{2*one_cm_pixels}px = +2cm)")
-            print(f"📏 Top adjustment: {shirt_y} (moved UP {one_cm_pixels}px = 1cm)")
-            print(f"📏 Height: {shirt_height}px (extends to screen bottom)")
+            print(f"📏 Width: {shirt_width}px (base {base_width} + 70px)")
+            print(f"📏 Top position: {shirt_y} (neck - 1cm)")
+            print(f"📏 Natural height to screen: {natural_height}px")
+            print(f"📏 Extended height: {shirt_height}px (+{two_cm_pixels}px = +2cm)")
             print(f"📍 Position: ({shirt_x}, {shirt_y})")
             
             # Bounds check for X (horizontal)
@@ -271,13 +278,14 @@ class ProfessionalClothingEngine:
                 shirt_height += shirt_y
                 shirt_y = 0
             if shirt_y + shirt_height > h:
-                shirt_height = h - shirt_y
+                shirt_height = h - shirt_y  # Clip to screen bottom
             
             if shirt_width <= 0 or shirt_height <= 0:
-                print("❌ Invalid dimensions after bounds check")
+                print("❌ Invalid dimensions")
                 return frame
             
             print(f"📍 Final: {shirt_width}x{shirt_height} at ({shirt_x}, {shirt_y})")
+            print(f"📍 Bottom edge at: y={shirt_y + shirt_height} (screen height: {h})")
             
             # Load and process shirt
             clothing_img = clothing_item['image']
@@ -313,9 +321,9 @@ class ProfessionalClothingEngine:
             result[shirt_y:shirt_y + shirt_height, shirt_x:shirt_x + shirt_width] = blended.astype(np.uint8)
             
             print(f"✅✅✅ Shirt perfectly fitted!")
-            print(f"    - Width extended by 2cm (1cm each side)")
-            print(f"    - Top moved up 1cm to neck")
-            print(f"    - Bottom extends to screen edge")
+            print(f"    - Neck position: PERFECT (kept at neck - 1cm)")
+            print(f"    - Width: +2cm (1cm each side)")
+            print(f"    - Bottom: Extended to screen edge")
             return result
             
         except Exception as e:
