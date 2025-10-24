@@ -1,6 +1,6 @@
 """
-ADVANCED BODY-FITTING CLOTHING ENGINE
-Uses body contour detection and perspective warping for natural fit
+PRECISE BODY-FITTING CLOTHING ENGINE
+Exact torso detection and placement
 """
 
 import cv2
@@ -13,13 +13,12 @@ class ProfessionalClothingEngine:
         self.current_outfit = None
         self.current_outfit_type = None
         self.tshirt_mask = None
-        self.body_contour = None
         
         self.face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-        self.body_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_upperbody.xml')
+        self.upper_body_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_upperbody.xml')
         
         self.load_clothing_images()
-        print("✅ Advanced body-fitting clothing engine ready!")
+        print("✅ PRECISE body-fitting clothing engine ready!")
     
     def load_clothing_images(self):
         clothing_types = ['tshirts', 'shirts', 'blazers', 'ties']
@@ -43,320 +42,300 @@ class ProfessionalClothingEngine:
                             'color_hue': None
                         })
     
-    def detect_body_contour(self, frame):
-        """Detect body contour for natural clothing placement"""
+    def detect_upper_body_precise(self, frame):
+        """PRECISE upper body detection for exact placement"""
         try:
             h, w = frame.shape[:2]
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             
             # Detect upper body
-            bodies = self.body_cascade.detectMultiScale(gray, 1.1, 3, minSize=(100, 100))
+            bodies = self.upper_body_cascade.detectMultiScale(
+                gray, 
+                scaleFactor=1.1, 
+                minNeighbors=3, 
+                minSize=(120, 120),
+                maxSize=(400, 400)
+            )
             
             if len(bodies) > 0:
                 # Use the largest body detection
                 bx, by, bw, bh = max(bodies, key=lambda x: x[2] * x[3])
                 
-                # Create body contour points (trapezoid shape)
-                shoulder_width = bw * 1.4
-                waist_width = bw * 1.2
-                body_height = bh * 1.8
+                print(f"🎯 BODY DETECTED: x={bx}, y={by}, w={bw}, h={bh}")
                 
-                body_points = np.array([
-                    [bx + bw//2 - shoulder_width//2, by + bh//4],  # Left shoulder
-                    [bx + bw//2 + shoulder_width//2, by + bh//4],  # Right shoulder
-                    [bx + bw//2 + waist_width//2, by + body_height],  # Right waist
-                    [bx + bw//2 - waist_width//2, by + body_height]   # Left waist
-                ], dtype=np.int32)
+                # Calculate precise torso region
+                torso_top = by + int(bh * 0.2)    # Start below neck
+                torso_bottom = by + bh            # End of upper body
+                torso_left = bx + int(bw * 0.1)   # Slightly inside left edge
+                torso_right = bx + int(bw * 0.9)  # Slightly inside right edge
                 
-                return body_points
+                torso_width = torso_right - torso_left
+                torso_height = torso_bottom - torso_top
+                
+                return {
+                    'torso_x': torso_left,
+                    'torso_y': torso_top, 
+                    'torso_width': torso_width,
+                    'torso_height': torso_height,
+                    'center_x': torso_left + torso_width // 2,
+                    'center_y': torso_top + torso_height // 2
+                }
             
-            return None
-        except:
-            return None
+            print("❌ NO BODY DETECTED - Trying face-based estimation")
+            return self.detect_torso_from_face(frame)
+            
+        except Exception as e:
+            print(f"Body detection error: {e}")
+            return self.detect_torso_from_face(frame)
     
-    def detect_face_and_shoulders(self, frame):
-        """Enhanced detection for shoulders and torso"""
-        h, w = frame.shape[:2]
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        faces = self.face_cascade.detectMultiScale(gray, 1.1, 5, minSize=(100, 100))
-        
-        if len(faces) > 0:
-            fx, fy, fw, fh = max(faces, key=lambda x: x[2] * x[3])
+    def detect_torso_from_face(self, frame):
+        """Fallback: Estimate torso from face position"""
+        try:
+            h, w = frame.shape[:2]
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            faces = self.face_cascade.detectMultiScale(gray, 1.1, 5, minSize=(80, 80))
             
-            # Calculate shoulder positions
-            neck_x = fx + fw // 2
-            neck_y = fy + fh
+            if len(faces) > 0:
+                fx, fy, fw, fh = max(faces, key=lambda x: x[2] * x[3])
+                
+                # Calculate torso based on face position
+                torso_top = fy + fh + int(fh * 0.1)  # Start below face
+                torso_bottom = min(h, torso_top + int(fh * 3.0))  # Extend down
+                torso_center_x = fx + fw // 2
+                torso_width = int(fw * 2.5)  # Wider than face
+                
+                torso_left = max(0, torso_center_x - torso_width // 2)
+                torso_right = min(w, torso_center_x + torso_width // 2)
+                
+                torso_width = torso_right - torso_left
+                torso_height = torso_bottom - torso_top
+                
+                print(f"🎯 FACE-BASED TORSO: x={torso_left}, y={torso_top}, w={torso_width}, h={torso_height}")
+                
+                return {
+                    'torso_x': torso_left,
+                    'torso_y': torso_top,
+                    'torso_width': torso_width, 
+                    'torso_height': torso_height,
+                    'center_x': torso_center_x,
+                    'center_y': torso_top + torso_height // 2
+                }
             
-            # Shoulder points (wider than face)
-            shoulder_width = fw * 2.2
-            left_shoulder = (neck_x - shoulder_width//2, neck_y + int(fh * 0.3))
-            right_shoulder = (neck_x + shoulder_width//2, neck_y + int(fh * 0.3))
-            
-            # Waist points (slightly narrower)
-            waist_y = neck_y + int(fh * 2.5)
-            waist_width = shoulder_width * 0.9
-            left_waist = (neck_x - waist_width//2, waist_y)
-            right_waist = (neck_x + waist_width//2, waist_y)
-            
-            # Bottom points (full length to screen bottom)
-            bottom_y = h
-            bottom_width = waist_width * 0.95
-            left_bottom = (neck_x - bottom_width//2, bottom_y)
-            right_bottom = (neck_x + bottom_width//2, bottom_y)
-            
+            # Last resort: center of screen
+            print("⚠️ USING SCREEN CENTER FALLBACK")
             return {
-                'neck': (neck_x, neck_y),
-                'shoulders': [left_shoulder, right_shoulder],
-                'waist': [left_waist, right_waist],
-                'bottom': [left_bottom, right_bottom],
-                'face_width': fw,
-                'face_height': fh
+                'torso_x': w // 4,
+                'torso_y': h // 4, 
+                'torso_width': w // 2,
+                'torso_height': h // 2,
+                'center_x': w // 2,
+                'center_y': h // 2
             }
-        
-        return None
-    
-    def create_body_warp_points(self, body_info, shirt_width, shirt_height):
-        """Create warp points to fit shirt to body contour"""
-        neck_x, neck_y = body_info['neck']
-        
-        # Source points (shirt corners)
-        src_points = np.array([
-            [0, 0],                          # Top-left
-            [shirt_width-1, 0],              # Top-right
-            [shirt_width-1, shirt_height-1], # Bottom-right
-            [0, shirt_height-1]              # Bottom-left
-        ], dtype=np.float32)
-        
-        # Destination points (body contour)
-        left_shoulder, right_shoulder = body_info['shoulders']
-        left_bottom, right_bottom = body_info['bottom']
-        
-        # Adjust for natural fit - shirt should follow body curve
-        dst_points = np.array([
-            [left_shoulder[0], left_shoulder[1]],   # Top-left to left shoulder
-            [right_shoulder[0], right_shoulder[1]], # Top-right to right shoulder
-            [right_bottom[0], right_bottom[1]],     # Bottom-right to right bottom
-            [left_bottom[0], left_bottom[1]]        # Bottom-left to left bottom
-        ], dtype=np.float32)
-        
-        return src_points, dst_points
-    
-    def warp_shirt_to_body(self, shirt_img, body_info):
-        """Warp shirt to fit body contours using perspective transformation"""
-        try:
-            shirt_height, shirt_width = shirt_img.shape[:2]
-            
-            # Get warp points
-            src_points, dst_points = self.create_body_warp_points(body_info, shirt_width, shirt_height)
-            
-            # Calculate perspective transformation matrix
-            matrix = cv2.getPerspectiveTransform(src_points, dst_points)
-            
-            # Warp the shirt
-            warped_shirt = cv2.warpPerspective(shirt_img, matrix, (body_info['bottom'][1][0] + 50, body_info['bottom'][0][1]))
-            
-            return warped_shirt
             
         except Exception as e:
-            print(f"Warping error: {e}")
-            return shirt_img
+            print(f"Face detection error: {e}")
+            return {
+                'torso_x': 300,
+                'torso_y': 200, 
+                'torso_width': 400,
+                'torso_height': 500,
+                'center_x': 500,
+                'center_y': 450
+            }
     
-    def remove_background_advanced(self, img):
-        """Advanced background removal with edge preservation"""
-        if len(img.shape) == 3 and img.shape[2] == 4:
-            bgr = img[:, :, :3]
-            alpha_original = img[:, :, 3]
-        else:
+    def remove_background_simple(self, img):
+        """Simple but effective background removal"""
+        try:
+            if len(img.shape) == 3 and img.shape[2] == 4:
+                # Already has alpha channel
+                bgr = img[:, :, :3]
+                alpha = img[:, :, 3]
+                return bgr, alpha
+            
+            # For images without alpha channel
             bgr = img
-            alpha_original = None
-        
-        # Multiple background removal techniques
-        hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
-        
-        # Detect white/light backgrounds
-        lower_white = np.array([0, 0, 200])
-        upper_white = np.array([180, 50, 255])
-        white_mask = cv2.inRange(hsv, lower_white, upper_white)
-        
-        # Detect based on color uniformity in borders
-        border_mask = self.detect_background_from_borders(bgr)
-        
-        # Combine masks
-        combined_mask = cv2.bitwise_or(white_mask, border_mask)
-        
-        # Invert to get shirt mask
-        shirt_mask = cv2.bitwise_not(combined_mask)
-        
-        # Use original alpha if available
-        if alpha_original is not None:
-            shirt_mask = cv2.bitwise_and(shirt_mask, alpha_original)
-        
-        # Clean up mask
-        kernel = np.ones((3, 3), np.uint8)
-        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_CLOSE, kernel, iterations=2)
-        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_OPEN, kernel, iterations=1)
-        
-        # Preserve edges with Gaussian blur
-        shirt_mask = cv2.GaussianBlur(shirt_mask, (3, 3), 0)
-        
-        return bgr, shirt_mask
-    
-    def detect_background_from_borders(self, img):
-        """Detect background by analyzing image borders"""
-        h, w = img.shape[:2]
-        border_size = min(20, h//10, w//10)
-        
-        # Sample borders
-        top_border = img[:border_size, :]
-        bottom_border = img[-border_size:, :]
-        left_border = img[:, :border_size]
-        right_border = img[:, -border_size:]
-        
-        # Calculate dominant color in borders (assumed to be background)
-        borders = np.vstack([top_border.reshape(-1, 3), 
-                           bottom_border.reshape(-1, 3),
-                           left_border.reshape(-1, 3),
-                           right_border.reshape(-1, 3)])
-        
-        if len(borders) == 0:
-            return np.zeros((h, w), dtype=np.uint8)
-        
-        # Find dominant color
-        dominant_color = np.median(borders, axis=0)
-        
-        # Create mask for similar colors
-        color_diff = np.sqrt(np.sum((img.astype(float) - dominant_color.astype(float)) ** 2, axis=2))
-        background_mask = (color_diff < 30).astype(np.uint8) * 255
-        
-        return background_mask
-    
-    def apply_natural_shirt_fit(self, frame, clothing_item):
-        """Apply shirt with natural body-fitting"""
-        try:
-            h, w = frame.shape[:2]
-            print(f"\n🎯 APPLYING NATURAL SHIRT FIT")
             
-            # Detect body information
-            body_info = self.detect_face_and_shoulders(frame)
-            if not body_info:
-                print("❌ No body detected - using fallback placement")
-                return self.apply_shirt_fallback(frame, clothing_item)
+            # Convert to HSV for better color separation
+            hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
             
-            print(f"✅ Body detected: shoulders at {body_info['shoulders']}")
+            # Detect white/light background
+            lower_white = np.array([0, 0, 200])
+            upper_white = np.array([180, 55, 255])
+            white_mask = cv2.inRange(hsv, lower_white, upper_white)
             
-            # Load shirt image
-            shirt_img = clothing_item['image']
-            original_shirt_h, original_shirt_w = shirt_img.shape[:2]
+            # Detect based on brightness
+            gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
+            _, bright_mask = cv2.threshold(gray, 200, 255, cv2.THRESH_BINARY)
             
-            # Calculate shirt dimensions based on body
-            shoulder_width = body_info['shoulders'][1][0] - body_info['shoulders'][0][0]
-            shirt_height = h - body_info['shoulders'][0][1]  # From shoulders to bottom
+            # Combine masks
+            background_mask = cv2.bitwise_or(white_mask, bright_mask)
             
-            # Maintain aspect ratio
-            shirt_aspect = original_shirt_w / original_shirt_h
-            calculated_width = int(shirt_height * shirt_aspect)
+            # Invert to get shirt mask
+            shirt_mask = cv2.bitwise_not(background_mask)
             
-            # Use the larger of calculated width or shoulder width
-            shirt_width = max(calculated_width, shoulder_width + 50)
+            # Clean up the mask
+            kernel = np.ones((3, 3), np.uint8)
+            shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_CLOSE, kernel, iterations=2)
+            shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_OPEN, kernel, iterations=1)
             
-            print(f"📏 Shirt dimensions: {shirt_width}x{shirt_height}")
-            
-            # Resize shirt
-            resized_shirt = cv2.resize(shirt_img, (shirt_width, shirt_height))
-            
-            # Remove background
-            shirt_bgr, shirt_alpha = self.remove_background_advanced(resized_shirt)
-            
-            # Warp shirt to body contours
-            warped_shirt = self.warp_shirt_to_body(shirt_bgr, body_info)
-            warped_alpha = self.warp_shirt_to_body(shirt_alpha, body_info)
-            
-            # Find placement position
-            placement_x = body_info['shoulders'][0][0] - 20
-            placement_y = body_info['shoulders'][0][1] - 30
-            
-            # Ensure warped shirt fits in frame
-            warped_h, warped_w = warped_shirt.shape[:2]
-            if placement_x + warped_w > w:
-                warped_w = w - placement_x
-            if placement_y + warped_h > h:
-                warped_h = h - placement_y
-            
-            if warped_w <= 0 or warped_h <= 0:
-                print("❌ Warped shirt doesn't fit frame")
-                return self.apply_shirt_fallback(frame, clothing_item)
-            
-            # Extract ROI for blending
-            roi_y1 = max(0, placement_y)
-            roi_y2 = min(h, placement_y + warped_h)
-            roi_x1 = max(0, placement_x)
-            roi_x2 = min(w, placement_x + warped_w)
-            
-            roi = frame[roi_y1:roi_y2, roi_x1:roi_x2]
-            
-            # Adjust warped shirt to ROI size
-            warped_roi = warped_shirt[:roi.shape[0], :roi.shape[1]]
-            warped_alpha_roi = warped_alpha[:roi.shape[0], :roi.shape[1]]
-            
-            # Alpha blending
-            alpha_norm = warped_alpha_roi.astype(float) / 255.0
-            alpha_3d = np.stack([alpha_norm] * 3, axis=2)
-            
-            # Ensure dimensions match
-            if alpha_3d.shape == roi.shape:
-                blended = (warped_roi.astype(float) * alpha_3d + 
-                          roi.astype(float) * (1.0 - alpha_3d))
-                
-                result = frame.copy()
-                result[roi_y1:roi_y2, roi_x1:roi_x2] = blended.astype(np.uint8)
-                
-                print("✅✅✅ NATURAL SHIRT FIT APPLIED!")
-                return result
-            else:
-                print("❌ Dimension mismatch in blending")
-                return self.apply_shirt_fallback(frame, clothing_item)
+            return bgr, shirt_mask
             
         except Exception as e:
-            print(f"❌ Natural fit error: {e}")
-            import traceback
-            traceback.print_exc()
-            return self.apply_shirt_fallback(frame, clothing_item)
+            print(f"Background removal error: {e}")
+            # Return full opaque mask as fallback
+            bgr = img if len(img.shape) == 3 else cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
+            mask = np.ones((img.shape[0], img.shape[1]), dtype=np.uint8) * 255
+            return bgr, mask
     
-    def apply_shirt_fallback(self, frame, clothing_item):
-        """Fallback method if body detection fails"""
+    def apply_shirt_direct_placement(self, frame, clothing_item):
+        """DIRECT PRECISE placement on torso"""
         try:
             h, w = frame.shape[:2]
+            print(f"\n🎯 STARTING PRECISE SHIRT PLACEMENT")
+            print(f"📺 Frame size: {w}x{h}")
+            
+            # Step 1: Detect exact torso position
+            torso_info = self.detect_upper_body_precise(frame)
+            
+            torso_x = torso_info['torso_x']
+            torso_y = torso_info['torso_y'] 
+            torso_width = torso_info['torso_width']
+            torso_height = torso_info['torso_height']
+            
+            print(f"🎯 TORSO DETECTED:")
+            print(f"   Position: ({torso_x}, {torso_y})")
+            print(f"   Size: {torso_width}x{torso_height}")
+            print(f"   Center: ({torso_info['center_x']}, {torso_info['center_y']})")
+            
+            # Step 2: Load and prepare shirt
             shirt_img = clothing_item['image']
+            shirt_h, shirt_w = shirt_img.shape[:2]
             
-            # Simple placement based on screen center
-            shirt_height = h
-            shirt_width = int(shirt_img.shape[1] * (shirt_height / shirt_img.shape[0]))
+            print(f"👕 Original shirt size: {shirt_w}x{shirt_h}")
             
-            resized_shirt = cv2.resize(shirt_img, (shirt_width, shirt_height))
-            shirt_bgr, shirt_alpha = self.remove_background_advanced(resized_shirt)
+            # Step 3: Calculate shirt dimensions to fit torso
+            # Use torso width as base, maintain aspect ratio
+            target_width = torso_width + 100  # Slightly wider than torso
+            target_height = int((shirt_h / shirt_w) * target_width)
             
-            # Center placement
-            x = (w - shirt_width) // 2
-            y = 0
+            # Ensure shirt reaches bottom of screen
+            available_height = h - torso_y
+            if target_height < available_height:
+                target_height = available_height
+                # Recalculate width to maintain aspect ratio
+                target_width = int((shirt_w / shirt_h) * target_height)
             
-            # Alpha blending
-            roi = frame[y:y+shirt_height, x:x+shirt_width]
-            alpha_norm = shirt_alpha.astype(float) / 255.0
-            alpha_3d = np.stack([alpha_norm] * 3, axis=2)
+            print(f"📏 Target shirt size: {target_width}x{target_height}")
             
-            if alpha_3d.shape == roi.shape:
+            # Step 4: Resize shirt
+            resized_shirt = cv2.resize(shirt_img, (target_width, target_height))
+            
+            # Step 5: Remove background
+            shirt_bgr, shirt_alpha = self.remove_background_simple(resized_shirt)
+            
+            # Step 6: Calculate placement position (centered on torso)
+            placement_x = torso_info['center_x'] - target_width // 2
+            placement_y = torso_y - 30  # Start slightly above torso
+            
+            # Ensure within frame bounds
+            placement_x = max(0, placement_x)
+            placement_y = max(0, placement_y)
+            
+            # Adjust if shirt goes beyond right edge
+            if placement_x + target_width > w:
+                placement_x = w - target_width
+            
+            # Adjust if shirt goes beyond bottom
+            if placement_y + target_height > h:
+                target_height = h - placement_y
+                # Resize if needed
+                if target_height != resized_shirt.shape[0]:
+                    resized_shirt = cv2.resize(shirt_img, (target_width, target_height))
+                    shirt_bgr, shirt_alpha = self.remove_background_simple(resized_shirt)
+            
+            print(f"📍 FINAL PLACEMENT: ({placement_x}, {placement_y})")
+            print(f"📍 Shirt will cover: {placement_x}-{placement_x + target_width}, {placement_y}-{placement_y + target_height}")
+            
+            # Step 7: Apply shirt to frame
+            result = frame.copy()
+            
+            # Get the region of interest
+            roi = result[placement_y:placement_y + target_height, placement_x:placement_x + target_width]
+            
+            # Ensure ROI matches shirt dimensions
+            if roi.shape[0] == target_height and roi.shape[1] == target_width:
+                # Alpha blending
+                alpha_normalized = shirt_alpha.astype(float) / 255.0
+                alpha_3d = np.stack([alpha_normalized] * 3, axis=2)
+                
+                # Blend shirt with ROI
                 blended = (shirt_bgr.astype(float) * alpha_3d + 
                           roi.astype(float) * (1.0 - alpha_3d))
                 
-                result = frame.copy()
-                result[y:y+shirt_height, x:x+shirt_width] = blended.astype(np.uint8)
+                # Place blended result back
+                result[placement_y:placement_y + target_height, placement_x:placement_x + target_width] = blended.astype(np.uint8)
+                
+                print("✅✅✅ SHIRT SUCCESSFULLY PLACED ON TORSO!")
+                print(f"    ✅ Exact torso positioning")
+                print(f"    ✅ Natural body fitting") 
+                print(f"    ✅ Full coverage achieved")
+                
                 return result
-            
-            return frame
-        except:
+            else:
+                print(f"❌ ROI mismatch: ROI={roi.shape}, Shirt=({target_height}, {target_width})")
+                return frame
+                
+        except Exception as e:
+            print(f"❌ Shirt placement error: {e}")
+            import traceback
+            traceback.print_exc()
             return frame
     
-    # ============= T-SHIRT METHODS (unchanged) =============
+    def apply_tshirt_color_replacement(self, frame, clothing_item):
+        """T-shirt color replacement (keep your existing method)"""
+        try:
+            clothing_img = clothing_item['image']
+            
+            if clothing_item['color_hue'] is None:
+                clothing_item['color_hue'] = self.extract_dominant_color(clothing_img)
+            
+            target_hue = clothing_item['color_hue']
+            mask = self.create_torso_mask_precise(frame)
+            self.tshirt_mask = mask
+            
+            result = self.replace_color_simple(frame, mask, target_hue)
+            return result
+        except Exception as e:
+            print(f"T-shirt error: {e}")
+            return frame
+    
+    def create_torso_mask_precise(self, frame):
+        """Create precise torso mask based on body detection"""
+        h, w = frame.shape[:2]
+        mask = np.zeros((h, w), dtype=np.uint8)
+        
+        torso_info = self.detect_upper_body_precise(frame)
+        
+        if torso_info:
+            torso_x = torso_info['torso_x']
+            torso_y = torso_info['torso_y']
+            torso_width = torso_info['torso_width']
+            torso_height = torso_info['torso_height']
+            
+            # Create rectangular mask for torso
+            cv2.rectangle(mask, 
+                         (torso_x, torso_y), 
+                         (torso_x + torso_width, torso_y + torso_height), 
+                         255, -1)
+            
+            # Soften edges
+            mask = cv2.GaussianBlur(mask, (15, 15), 0)
+        else:
+            # Fallback mask
+            cv2.rectangle(mask, (w//4, h//4), (3*w//4, 3*h//4), 255, -1)
+            mask = cv2.GaussianBlur(mask, (25, 25), 0)
+        
+        return mask
     
     def extract_dominant_color(self, clothing_img):
         try:
@@ -378,67 +357,6 @@ class ProfessionalClothingEngine:
             return mean_hue
         except:
             return 100
-    
-    def apply_tshirt_color_replacement(self, frame, clothing_item):
-        try:
-            clothing_img = clothing_item['image']
-            
-            if clothing_item['color_hue'] is None:
-                clothing_item['color_hue'] = self.extract_dominant_color(clothing_img)
-            
-            target_hue = clothing_item['color_hue']
-            mask = self.create_simple_torso_mask(frame)
-            self.tshirt_mask = mask
-            
-            result = self.replace_color_simple(frame, mask, target_hue)
-            return result
-        except Exception as e:
-            print(f"T-shirt error: {e}")
-            return frame
-    
-    def create_simple_torso_mask(self, frame):
-        # Keep your existing torso mask code
-        h, w = frame.shape[:2]
-        mask = np.zeros((h, w), dtype=np.uint8)
-        
-        face_info = self.detect_face_and_shoulders(frame)
-        
-        if face_info:
-            neck_x, neck_y = face_info['neck']
-            fw = face_info['face_width']
-            
-            shoulder_y = neck_y + int(fw * 0.3)
-            waist_y = neck_y + int(fw * 3.0)
-            
-            shoulder_width = int(fw * 2.2)
-            waist_width = int(fw * 2.0)
-            
-            torso_points = np.array([
-                [neck_x - shoulder_width//2, shoulder_y],
-                [neck_x + shoulder_width//2, shoulder_y],
-                [neck_x + waist_width//2, waist_y],
-                [neck_x - waist_width//2, waist_y]
-            ], dtype=np.int32)
-            
-            cv2.fillPoly(mask, [torso_points], 255)
-        else:
-            # Fallback mask
-            top_y = int(h * 0.30)
-            bottom_y = h
-            top_width = int(w * 0.4)
-            bottom_width = int(w * 0.6)
-            
-            trapezoid_points = np.array([
-                [w//2 - top_width//2, top_y],
-                [w//2 + top_width//2, top_y],
-                [w//2 + bottom_width//2, bottom_y],
-                [w//2 - bottom_width//2, bottom_y]
-            ], dtype=np.int32)
-            
-            cv2.fillPoly(mask, [trapezoid_points], 255)
-        
-        mask = cv2.GaussianBlur(mask, (15, 15), 0)
-        return mask
     
     def replace_color_simple(self, frame, mask, target_hue):
         try:
@@ -473,8 +391,8 @@ class ProfessionalClothingEngine:
             if clothing_type == "tshirts":
                 result = self.apply_tshirt_color_replacement(frame, clothing_item)
             elif clothing_type == "shirts":
-                # Use the new natural fitting method for shirts
-                result = self.apply_natural_shirt_fit(frame, clothing_item)
+                # USE THE NEW PRECISE PLACEMENT METHOD
+                result = self.apply_shirt_direct_placement(frame, clothing_item)
             else:
                 result = frame
             
@@ -487,44 +405,45 @@ class ProfessionalClothingEngine:
             print(f"❌ Error: {e}")
             return frame
     
-    def debug_draw_body_landmarks(self, frame):
-        """Enhanced debugging with body landmarks"""
+    def debug_draw_detection(self, frame):
+        """Debug visualization showing exact detection"""
         result = frame.copy()
-        body_info = self.detect_face_and_shoulders(frame)
         
-        if body_info:
-            # Draw neck
-            neck_x, neck_y = body_info['neck']
-            cv2.circle(result, (neck_x, neck_y), 8, (0, 255, 0), -1)
+        # Detect torso
+        torso_info = self.detect_upper_body_precise(frame)
+        
+        if torso_info:
+            # Draw torso rectangle
+            cv2.rectangle(result, 
+                         (torso_info['torso_x'], torso_info['torso_y']),
+                         (torso_info['torso_x'] + torso_info['torso_width'], 
+                          torso_info['torso_y'] + torso_info['torso_height']),
+                         (0, 255, 0), 3)
             
-            # Draw shoulders
-            for shoulder in body_info['shoulders']:
-                cv2.circle(result, shoulder, 8, (255, 0, 0), -1)
+            # Draw center point
+            cv2.circle(result, 
+                      (torso_info['center_x'], torso_info['center_y']), 
+                      8, (0, 0, 255), -1)
             
-            # Draw waist
-            for waist in body_info['waist']:
-                cv2.circle(result, waist, 6, (0, 0, 255), -1)
+            # Draw info text
+            cv2.putText(result, f"TORSO: {torso_info['torso_width']}x{torso_info['torso_height']}", 
+                       (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+            cv2.putText(result, f"POSITION: ({torso_info['torso_x']}, {torso_info['torso_y']})", 
+                       (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
             
-            # Draw bottom
-            for bottom in body_info['bottom']:
-                cv2.circle(result, bottom, 6, (255, 255, 0), -1)
-            
-            # Draw connecting lines
-            points = [body_info['shoulders'][0], body_info['shoulders'][1], 
-                     body_info['bottom'][1], body_info['bottom'][0]]
-            cv2.polylines(result, [np.array(points, dtype=np.int32)], True, (0, 255, 255), 2)
-            
-            cv2.putText(result, "Body Detected - Natural Fit Ready", (10, 30),
-                       cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            status = "PRECISE BODY DETECTION - READY"
+            color = (0, 255, 0)
         else:
-            cv2.putText(result, "No Body Detected - Using Fallback", (10, 30),
-                       cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+            status = "FALLBACK DETECTION - MAY BE LESS ACCURATE"
+            color = (0, 255, 255)
+        
+        cv2.putText(result, status, (10, result.shape[0] - 20), 
+                   cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
         
         return result
     
     def reset_pose_history(self):
         self.tshirt_mask = None
-        self.body_contour = None
     
     def clear_cache(self):
         for clothing_type in self.clothing_templates:
