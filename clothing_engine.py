@@ -501,5 +501,6 @@ class ProfessionalClothingEngine:
     def get_performance_stats(self):
         return {'background_trained': True}
     
+    
     def get_available_clothing(self, clothing_type):
         return self.clothing_templates.get(clothing_type, [])
