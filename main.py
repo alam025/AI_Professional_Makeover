@@ -464,6 +464,7 @@ class ProfessionalMakeoverApp:
         self.camera.release()
         cv2.destroyAllWindows()
         print("✅ Application closed!")
+        
 
 if __name__ == "__main__":
     try:
