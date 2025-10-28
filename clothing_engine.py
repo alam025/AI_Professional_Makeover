@@ -296,12 +296,16 @@ class ProfessionalClothingEngine:
             
             # CRITICAL CHANGES FOR PROPER COVERAGE:
             
-            # 1. Perfect neck positioning - start at proper collar level
+            # 1. START EXACTLY AT NECK - NO GAP!
             one_cm_pixels = 35  # Approximate pixel to cm conversion
-            # Start at neck bottom (where collar should sit)
-            # Slight offset above neck to ensure collar covers properly
-            start_offset_above_neck = int(fh * 0.3)  # Start just above neck for collar
+            # Start RIGHT AT the neck position (bottom of face detection)
+            # Add small offset UPWARD to ensure collar touches neck
+            start_offset_above_neck = int(fh * 0.15)  # Just 15% of face height above neck
             shirt_y = max(0, neck_y - start_offset_above_neck)
+            
+            print(f"🎯 Neck Y position: {neck_y}")
+            print(f"🎯 Shirt starting Y: {shirt_y} (offset: {start_offset_above_neck}px)")
+            print(f"🎯 Gap between neck and shirt: {shirt_y - neck_y}px (should be negative for no gap!)")
             
             # 2. Width: Cover shoulders completely with extra margin
             base_shoulder_width = int(fw * 3.8)  # Increased from 3.5 to 3.8
@@ -399,10 +403,10 @@ class ProfessionalClothingEngine:
             result[shirt_y:shirt_y + visible_height, shirt_x:shirt_x + shirt_width] = blended.astype(np.uint8)
             
             print(f"✅✅✅ SHIRT SUCCESSFULLY APPLIED!")
-            print(f"    ✅ Starts: AT CHIN level (y={shirt_y}) - NO NECK GAP!")
+            print(f"    ✅ Starts: RIGHT AT NECK (y={shirt_y}) - Gap: {shirt_y - neck_y}px")
             print(f"    ✅ Covers: {visible_height}px visible height")
             print(f"    ✅ Total shirt extends: {shirt_height}px (beyond screen)")
-            print(f"    ✅ Should connect perfectly with your neck!\n")
+            print(f"    ✅ Collar should fit PERFECTLY at your neck!\n")
             
             return result
             
