@@ -179,7 +179,7 @@ class ProfessionalClothingEngine:
     # ============= SHIRT (PROPER LENGTH OVERLAY) =============
     
     def remove_background_aggressive(self, img):
-        """SMART background removal - Keep shirt, remove ONLY white background"""
+        """ADVANCED background removal - Remove ALL background, keep ONLY shirt"""
         
         if len(img.shape) == 3 and img.shape[2] == 4:
             bgr = img[:, :, :3]
@@ -188,54 +188,88 @@ class ProfessionalClothingEngine:
             bgr = img
             alpha_original = None
         
-        # SMART METHOD: Target only PURE WHITE/VERY LIGHT backgrounds
-        # Be conservative to keep the shirt intact
+        h, w = bgr.shape[:2]
         
-        # Method 1: HSV - Only very light, desaturated colors (white/light gray)
-        hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
-        h, s, v = cv2.split(hsv)
-        
-        # White: High Value (>200) AND Low Saturation (<30)
-        white_mask1 = ((v > 200) & (s < 30)).astype(np.uint8) * 255
-        
-        # Method 2: RGB - All channels VERY bright (pure white only)
-        b, g, r = cv2.split(bgr)
-        white_mask2 = ((b > 200) & (g > 200) & (r > 200)).astype(np.uint8) * 255
-        
-        # Method 3: Grayscale - Only extreme brightness
+        # Step 1: Detect edges of the shirt using Canny
         gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
-        _, white_mask3 = cv2.threshold(gray, 200, 255, cv2.THRESH_BINARY)
+        blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+        edges = cv2.Canny(blurred, 30, 100)
         
-        # Combine masks - pixel must be white in at least 2 methods
-        white_mask = cv2.bitwise_and(white_mask1, white_mask2)
-        white_mask = cv2.bitwise_or(white_mask, 
-                                    cv2.bitwise_and(white_mask2, white_mask3))
+        # Step 2: Dilate edges to close gaps
+        kernel = np.ones((3, 3), np.uint8)
+        edges_dilated = cv2.dilate(edges, kernel, iterations=2)
         
-        # Invert to get shirt mask
-        shirt_mask = cv2.bitwise_not(white_mask)
+        # Step 3: Find contours
+        contours, _ = cv2.findContours(edges_dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         
-        # Apply original alpha channel if available
+        # Step 4: Create mask from largest contour (the shirt)
+        if contours:
+            # Find the largest contour by area
+            largest_contour = max(contours, key=cv2.contourArea)
+            
+            # Create mask and fill the contour
+            contour_mask = np.zeros((h, w), dtype=np.uint8)
+            cv2.drawContours(contour_mask, [largest_contour], -1, 255, -1)
+        else:
+            contour_mask = np.zeros((h, w), dtype=np.uint8)
+        
+        # Step 5: Combine with color-based detection
+        hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
+        h_hsv, s, v = cv2.split(hsv)
+        
+        # Detect white/light backgrounds (high value, low saturation)
+        white_mask = ((v > 180) & (s < 40)).astype(np.uint8) * 255
+        
+        # Also detect light gray backgrounds
+        b, g, r = cv2.split(bgr)
+        light_gray_mask = ((b > 180) & (g > 180) & (r > 180) & 
+                          (np.abs(b.astype(int) - g.astype(int)) < 15) &
+                          (np.abs(g.astype(int) - r.astype(int)) < 15)).astype(np.uint8) * 255
+        
+        # Combine white and light gray detection
+        background_mask = cv2.bitwise_or(white_mask, light_gray_mask)
+        
+        # Invert to get foreground
+        color_shirt_mask = cv2.bitwise_not(background_mask)
+        
+        # Step 6: Combine contour and color masks
+        shirt_mask = cv2.bitwise_and(contour_mask, color_shirt_mask)
+        
+        # Step 7: Use alpha channel if available as additional guidance
         if alpha_original is not None:
-            # Use alpha as primary guidance
-            shirt_mask = cv2.bitwise_and(shirt_mask, alpha_original)
-            # Keep anything with good alpha
-            good_alpha = (alpha_original > 30).astype(np.uint8) * 255
-            shirt_mask = cv2.bitwise_or(shirt_mask, good_alpha)
+            alpha_mask = (alpha_original > 50).astype(np.uint8) * 255
+            shirt_mask = cv2.bitwise_and(shirt_mask, alpha_mask)
         
-        # GENTLE cleanup - preserve shirt details
-        kernel_small = np.ones((3, 3), np.uint8)
+        # Step 8: Flood fill from corners to remove any remaining background
+        flood_mask = shirt_mask.copy()
+        # Create a slightly larger mask for flood fill
+        h_fm, w_fm = flood_mask.shape
+        flood_fill_mask = np.zeros((h_fm + 2, w_fm + 2), dtype=np.uint8)
         
-        # Close small gaps in shirt
-        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_CLOSE, kernel_small, iterations=2)
+        # Flood fill from all four corners
+        cv2.floodFill(flood_mask, flood_fill_mask, (0, 0), 0)
+        cv2.floodFill(flood_mask, flood_fill_mask, (w_fm - 1, 0), 0)
+        cv2.floodFill(flood_mask, flood_fill_mask, (0, h_fm - 1), 0)
+        cv2.floodFill(flood_mask, flood_fill_mask, (w_fm - 1, h_fm - 1), 0)
         
-        # Remove tiny white noise only
-        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_OPEN, kernel_small, iterations=1)
+        # Step 9: Clean up the mask
+        kernel_clean = np.ones((5, 5), np.uint8)
         
-        # Slight blur for smooth edges
-        shirt_mask = cv2.GaussianBlur(shirt_mask, (3, 3), 0)
+        # Close gaps
+        shirt_mask = cv2.morphologyEx(flood_mask, cv2.MORPH_CLOSE, kernel_clean, iterations=3)
+        
+        # Remove small noise
+        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_OPEN, kernel_clean, iterations=2)
+        
+        # Smooth edges
+        shirt_mask = cv2.GaussianBlur(shirt_mask, (5, 5), 0)
         
         # Final threshold
-        _, shirt_mask = cv2.threshold(shirt_mask, 50, 255, cv2.THRESH_BINARY)
+        _, shirt_mask = cv2.threshold(shirt_mask, 127, 255, cv2.THRESH_BINARY)
+        
+        # Step 10: Erode slightly to remove white fringe
+        kernel_erode = np.ones((3, 3), np.uint8)
+        shirt_mask = cv2.erode(shirt_mask, kernel_erode, iterations=1)
         
         return bgr, shirt_mask
     
@@ -262,10 +296,11 @@ class ProfessionalClothingEngine:
             
             # CRITICAL CHANGES FOR PROPER COVERAGE:
             
-            # 1. Start HIGHER - right at the chin level to eliminate gap
+            # 1. Perfect neck positioning - start at proper collar level
             one_cm_pixels = 35  # Approximate pixel to cm conversion
-            # Start even higher - at upper face level to eliminate ALL gaps
-            start_offset_above_neck = int(fh * 1.0)  # Start at FULL face height above neck (at eyes level)
+            # Start at neck bottom (where collar should sit)
+            # Slight offset above neck to ensure collar covers properly
+            start_offset_above_neck = int(fh * 0.3)  # Start just above neck for collar
             shirt_y = max(0, neck_y - start_offset_above_neck)
             
             # 2. Width: Cover shoulders completely with extra margin
