@@ -296,30 +296,32 @@ class ProfessionalClothingEngine:
             
             # CRITICAL CHANGES FOR PROPER COVERAGE:
             
-            # 1. START EXACTLY AT NECK - NO GAP!
+            # 1. START VERY HIGH - ABOVE CHIN to completely eliminate ALL gaps
             one_cm_pixels = 35  # Approximate pixel to cm conversion
-            # Start RIGHT AT the neck position (bottom of face detection)
-            # Add small offset UPWARD to ensure collar touches neck
-            start_offset_above_neck = int(fh * 0.15)  # Just 15% of face height above neck
+            # Start MUCH HIGHER - at 80% of face height above neck
+            # This puts us at upper face/nose level to ensure complete coverage
+            start_offset_above_neck = int(fh * 0.80)  # Start at 80% of face height above neck
             shirt_y = max(0, neck_y - start_offset_above_neck)
             
-            print(f"🎯 Neck Y position: {neck_y}")
-            print(f"🎯 Shirt starting Y: {shirt_y} (offset: {start_offset_above_neck}px)")
-            print(f"🎯 Gap between neck and shirt: {shirt_y - neck_y}px (should be negative for no gap!)")
+            print(f"🎯 Face height: {fh}px")
+            print(f"🎯 Neck Y position: {neck_y}px")
+            print(f"🎯 Offset above neck: {start_offset_above_neck}px (80% of face height)")
+            print(f"🎯 Shirt starting Y: {shirt_y}px")
+            print(f"🎯 This starts VERY HIGH to ensure NO BLUE T-SHIRT VISIBLE!")
             
             # 2. Width: Cover shoulders completely with extra margin
-            base_shoulder_width = int(fw * 3.8)  # Increased from 3.5 to 3.8
-            extra_width = 5 * one_cm_pixels  # Add 5cm total width (2.5cm each side)
+            base_shoulder_width = int(fw * 4.2)  # Increased to 4.2 for wider coverage
+            extra_width = 7 * one_cm_pixels  # Add 7cm total width (3.5cm each side)
             shirt_width = base_shoulder_width + extra_width
             
             # 3. Height: MUCH LONGER - extend well past visible frame
             # Calculate from shirt start to bottom of frame, then add MORE
             available_height = h - shirt_y
-            extra_height_extension = int(available_height * 0.5)  # Add 50% more
+            extra_height_extension = int(available_height * 0.6)  # Add 60% more
             shirt_height = available_height + extra_height_extension
             
-            # For safety, ensure minimum shirt length
-            min_shirt_length = int(fh * 7.0)  # At least 7x face height
+            # For safety, ensure VERY LARGE minimum shirt length
+            min_shirt_length = int(fh * 8.0)  # At least 8x face height
             shirt_height = max(shirt_height, min_shirt_length)
             
             print(f"📏 Shirt positioning:")
@@ -369,13 +371,18 @@ class ProfessionalClothingEngine:
                 shirt_alpha = np.ones((shirt_height, shirt_width), dtype=np.uint8) * 200
             
             # Calculate the visible portion that fits in frame
+            # CRITICAL: Make sure we render from shirt_y (which is high up) to bottom
             visible_height = min(shirt_height, h - shirt_y)
             
+            # Safety check - ensure we have enough height
             if visible_height <= 0:
-                print("❌ No visible height")
-                return frame
+                print("❌ No visible height - adjusting")
+                shirt_y = 0  # Start at top of screen
+                visible_height = min(shirt_height, h)
             
             print(f"👁️  Visible shirt height: {visible_height}px (out of {shirt_height}px total)")
+            print(f"👁️  Shirt starts at Y={shirt_y}, ends at Y={shirt_y + visible_height}")
+            print(f"👁️  Neck is at Y={neck_y}, so shirt should cover {neck_y - shirt_y}px above neck")
             
             # Take only the visible top portion of the shirt
             shirt_bgr_visible = shirt_bgr[:visible_height, :]
