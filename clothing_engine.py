@@ -179,7 +179,7 @@ class ProfessionalClothingEngine:
     # ============= SHIRT (PROPER LENGTH OVERLAY) =============
     
     def remove_background_aggressive(self, img):
-        """Remove white/light background COMPLETELY - More Aggressive"""
+        """SMART background removal - Keep shirt, remove ONLY white background"""
         
         if len(img.shape) == 3 and img.shape[2] == 4:
             bgr = img[:, :, :3]
@@ -188,62 +188,54 @@ class ProfessionalClothingEngine:
             bgr = img
             alpha_original = None
         
-        # AGGRESSIVE white detection - multiple methods combined
+        # SMART METHOD: Target only PURE WHITE/VERY LIGHT backgrounds
+        # Be conservative to keep the shirt intact
         
-        # Method 1: HSV white detection (broader range)
+        # Method 1: HSV - Only very light, desaturated colors (white/light gray)
         hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
-        lower_white = np.array([0, 0, 100])  # Lower threshold for Value
-        upper_white = np.array([180, 100, 255])  # Higher threshold for Saturation
-        white_mask1 = cv2.inRange(hsv, lower_white, upper_white)
+        h, s, v = cv2.split(hsv)
         
-        # Method 2: Grayscale threshold (catch light grays)
-        gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
-        _, white_mask2 = cv2.threshold(gray, 140, 255, cv2.THRESH_BINARY)  # Lower threshold
+        # White: High Value (>200) AND Low Saturation (<30)
+        white_mask1 = ((v > 200) & (s < 30)).astype(np.uint8) * 255
         
-        # Method 3: RGB component analysis (all channels bright)
+        # Method 2: RGB - All channels VERY bright (pure white only)
         b, g, r = cv2.split(bgr)
-        white_mask3 = ((b > 110) & (g > 110) & (r > 110)).astype(np.uint8) * 255
+        white_mask2 = ((b > 200) & (g > 200) & (r > 200)).astype(np.uint8) * 255
         
-        # Method 4: Light colored background (any channel is too bright)
-        white_mask4 = ((b > 130) | (g > 130) | (r > 130)).astype(np.uint8) * 255
+        # Method 3: Grayscale - Only extreme brightness
+        gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
+        _, white_mask3 = cv2.threshold(gray, 200, 255, cv2.THRESH_BINARY)
         
-        # Method 5: Low color saturation (desaturated = white/gray)
-        s_channel = hsv[:, :, 1]
-        low_saturation_mask = (s_channel < 50).astype(np.uint8) * 255
-        high_value_mask = (hsv[:, :, 2] > 120).astype(np.uint8) * 255
-        white_mask5 = cv2.bitwise_and(low_saturation_mask, high_value_mask)
-        
-        # Combine ALL masks (aggressive OR operation)
-        white_mask = cv2.bitwise_or(white_mask1, white_mask2)
-        white_mask = cv2.bitwise_or(white_mask, white_mask3)
-        white_mask = cv2.bitwise_or(white_mask, white_mask4)
-        white_mask = cv2.bitwise_or(white_mask, white_mask5)
+        # Combine masks - pixel must be white in at least 2 methods
+        white_mask = cv2.bitwise_and(white_mask1, white_mask2)
+        white_mask = cv2.bitwise_or(white_mask, 
+                                    cv2.bitwise_and(white_mask2, white_mask3))
         
         # Invert to get shirt mask
         shirt_mask = cv2.bitwise_not(white_mask)
         
-        # Apply original alpha if available
+        # Apply original alpha channel if available
         if alpha_original is not None:
+            # Use alpha as primary guidance
             shirt_mask = cv2.bitwise_and(shirt_mask, alpha_original)
+            # Keep anything with good alpha
+            good_alpha = (alpha_original > 30).astype(np.uint8) * 255
+            shirt_mask = cv2.bitwise_or(shirt_mask, good_alpha)
         
-        # AGGRESSIVE morphology operations to clean up
-        kernel_large = np.ones((7, 7), np.uint8)
+        # GENTLE cleanup - preserve shirt details
         kernel_small = np.ones((3, 3), np.uint8)
         
-        # Close gaps in the shirt
-        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_CLOSE, kernel_large, iterations=4)
+        # Close small gaps in shirt
+        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_CLOSE, kernel_small, iterations=2)
         
-        # Remove small white noise
-        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_OPEN, kernel_small, iterations=2)
+        # Remove tiny white noise only
+        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_OPEN, kernel_small, iterations=1)
         
-        # Erode to remove edge artifacts
-        shirt_mask = cv2.erode(shirt_mask, kernel_small, iterations=3)
+        # Slight blur for smooth edges
+        shirt_mask = cv2.GaussianBlur(shirt_mask, (3, 3), 0)
         
-        # Smooth the edges
-        shirt_mask = cv2.GaussianBlur(shirt_mask, (7, 7), 0)
-        
-        # Final threshold to create clean binary mask
-        _, shirt_mask = cv2.threshold(shirt_mask, 30, 255, cv2.THRESH_BINARY)
+        # Final threshold
+        _, shirt_mask = cv2.threshold(shirt_mask, 50, 255, cv2.THRESH_BINARY)
         
         return bgr, shirt_mask
     
@@ -357,11 +349,11 @@ class ProfessionalClothingEngine:
                 print(f"❌ Size mismatch: ROI={roi.shape}, Expected=({visible_height}, {shirt_width})")
                 return frame
             
-            # Alpha blend with STRONGER effect
+            # Alpha blend with balanced transparency
             alpha_norm = shirt_alpha_visible.astype(float) / 255.0
             
-            # Boost alpha values to make shirt more opaque and background more transparent
-            alpha_norm = np.power(alpha_norm, 0.7)  # Make shirt edges smoother
+            # Light curve adjustment for smooth edges (not too aggressive)
+            alpha_norm = np.power(alpha_norm, 0.9)  # Gentle curve
             
             alpha_3d = np.stack([alpha_norm] * 3, axis=2)
             
