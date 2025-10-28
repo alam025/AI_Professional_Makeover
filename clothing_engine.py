@@ -179,7 +179,7 @@ class ProfessionalClothingEngine:
     # ============= SHIRT (PROPER LENGTH OVERLAY) =============
     
     def remove_background_aggressive(self, img):
-        """Remove white background completely"""
+        """Remove white/light background COMPLETELY - More Aggressive"""
         
         if len(img.shape) == 3 and img.shape[2] == 4:
             bgr = img[:, :, :3]
@@ -188,33 +188,62 @@ class ProfessionalClothingEngine:
             bgr = img
             alpha_original = None
         
-        # Multiple white detection methods
+        # AGGRESSIVE white detection - multiple methods combined
+        
+        # Method 1: HSV white detection (broader range)
         hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
-        lower_white = np.array([0, 0, 130])
-        upper_white = np.array([180, 70, 255])
+        lower_white = np.array([0, 0, 100])  # Lower threshold for Value
+        upper_white = np.array([180, 100, 255])  # Higher threshold for Saturation
         white_mask1 = cv2.inRange(hsv, lower_white, upper_white)
         
+        # Method 2: Grayscale threshold (catch light grays)
         gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
-        _, white_mask2 = cv2.threshold(gray, 160, 255, cv2.THRESH_BINARY)
+        _, white_mask2 = cv2.threshold(gray, 140, 255, cv2.THRESH_BINARY)  # Lower threshold
         
+        # Method 3: RGB component analysis (all channels bright)
         b, g, r = cv2.split(bgr)
-        white_mask3 = ((b > 130) & (g > 130) & (r > 130)).astype(np.uint8) * 255
+        white_mask3 = ((b > 110) & (g > 110) & (r > 110)).astype(np.uint8) * 255
         
+        # Method 4: Light colored background (any channel is too bright)
+        white_mask4 = ((b > 130) | (g > 130) | (r > 130)).astype(np.uint8) * 255
+        
+        # Method 5: Low color saturation (desaturated = white/gray)
+        s_channel = hsv[:, :, 1]
+        low_saturation_mask = (s_channel < 50).astype(np.uint8) * 255
+        high_value_mask = (hsv[:, :, 2] > 120).astype(np.uint8) * 255
+        white_mask5 = cv2.bitwise_and(low_saturation_mask, high_value_mask)
+        
+        # Combine ALL masks (aggressive OR operation)
         white_mask = cv2.bitwise_or(white_mask1, white_mask2)
         white_mask = cv2.bitwise_or(white_mask, white_mask3)
+        white_mask = cv2.bitwise_or(white_mask, white_mask4)
+        white_mask = cv2.bitwise_or(white_mask, white_mask5)
         
+        # Invert to get shirt mask
         shirt_mask = cv2.bitwise_not(white_mask)
         
+        # Apply original alpha if available
         if alpha_original is not None:
             shirt_mask = cv2.bitwise_and(shirt_mask, alpha_original)
         
-        kernel = np.ones((5, 5), np.uint8)
-        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_CLOSE, kernel, iterations=3)
-        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_OPEN, kernel, iterations=2)
-        shirt_mask = cv2.erode(shirt_mask, kernel, iterations=2)
-        shirt_mask = cv2.GaussianBlur(shirt_mask, (5, 5), 0)
+        # AGGRESSIVE morphology operations to clean up
+        kernel_large = np.ones((7, 7), np.uint8)
+        kernel_small = np.ones((3, 3), np.uint8)
         
-        _, shirt_mask = cv2.threshold(shirt_mask, 20, 255, cv2.THRESH_BINARY)
+        # Close gaps in the shirt
+        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_CLOSE, kernel_large, iterations=4)
+        
+        # Remove small white noise
+        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_OPEN, kernel_small, iterations=2)
+        
+        # Erode to remove edge artifacts
+        shirt_mask = cv2.erode(shirt_mask, kernel_small, iterations=3)
+        
+        # Smooth the edges
+        shirt_mask = cv2.GaussianBlur(shirt_mask, (7, 7), 0)
+        
+        # Final threshold to create clean binary mask
+        _, shirt_mask = cv2.threshold(shirt_mask, 30, 255, cv2.THRESH_BINARY)
         
         return bgr, shirt_mask
     
@@ -243,8 +272,8 @@ class ProfessionalClothingEngine:
             
             # 1. Start HIGHER - right at the chin level to eliminate gap
             one_cm_pixels = 35  # Approximate pixel to cm conversion
-            # Start at face level (chin area) - this eliminates the neck gap
-            start_offset_above_neck = int(fh * 0.85)  # Start at 85% of face height above neck
+            # Start even higher - at upper face level to eliminate ALL gaps
+            start_offset_above_neck = int(fh * 1.0)  # Start at FULL face height above neck (at eyes level)
             shirt_y = max(0, neck_y - start_offset_above_neck)
             
             # 2. Width: Cover shoulders completely with extra margin
@@ -328,8 +357,12 @@ class ProfessionalClothingEngine:
                 print(f"❌ Size mismatch: ROI={roi.shape}, Expected=({visible_height}, {shirt_width})")
                 return frame
             
-            # Alpha blend
+            # Alpha blend with STRONGER effect
             alpha_norm = shirt_alpha_visible.astype(float) / 255.0
+            
+            # Boost alpha values to make shirt more opaque and background more transparent
+            alpha_norm = np.power(alpha_norm, 0.7)  # Make shirt edges smoother
+            
             alpha_3d = np.stack([alpha_norm] * 3, axis=2)
             
             result = frame.copy()
