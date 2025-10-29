@@ -1,6 +1,6 @@
 """
-UPDATED SHIRT OVERLAY WITH AGGRESSIVE BACKGROUND REMOVAL
-Completely removes white background from shirts
+UPDATED SHIRT OVERLAY WITH PROPER BODY COVERAGE
+Shirt starts from neck, covers shoulders, and extends to bottom
 """
 
 import cv2
@@ -44,7 +44,7 @@ class ProfessionalClothingEngine:
         return True
     
     def detect_face_and_neck(self, frame):
-        """Enhanced face detection with better neck positioning"""
+        """Enhanced face detection with precise neck positioning"""
         h, w = frame.shape[:2]
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         
@@ -61,10 +61,9 @@ class ProfessionalClothingEngine:
             # Find the largest face
             fx, fy, fw, fh = max(faces, key=lambda x: x[2] * x[3])
             
-            # Calculate neck position - this is CRITICAL for proper shirt placement
-            # Neck is at the bottom of the face, slightly adjusted
+            # Calculate neck position - RIGHT AT THE BASE OF THE NECK
             neck_x = fx + fw // 2
-            neck_y = fy + int(fh * 0.85)  # 85% down the face for neck position
+            neck_y = fy + int(fh * 0.9)  # 90% down the face - base of neck
             
             return {
                 'neck_x': neck_x,
@@ -78,11 +77,11 @@ class ProfessionalClothingEngine:
         # Fallback: estimate face position based on frame center
         return {
             'neck_x': w // 2,
-            'neck_y': int(h * 0.35),  # Higher up in the frame
+            'neck_y': int(h * 0.3),  # Higher up in the frame
             'face_width': 150,
             'face_height': 150,
             'face_x': w // 2 - 75,
-            'face_y': int(h * 0.2)
+            'face_y': int(h * 0.15)
         }
     
     # ============= T-SHIRT (HSV) =============
@@ -200,12 +199,10 @@ class ProfessionalClothingEngine:
             print(f"T-shirt error: {e}")
             return frame
     
-    # ============= SHIRT (ULTRA-AGGRESSIVE BACKGROUND REMOVAL) =============
+    # ============= SHIRT (PROPER BODY COVERAGE) =============
     
     def remove_background_ultra_aggressive(self, img):
         """ULTRA-AGGRESSIVE background removal - removes ALL white/light pixels"""
-        
-        print("🔍 Starting ULTRA-AGGRESSIVE background removal...")
         
         if len(img.shape) == 3 and img.shape[2] == 4:
             # Use alpha channel if available
@@ -232,20 +229,11 @@ class ProfessionalClothingEngine:
             gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
             
             # ULTRA-AGGRESSIVE white detection
-            # Method 1: Very bright pixels in HSV
             white_mask1 = (hsv[:, :, 2] > 210) & (hsv[:, :, 1] < 100)
-            
-            # Method 2: High lightness in LAB
             white_mask2 = lab[:, :, 0] > 200
-            
-            # Method 3: All channels high in BGR
             b, g, r = cv2.split(bgr)
             white_mask3 = (b > 190) & (g > 190) & (r > 190)
-            
-            # Method 4: Very light gray
             white_mask4 = (gray > 200)
-            
-            # Method 5: Near-white colors (slightly off-white)
             white_mask5 = ((b > 180) & (g > 180) & (r > 180) & 
                           (np.abs(b.astype(int) - g.astype(int)) < 30) &
                           (np.abs(g.astype(int) - r.astype(int)) < 30))
@@ -255,8 +243,6 @@ class ProfessionalClothingEngine:
             
             # Create initial shirt mask (inverse of white mask)
             shirt_mask = (~combined_white_mask).astype(np.uint8) * 255
-            
-            print(f"🎨 Removed {np.sum(combined_white_mask)} white pixels")
             
             # Use edge detection to find shirt boundaries
             edges = cv2.Canny(gray, 30, 100)
@@ -279,12 +265,10 @@ class ProfessionalClothingEngine:
                 
                 # Use this as our final mask
                 shirt_mask = contour_mask
-                
-                print(f"✅ Found shirt contour with {len(largest_contour)} points")
             else:
                 print("⚠️ No contours found, using color-based mask")
             
-            # EXTREME cleaning - remove any remaining small white areas
+            # EXTREME cleaning
             kernel_clean = np.ones((3, 3), np.uint8)
             shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_OPEN, kernel_clean, iterations=3)
             shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_CLOSE, kernel_clean, iterations=2)
@@ -292,28 +276,13 @@ class ProfessionalClothingEngine:
             # Final aggressive threshold
             _, shirt_mask = cv2.threshold(shirt_mask, 127, 255, cv2.THRESH_BINARY)
             
-            # Count remaining white pixels in the mask area
-            remaining_white = np.sum((shirt_mask == 255) & combined_white_mask)
-            print(f"🎯 Remaining white pixels in shirt area: {remaining_white}")
-            
-            # If there are still white pixels, be even more aggressive
-            if remaining_white > 100:
-                print("🚨 Applying EXTREME white pixel removal...")
-                # Create a mask that explicitly removes white pixels
-                for y in range(h):
-                    for x in range(w):
-                        if shirt_mask[y, x] == 255 and combined_white_mask[y, x]:
-                            shirt_mask[y, x] = 0
-            
-            print(f"✅ Final shirt mask has {cv2.countNonZero(shirt_mask)} pixels")
-            
             return bgr, shirt_mask
     
     def apply_shirt_overlay(self, frame, clothing_item):
-        """Shirt overlay with ULTRA-AGGRESSIVE background removal"""
+        """Shirt overlay that covers neck, shoulders, and entire body"""
         try:
             h, w = frame.shape[:2]
-            print(f"\n🎯 Applying shirt with ULTRA-AGGRESSIVE background removal...")
+            print(f"\n🎯 Applying shirt with COMPLETE BODY COVERAGE...")
             
             # Detect face/neck
             face_info = self.detect_face_and_neck(frame)
@@ -321,9 +290,9 @@ class ProfessionalClothingEngine:
             if not face_info:
                 print("❌ No face detected, using fallback positioning")
                 neck_x = w // 2
-                neck_y = int(h * 0.3)
-                fw = 150
-                fh = 150
+                neck_y = int(h * 0.25)  # Higher start for fallback
+                fw = 160
+                fh = 160
             else:
                 neck_x = face_info['neck_x']
                 neck_y = face_info['neck_y']
@@ -332,66 +301,82 @@ class ProfessionalClothingEngine:
             
             print(f"✅ Neck detected at: ({neck_x}, {neck_y})")
             
-            # Position shirt to start RIGHT AT THE NECK
-            shirt_start_y = neck_y - int(fh * 0.1)
-            shirt_width = int(fw * 2.8)
-            shirt_height = int(h * 0.8)
+            # CRITICAL FIX: Start shirt RIGHT AT THE NECK (covering chest)
+            # No gap - shirt starts exactly where neck ends
+            shirt_start_y = neck_y - int(fh * 0.05)  # Just 5% above neck for collar
             
-            # Ensure minimum dimensions
-            shirt_width = max(shirt_width, 300)
-            shirt_height = max(shirt_height, 500)
+            # WIDER coverage for shoulders - cover entire shoulder area
+            shirt_width = int(fw * 3.5)  # Much wider to cover shoulders
+            
+            # FULL BODY coverage - extend to bottom of screen
+            shirt_height = h - shirt_start_y  # Cover from neck to bottom
+            
+            print(f"📏 Body coverage calculations:")
+            print(f"   Face width: {fw}px, Face height: {fh}px")
+            print(f"   Shirt starts at Y: {shirt_start_y}px (RIGHT AT NECK)")
+            print(f"   Shirt width: {shirt_width}px (covers shoulders)")
+            print(f"   Shirt height: {shirt_height}px (covers to bottom)")
             
             # Center horizontally on neck
             shirt_x = neck_x - shirt_width // 2
             
-            # Adjust for frame boundaries
+            # Adjust for frame boundaries - but keep it WIDE
             if shirt_x < 0:
+                # If too far left, extend right side to maintain width
+                shirt_width += shirt_x
                 shirt_x = 0
             if shirt_x + shirt_width > w:
+                # If too far right, extend left side to maintain width
+                overshoot = (shirt_x + shirt_width) - w
+                shirt_x = max(0, shirt_x - overshoot)
                 shirt_width = w - shirt_x
             
-            if shirt_start_y < 0:
-                shirt_start_y = 0
-            if shirt_start_y + shirt_height > h:
-                shirt_height = h - shirt_start_y
+            # Ensure minimum dimensions for proper coverage
+            shirt_width = max(shirt_width, 400)  # Minimum width to cover shoulders
+            shirt_height = max(shirt_height, 600)  # Minimum height to cover body
             
-            print(f"📍 Shirt position: ({shirt_x}, {shirt_start_y}) size: {shirt_width}x{shirt_height}")
+            print(f"📍 Final shirt position:")
+            print(f"   X: {shirt_x}, Y: {shirt_start_y}")
+            print(f"   Width: {shirt_width}, Height: {shirt_height}")
+            print(f"   Should cover from neck to bottom screen")
             
             # Load and prepare shirt image
             clothing_img = clothing_item['image']
             orig_h, orig_w = clothing_img.shape[:2]
+            orig_aspect = orig_w / orig_h
             
-            # Resize shirt
+            print(f"👔 Original shirt: {orig_w}x{orig_h} (aspect: {orig_aspect:.2f})")
+            
+            # Resize shirt to cover our calculated area
+            # We want to maintain aspect ratio but ensure full coverage
             target_width = shirt_width
-            target_height = int(orig_h * (target_width / orig_w))
+            target_height = int(shirt_width / orig_aspect)
             
+            # If the calculated height is less than needed, scale up
             if target_height < shirt_height:
                 scale_factor = shirt_height / target_height
                 target_width = int(target_width * scale_factor)
                 target_height = shirt_height
             
+            print(f"🔧 Resizing shirt to: {target_width}x{target_height}")
+            
             resized_shirt = cv2.resize(clothing_img, (target_width, target_height), 
                                       interpolation=cv2.INTER_AREA)
             
-            # ULTRA-AGGRESSIVE background removal
+            # Remove background
             shirt_bgr, shirt_alpha = self.remove_background_ultra_aggressive(resized_shirt)
             
-            # Check result quality
-            non_zero_pixels = cv2.countNonZero(shirt_alpha)
-            print(f"📊 Shirt pixels after background removal: {non_zero_pixels}")
-            
-            if non_zero_pixels < 500:
-                print("🚨 Very few shirt pixels detected - shirt might be invisible")
-            
-            # Calculate visible portion
+            # Calculate visible portion (should be most of it)
             visible_height = min(target_height, h - shirt_start_y)
             visible_width = min(target_width, w - shirt_x)
             
+            print(f"👁️  Visible area: {visible_width}x{visible_height}")
+            
             if visible_height <= 0 or visible_width <= 0:
-                print("❌ No visible area")
+                print("❌ No visible area - adjustment needed")
                 return frame
             
-            # Extract visible portions
+            # Extract visible portion of shirt
             shirt_bgr_visible = shirt_bgr[:visible_height, :visible_width]
             shirt_alpha_visible = shirt_alpha[:visible_height, :visible_width]
             
@@ -401,6 +386,7 @@ class ProfessionalClothingEngine:
             roi_x_start = shirt_x
             roi_x_end = shirt_x + visible_width
             
+            # Safety checks
             if roi_y_end > h or roi_x_end > w:
                 print("❌ ROI out of bounds")
                 return frame
@@ -409,18 +395,16 @@ class ProfessionalClothingEngine:
             
             # Ensure dimensions match
             if roi.shape[:2] != shirt_bgr_visible.shape[:2]:
+                print(f"🔧 Resizing ROI to match shirt")
                 roi = cv2.resize(roi, (shirt_bgr_visible.shape[1], shirt_bgr_visible.shape[0]))
             
-            # ULTRA-AGGRESSIVE alpha blending - NO WHITE BACKGROUND
+            # Alpha blending - NO WHITE BACKGROUND
             alpha_norm = shirt_alpha_visible.astype(float) / 255.0
             
-            # EXTREME threshold - only show pixels that are definitely part of the shirt
-            alpha_norm = np.where(alpha_norm > 0.05, alpha_norm, 0.0)
-            
-            # Additional check: remove any pixels that look white in the shirt image
+            # Remove any white pixels that might have survived
             hsv_shirt = cv2.cvtColor(shirt_bgr_visible, cv2.COLOR_BGR2HSV)
             white_pixels = (hsv_shirt[:, :, 2] > 200) & (hsv_shirt[:, :, 1] < 80)
-            alpha_norm[white_pixels] = 0.0  # Completely remove white pixels
+            alpha_norm[white_pixels] = 0.0
             
             alpha_3d = np.stack([alpha_norm] * 3, axis=2)
             
@@ -435,10 +419,17 @@ class ProfessionalClothingEngine:
             # Apply to result
             result[roi_y_start:roi_y_end, roi_x_start:roi_x_end] = blended.astype(np.uint8)
             
-            print(f"✅✅✅ SHIRT APPLIED - NO WHITE BACKGROUND!")
-            print(f"    ✅ Ultra-aggressive background removal")
-            print(f"    ✅ White pixels explicitly removed")
-            print(f"    ✅ Only brown shirt fabric should be visible\n")
+            # Draw debug info on result
+            cv2.circle(result, (neck_x, neck_y), 8, (0, 255, 0), -1)
+            cv2.putText(result, "NECK", (neck_x + 10, neck_y), 
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+            
+            print(f"✅✅✅ SHIRT APPLIED WITH COMPLETE COVERAGE!")
+            print(f"    ✅ Starts at neck level: y={shirt_start_y}")
+            print(f"    ✅ Covers shoulders: width={shirt_width}px")
+            print(f"    ✅ Extends to bottom: height={shirt_height}px")
+            print(f"    ✅ No gap between neck and shirt")
+            print(f"    ✅ Your blue t-shirt should be COMPLETELY hidden!\n")
             
             return result
             
@@ -496,6 +487,19 @@ class ProfessionalClothingEngine:
             cv2.circle(result, (neck_x, neck_y), 8, (0, 255, 0), -1)
             cv2.putText(result, f"NECK ({neck_x},{neck_y})", (neck_x + 15, neck_y), 
                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+            
+            # Draw expected shirt area
+            shirt_start_y = neck_y - int(fh * 0.05)
+            shirt_width = int(fw * 3.5)
+            shirt_height = result.shape[0] - shirt_start_y
+            shirt_x = neck_x - shirt_width // 2
+            
+            cv2.rectangle(result, (shirt_x, shirt_start_y), 
+                         (shirt_x + shirt_width, shirt_start_y + shirt_height), 
+                         (0, 255, 255), 2)
+            
+            cv2.putText(result, "Shirt Coverage Area", (shirt_x, shirt_start_y - 10),
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1)
             
             cv2.putText(result, "Face Detected", (10, 30),
                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
