@@ -1,6 +1,6 @@
 """
-UPDATED SHIRT OVERLAY WITH PROPER BACKGROUND REMOVAL
-Ensures shirt has no white background and starts from neck
+UPDATED SHIRT OVERLAY WITH AGGRESSIVE BACKGROUND REMOVAL
+Completely removes white background from shirts
 """
 
 import cv2
@@ -200,93 +200,120 @@ class ProfessionalClothingEngine:
             print(f"T-shirt error: {e}")
             return frame
     
-    # ============= SHIRT (COMPLETE BACKGROUND REMOVAL) =============
+    # ============= SHIRT (ULTRA-AGGRESSIVE BACKGROUND REMOVAL) =============
     
-    def remove_background_completely(self, img):
-        """COMPLETE background removal - Remove ALL white/light backgrounds"""
+    def remove_background_ultra_aggressive(self, img):
+        """ULTRA-AGGRESSIVE background removal - removes ALL white/light pixels"""
+        
+        print("🔍 Starting ULTRA-AGGRESSIVE background removal...")
         
         if len(img.shape) == 3 and img.shape[2] == 4:
-            # Already has alpha channel - use it
+            # Use alpha channel if available
             bgr = img[:, :, :3]
             alpha = img[:, :, 3]
             
-            # Enhance existing alpha - make sure background is completely transparent
-            _, alpha_binary = cv2.threshold(alpha, 10, 255, cv2.THRESH_BINARY)
+            # Make alpha channel more aggressive
+            _, alpha_binary = cv2.threshold(alpha, 5, 255, cv2.THRESH_BINARY)
             
-            # Clean up the alpha mask
-            kernel = np.ones((3, 3), np.uint8)
-            alpha_cleaned = cv2.morphologyEx(alpha_binary, cv2.MORPH_CLOSE, kernel, iterations=2)
-            alpha_cleaned = cv2.morphologyEx(alpha_cleaned, cv2.MORPH_OPEN, kernel, iterations=1)
+            # Additional color-based cleanup
+            hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
+            white_pixels = (hsv[:, :, 2] > 220) & (hsv[:, :, 1] < 60)
+            alpha_binary[white_pixels] = 0
             
-            return bgr, alpha_cleaned
+            return bgr, alpha_binary
         else:
-            # No alpha channel - use aggressive color-based removal
+            # No alpha channel - use extreme color-based removal
             bgr = img
             h, w = bgr.shape[:2]
             
-            # Convert to different color spaces for better detection
+            # Convert to multiple color spaces
             hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
             lab = cv2.cvtColor(bgr, cv2.COLOR_BGR2LAB)
-            
-            # Detect white/light backgrounds in multiple ways
-            # Method 1: HSV - high value, low saturation
-            white_mask_hsv = ((hsv[:, :, 2] > 200) & (hsv[:, :, 1] < 80)).astype(np.uint8) * 255
-            
-            # Method 2: LAB - light backgrounds have high L channel
-            white_mask_lab = (lab[:, :, 0] > 200).astype(np.uint8) * 255
-            
-            # Method 3: BGR - all channels high for white
-            b, g, r = cv2.split(bgr)
-            white_mask_bgr = ((b > 200) & (g > 200) & (r > 200)).astype(np.uint8) * 255
-            
-            # Method 4: Light gray backgrounds
-            gray_mask = ((b > 180) & (g > 180) & (r > 180) & 
-                        (np.abs(b.astype(int) - g.astype(int)) < 20) &
-                        (np.abs(g.astype(int) - r.astype(int)) < 20)).astype(np.uint8) * 255
-            
-            # Combine all white/light background masks
-            combined_white_mask = cv2.bitwise_or(white_mask_hsv, white_mask_lab)
-            combined_white_mask = cv2.bitwise_or(combined_white_mask, white_mask_bgr)
-            combined_white_mask = cv2.bitwise_or(combined_white_mask, gray_mask)
-            
-            # Invert to get shirt mask (foreground)
-            shirt_mask = cv2.bitwise_not(combined_white_mask)
-            
-            # Use edge detection to refine mask
             gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
-            edges = cv2.Canny(gray, 50, 150)
             
-            # Dilate edges to connect shirt boundaries
-            kernel = np.ones((3, 3), np.uint8)
-            edges_dilated = cv2.dilate(edges, kernel, iterations=2)
+            # ULTRA-AGGRESSIVE white detection
+            # Method 1: Very bright pixels in HSV
+            white_mask1 = (hsv[:, :, 2] > 210) & (hsv[:, :, 1] < 100)
             
-            # Combine with color-based mask
+            # Method 2: High lightness in LAB
+            white_mask2 = lab[:, :, 0] > 200
+            
+            # Method 3: All channels high in BGR
+            b, g, r = cv2.split(bgr)
+            white_mask3 = (b > 190) & (g > 190) & (r > 190)
+            
+            # Method 4: Very light gray
+            white_mask4 = (gray > 200)
+            
+            # Method 5: Near-white colors (slightly off-white)
+            white_mask5 = ((b > 180) & (g > 180) & (r > 180) & 
+                          (np.abs(b.astype(int) - g.astype(int)) < 30) &
+                          (np.abs(g.astype(int) - r.astype(int)) < 30))
+            
+            # Combine ALL white detection methods
+            combined_white_mask = (white_mask1 | white_mask2 | white_mask3 | white_mask4 | white_mask5)
+            
+            # Create initial shirt mask (inverse of white mask)
+            shirt_mask = (~combined_white_mask).astype(np.uint8) * 255
+            
+            print(f"🎨 Removed {np.sum(combined_white_mask)} white pixels")
+            
+            # Use edge detection to find shirt boundaries
+            edges = cv2.Canny(gray, 30, 100)
+            kernel = np.ones((2, 2), np.uint8)
+            edges_dilated = cv2.dilate(edges, kernel, iterations=1)
+            
+            # Remove edges from white areas
             shirt_mask = cv2.bitwise_and(shirt_mask, cv2.bitwise_not(edges_dilated))
             
-            # Find largest contour (the shirt)
+            # Find the largest contour (should be the shirt)
             contours, _ = cv2.findContours(shirt_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            
             if contours:
+                # Get the largest contour
                 largest_contour = max(contours, key=cv2.contourArea)
-                refined_mask = np.zeros((h, w), dtype=np.uint8)
-                cv2.drawContours(refined_mask, [largest_contour], -1, 255, -1)
-                shirt_mask = refined_mask
+                
+                # Create mask from largest contour
+                contour_mask = np.zeros((h, w), dtype=np.uint8)
+                cv2.drawContours(contour_mask, [largest_contour], -1, 255, -1)
+                
+                # Use this as our final mask
+                shirt_mask = contour_mask
+                
+                print(f"✅ Found shirt contour with {len(largest_contour)} points")
+            else:
+                print("⚠️ No contours found, using color-based mask")
             
-            # Clean up the mask
-            kernel_clean = np.ones((5, 5), np.uint8)
+            # EXTREME cleaning - remove any remaining small white areas
+            kernel_clean = np.ones((3, 3), np.uint8)
+            shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_OPEN, kernel_clean, iterations=3)
             shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_CLOSE, kernel_clean, iterations=2)
-            shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_OPEN, kernel_clean, iterations=1)
             
-            # Final blur for smooth edges
-            shirt_mask = cv2.GaussianBlur(shirt_mask, (3, 3), 0)
+            # Final aggressive threshold
             _, shirt_mask = cv2.threshold(shirt_mask, 127, 255, cv2.THRESH_BINARY)
+            
+            # Count remaining white pixels in the mask area
+            remaining_white = np.sum((shirt_mask == 255) & combined_white_mask)
+            print(f"🎯 Remaining white pixels in shirt area: {remaining_white}")
+            
+            # If there are still white pixels, be even more aggressive
+            if remaining_white > 100:
+                print("🚨 Applying EXTREME white pixel removal...")
+                # Create a mask that explicitly removes white pixels
+                for y in range(h):
+                    for x in range(w):
+                        if shirt_mask[y, x] == 255 and combined_white_mask[y, x]:
+                            shirt_mask[y, x] = 0
+            
+            print(f"✅ Final shirt mask has {cv2.countNonZero(shirt_mask)} pixels")
             
             return bgr, shirt_mask
     
     def apply_shirt_overlay(self, frame, clothing_item):
-        """Shirt overlay with COMPLETE background removal"""
+        """Shirt overlay with ULTRA-AGGRESSIVE background removal"""
         try:
             h, w = frame.shape[:2]
-            print(f"\n🔍 Applying shirt with NO BACKGROUND...")
+            print(f"\n🎯 Applying shirt with ULTRA-AGGRESSIVE background removal...")
             
             # Detect face/neck
             face_info = self.detect_face_and_neck(frame)
@@ -306,9 +333,7 @@ class ProfessionalClothingEngine:
             print(f"✅ Neck detected at: ({neck_x}, {neck_y})")
             
             # Position shirt to start RIGHT AT THE NECK
-            shirt_start_y = neck_y - int(fh * 0.1)  # Start slightly above neck for collar
-            
-            # Calculate dimensions based on face size
+            shirt_start_y = neck_y - int(fh * 0.1)
             shirt_width = int(fw * 2.8)
             shirt_height = int(h * 0.8)
             
@@ -325,54 +350,48 @@ class ProfessionalClothingEngine:
             if shirt_x + shirt_width > w:
                 shirt_width = w - shirt_x
             
-            # Ensure we have enough vertical space
             if shirt_start_y < 0:
                 shirt_start_y = 0
             if shirt_start_y + shirt_height > h:
                 shirt_height = h - shirt_start_y
             
-            print(f"🎯 Shirt positioning:")
-            print(f"   Start Y: {shirt_start_y}px (at neck level)")
-            print(f"   Width: {shirt_width}px")
-            print(f"   Height: {shirt_height}px")
+            print(f"📍 Shirt position: ({shirt_x}, {shirt_start_y}) size: {shirt_width}x{shirt_height}")
             
             # Load and prepare shirt image
             clothing_img = clothing_item['image']
             orig_h, orig_w = clothing_img.shape[:2]
             
-            # Resize shirt maintaining aspect ratio
+            # Resize shirt
             target_width = shirt_width
             target_height = int(orig_h * (target_width / orig_w))
             
-            # If height is too small, scale up
             if target_height < shirt_height:
                 scale_factor = shirt_height / target_height
                 target_width = int(target_width * scale_factor)
                 target_height = shirt_height
             
-            # Final resize
             resized_shirt = cv2.resize(clothing_img, (target_width, target_height), 
                                       interpolation=cv2.INTER_AREA)
             
-            # COMPLETE background removal
-            shirt_bgr, shirt_alpha = self.remove_background_completely(resized_shirt)
+            # ULTRA-AGGRESSIVE background removal
+            shirt_bgr, shirt_alpha = self.remove_background_ultra_aggressive(resized_shirt)
             
-            # Check if we have enough non-transparent pixels
+            # Check result quality
             non_zero_pixels = cv2.countNonZero(shirt_alpha)
-            print(f"🎨 Non-transparent shirt pixels: {non_zero_pixels}")
+            print(f"📊 Shirt pixels after background removal: {non_zero_pixels}")
             
-            if non_zero_pixels < 1000:
-                print("⚠️ Warning: Very few shirt pixels detected")
+            if non_zero_pixels < 500:
+                print("🚨 Very few shirt pixels detected - shirt might be invisible")
             
             # Calculate visible portion
             visible_height = min(target_height, h - shirt_start_y)
             visible_width = min(target_width, w - shirt_x)
             
             if visible_height <= 0 or visible_width <= 0:
-                print("❌ No visible area - adjustment needed")
+                print("❌ No visible area")
                 return frame
             
-            # Extract visible portion of shirt
+            # Extract visible portions
             shirt_bgr_visible = shirt_bgr[:visible_height, :visible_width]
             shirt_alpha_visible = shirt_alpha[:visible_height, :visible_width]
             
@@ -382,41 +401,44 @@ class ProfessionalClothingEngine:
             roi_x_start = shirt_x
             roi_x_end = shirt_x + visible_width
             
-            # Safety checks
             if roi_y_end > h or roi_x_end > w:
                 print("❌ ROI out of bounds")
                 return frame
             
             roi = frame[roi_y_start:roi_y_end, roi_x_start:roi_x_end]
             
-            # Ensure ROI and shirt have same dimensions
+            # Ensure dimensions match
             if roi.shape[:2] != shirt_bgr_visible.shape[:2]:
-                print(f"🔧 Resizing ROI to match shirt: {roi.shape} -> {shirt_bgr_visible.shape}")
                 roi = cv2.resize(roi, (shirt_bgr_visible.shape[1], shirt_bgr_visible.shape[0]))
             
-            # Alpha blending - COMPLETE background removal
+            # ULTRA-AGGRESSIVE alpha blending - NO WHITE BACKGROUND
             alpha_norm = shirt_alpha_visible.astype(float) / 255.0
             
-            # Use aggressive threshold to ensure complete background removal
-            alpha_norm = np.where(alpha_norm > 0.1, alpha_norm, 0.0)
+            # EXTREME threshold - only show pixels that are definitely part of the shirt
+            alpha_norm = np.where(alpha_norm > 0.05, alpha_norm, 0.0)
+            
+            # Additional check: remove any pixels that look white in the shirt image
+            hsv_shirt = cv2.cvtColor(shirt_bgr_visible, cv2.COLOR_BGR2HSV)
+            white_pixels = (hsv_shirt[:, :, 2] > 200) & (hsv_shirt[:, :, 1] < 80)
+            alpha_norm[white_pixels] = 0.0  # Completely remove white pixels
             
             alpha_3d = np.stack([alpha_norm] * 3, axis=2)
             
             # Create result
             result = frame.copy()
             
-            # Blend shirt with ROI - only where alpha > 0
-            blended = np.where(alpha_3d > 0.1, 
+            # Only show shirt where alpha > 0, otherwise show original ROI
+            blended = np.where(alpha_3d > 0.01, 
                              shirt_bgr_visible.astype(float), 
                              roi.astype(float))
             
-            # Place blended result back
+            # Apply to result
             result[roi_y_start:roi_y_end, roi_x_start:roi_x_end] = blended.astype(np.uint8)
             
-            print(f"✅✅✅ SHIRT APPLIED WITH NO BACKGROUND!")
-            print(f"    ✅ White background completely removed")
-            print(f"    ✅ Starts at neck level: y={shirt_start_y}")
-            print(f"    ✅ Only shirt pixels visible - no white background!\n")
+            print(f"✅✅✅ SHIRT APPLIED - NO WHITE BACKGROUND!")
+            print(f"    ✅ Ultra-aggressive background removal")
+            print(f"    ✅ White pixels explicitly removed")
+            print(f"    ✅ Only brown shirt fabric should be visible\n")
             
             return result
             
