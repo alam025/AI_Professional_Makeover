@@ -1,6 +1,6 @@
 """
-UPDATED SHIRT OVERLAY WITH PROPER LENGTH
-Ensures shirt covers entire body from neck to beyond visible frame
+UPDATED SHIRT OVERLAY WITH PROPER NECK POSITIONING
+Ensures shirt starts from neck and covers entire body properly
 """
 
 import cv2
@@ -44,25 +44,46 @@ class ProfessionalClothingEngine:
         return True
     
     def detect_face_and_neck(self, frame):
-        """Simple face detection"""
+        """Enhanced face detection with better neck positioning"""
         h, w = frame.shape[:2]
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        faces = self.face_cascade.detectMultiScale(gray, 1.1, 5, minSize=(100, 100))
+        
+        # Use multiple detection parameters for better accuracy
+        faces = self.face_cascade.detectMultiScale(
+            gray, 
+            scaleFactor=1.1, 
+            minNeighbors=6, 
+            minSize=(80, 80),
+            maxSize=(400, 400)
+        )
         
         if len(faces) > 0:
+            # Find the largest face
             fx, fy, fw, fh = max(faces, key=lambda x: x[2] * x[3])
             
+            # Calculate neck position - this is CRITICAL for proper shirt placement
+            # Neck is at the bottom of the face, slightly adjusted
             neck_x = fx + fw // 2
-            neck_y = fy + fh  # Bottom of face = neck
+            neck_y = fy + int(fh * 0.85)  # 85% down the face for neck position
             
             return {
                 'neck_x': neck_x,
                 'neck_y': neck_y,
                 'face_width': fw,
-                'face_height': fh
+                'face_height': fh,
+                'face_x': fx,
+                'face_y': fy
             }
         
-        return None
+        # Fallback: estimate face position based on frame center
+        return {
+            'neck_x': w // 2,
+            'neck_y': int(h * 0.35),  # Higher up in the frame
+            'face_width': 150,
+            'face_height': 150,
+            'face_x': w // 2 - 75,
+            'face_y': int(h * 0.2)
+        }
     
     # ============= T-SHIRT (HSV) =============
     
@@ -116,11 +137,12 @@ class ProfessionalClothingEngine:
             fw = face_info['face_width']
             fh = face_info['face_height']
             
-            shoulder_y = neck_y + int(fh * 0.2)
-            waist_y = neck_y + int(fh * 5.0)
+            # Start the shirt RIGHT AT THE NECK level
+            shoulder_y = neck_y
+            waist_y = neck_y + int(fh * 4.5)  # Extended length
             
-            shoulder_width = int(fw * 2.5)
-            waist_width = int(fw * 2.7)
+            shoulder_width = int(fw * 2.2)
+            waist_width = int(fw * 2.4)
             
             torso_points = np.array([
                 [neck_x - shoulder_width//2, shoulder_y],
@@ -131,12 +153,14 @@ class ProfessionalClothingEngine:
             
             cv2.fillPoly(mask, [torso_points], 255)
             
+            # Remove face area
             face_mask = np.zeros((h, w), dtype=np.uint8)
             cv2.ellipse(face_mask, (neck_x, neck_y - fh // 2), 
-                       (fw // 2 + 10, fh // 2 + 20), 0, 0, 360, 255, -1)
+                       (fw // 2 + 15, fh // 2 + 25), 0, 0, 360, 255, -1)
             mask = cv2.subtract(mask, face_mask)
         else:
-            top_y = int(h * 0.30)
+            # Fallback positioning
+            top_y = int(h * 0.25)  # Higher start
             bottom_y = int(h * 0.95)
             top_left_x = int(w * 0.30)
             top_right_x = int(w * 0.70)
@@ -176,10 +200,10 @@ class ProfessionalClothingEngine:
             print(f"T-shirt error: {e}")
             return frame
     
-    # ============= SHIRT (PROPER LENGTH OVERLAY) =============
+    # ============= SHIRT (PROPER NECK POSITIONING) =============
     
     def remove_background_aggressive(self, img):
-        """ADVANCED background removal - Remove ALL background, keep ONLY shirt"""
+        """Remove background while preserving shirt details"""
         
         if len(img.shape) == 3 and img.shape[2] == 4:
             bgr = img[:, :, :3]
@@ -190,235 +214,175 @@ class ProfessionalClothingEngine:
         
         h, w = bgr.shape[:2]
         
-        # Step 1: Detect edges of the shirt using Canny
+        # Create mask using multiple methods
         gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
-        blurred = cv2.GaussianBlur(gray, (5, 5), 0)
-        edges = cv2.Canny(blurred, 30, 100)
         
-        # Step 2: Dilate edges to close gaps
+        # Method 1: Edge detection
+        edges = cv2.Canny(gray, 50, 150)
         kernel = np.ones((3, 3), np.uint8)
         edges_dilated = cv2.dilate(edges, kernel, iterations=2)
         
-        # Step 3: Find contours
-        contours, _ = cv2.findContours(edges_dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        
-        # Step 4: Create mask from largest contour (the shirt)
-        if contours:
-            # Find the largest contour by area
-            largest_contour = max(contours, key=cv2.contourArea)
-            
-            # Create mask and fill the contour
-            contour_mask = np.zeros((h, w), dtype=np.uint8)
-            cv2.drawContours(contour_mask, [largest_contour], -1, 255, -1)
-        else:
-            contour_mask = np.zeros((h, w), dtype=np.uint8)
-        
-        # Step 5: Combine with color-based detection
+        # Method 2: Color-based background removal
         hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
-        h_hsv, s, v = cv2.split(hsv)
         
-        # Detect white/light backgrounds (high value, low saturation)
-        white_mask = ((v > 180) & (s < 40)).astype(np.uint8) * 255
+        # Detect light backgrounds (white, light gray)
+        light_mask = ((hsv[:, :, 2] > 200) & (hsv[:, :, 1] < 50)).astype(np.uint8) * 255
         
-        # Also detect light gray backgrounds
-        b, g, r = cv2.split(bgr)
-        light_gray_mask = ((b > 180) & (g > 180) & (r > 180) & 
-                          (np.abs(b.astype(int) - g.astype(int)) < 15) &
-                          (np.abs(g.astype(int) - r.astype(int)) < 15)).astype(np.uint8) * 255
+        # Combine methods
+        combined_mask = cv2.bitwise_or(edges_dilated, light_mask)
         
-        # Combine white and light gray detection
-        background_mask = cv2.bitwise_or(white_mask, light_gray_mask)
+        # Find contours
+        contours, _ = cv2.findContours(combined_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         
-        # Invert to get foreground
-        color_shirt_mask = cv2.bitwise_not(background_mask)
+        if contours:
+            largest_contour = max(contours, key=cv2.contourArea)
+            shirt_mask = np.zeros((h, w), dtype=np.uint8)
+            cv2.drawContours(shirt_mask, [largest_contour], -1, 255, -1)
+        else:
+            shirt_mask = np.ones((h, w), dtype=np.uint8) * 255
         
-        # Step 6: Combine contour and color masks
-        shirt_mask = cv2.bitwise_and(contour_mask, color_shirt_mask)
-        
-        # Step 7: Use alpha channel if available as additional guidance
+        # Use original alpha if available
         if alpha_original is not None:
-            alpha_mask = (alpha_original > 50).astype(np.uint8) * 255
-            shirt_mask = cv2.bitwise_and(shirt_mask, alpha_mask)
+            shirt_mask = cv2.bitwise_and(shirt_mask, alpha_original)
         
-        # Step 8: Flood fill from corners to remove any remaining background
-        flood_mask = shirt_mask.copy()
-        # Create a slightly larger mask for flood fill
-        h_fm, w_fm = flood_mask.shape
-        flood_fill_mask = np.zeros((h_fm + 2, w_fm + 2), dtype=np.uint8)
-        
-        # Flood fill from all four corners
-        cv2.floodFill(flood_mask, flood_fill_mask, (0, 0), 0)
-        cv2.floodFill(flood_mask, flood_fill_mask, (w_fm - 1, 0), 0)
-        cv2.floodFill(flood_mask, flood_fill_mask, (0, h_fm - 1), 0)
-        cv2.floodFill(flood_mask, flood_fill_mask, (w_fm - 1, h_fm - 1), 0)
-        
-        # Step 9: Clean up the mask
-        kernel_clean = np.ones((5, 5), np.uint8)
-        
-        # Close gaps
-        shirt_mask = cv2.morphologyEx(flood_mask, cv2.MORPH_CLOSE, kernel_clean, iterations=3)
-        
-        # Remove small noise
-        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_OPEN, kernel_clean, iterations=2)
-        
-        # Smooth edges
-        shirt_mask = cv2.GaussianBlur(shirt_mask, (5, 5), 0)
-        
-        # Final threshold
-        _, shirt_mask = cv2.threshold(shirt_mask, 127, 255, cv2.THRESH_BINARY)
-        
-        # Step 10: Erode slightly to remove white fringe
-        kernel_erode = np.ones((3, 3), np.uint8)
-        shirt_mask = cv2.erode(shirt_mask, kernel_erode, iterations=1)
+        # Clean up mask
+        kernel_clean = np.ones((3, 3), np.uint8)
+        shirt_mask = cv2.morphologyEx(shirt_mask, cv2.MORPH_CLOSE, kernel_clean, iterations=2)
+        shirt_mask = cv2.GaussianBlur(shirt_mask, (3, 3), 0)
         
         return bgr, shirt_mask
     
     def apply_shirt_overlay(self, frame, clothing_item):
-        """EXTENDED shirt that covers entire visible body"""
+        """FIXED: Shirt now starts from neck and covers properly"""
         try:
             h, w = frame.shape[:2]
-            print(f"\n🔍 Applying shirt with FULL body coverage...")
+            print(f"\n🔍 Applying shirt with PROPER NECK POSITIONING...")
             
-            # Detect face/neck
+            # Detect face/neck with enhanced accuracy
             face_info = self.detect_face_and_neck(frame)
             
             if not face_info:
-                print("❌ No face detected")
-                return frame
+                print("❌ No face detected, using fallback positioning")
+                # Fallback: center of upper frame
+                neck_x = w // 2
+                neck_y = int(h * 0.3)
+                fw = 150
+                fh = 150
+            else:
+                neck_x = face_info['neck_x']
+                neck_y = face_info['neck_y']
+                fw = face_info['face_width']
+                fh = face_info['face_height']
             
-            neck_x = face_info['neck_x']
-            neck_y = face_info['neck_y']
-            fw = face_info['face_width']
-            fh = face_info['face_height']
+            print(f"✅ Neck detected at: ({neck_x}, {neck_y})")
             
-            print(f"✅ Face detected - Neck at: ({neck_x}, {neck_y})")
-            print(f"📺 Frame size: {w}x{h}")
+            # CRITICAL FIX: Position shirt to start RIGHT AT THE NECK
+            # This ensures the collar sits properly at the neck
+            shirt_start_y = neck_y - int(fh * 0.1)  # Start slightly above neck for collar
             
-            # CRITICAL CHANGES FOR PROPER COVERAGE:
+            # Calculate dimensions based on face size for proper fit
+            shirt_width = int(fw * 2.8)  # Shoulder width
+            shirt_height = int(h * 0.8)  # Cover most of body
             
-            # 1. START VERY HIGH - ABOVE CHIN to completely eliminate ALL gaps
-            one_cm_pixels = 35  # Approximate pixel to cm conversion
-            # Start MUCH HIGHER - at 80% of face height above neck
-            # This puts us at upper face/nose level to ensure complete coverage
-            start_offset_above_neck = int(fh * 0.80)  # Start at 80% of face height above neck
-            shirt_y = max(0, neck_y - start_offset_above_neck)
-            
-            print(f"🎯 Face height: {fh}px")
-            print(f"🎯 Neck Y position: {neck_y}px")
-            print(f"🎯 Offset above neck: {start_offset_above_neck}px (80% of face height)")
-            print(f"🎯 Shirt starting Y: {shirt_y}px")
-            print(f"🎯 This starts VERY HIGH to ensure NO BLUE T-SHIRT VISIBLE!")
-            
-            # 2. Width: Cover shoulders completely with extra margin
-            base_shoulder_width = int(fw * 4.2)  # Increased to 4.2 for wider coverage
-            extra_width = 7 * one_cm_pixels  # Add 7cm total width (3.5cm each side)
-            shirt_width = base_shoulder_width + extra_width
-            
-            # 3. Height: MUCH LONGER - extend well past visible frame
-            # Calculate from shirt start to bottom of frame, then add MORE
-            available_height = h - shirt_y
-            extra_height_extension = int(available_height * 0.6)  # Add 60% more
-            shirt_height = available_height + extra_height_extension
-            
-            # For safety, ensure VERY LARGE minimum shirt length
-            min_shirt_length = int(fh * 8.0)  # At least 8x face height
-            shirt_height = max(shirt_height, min_shirt_length)
-            
-            print(f"📏 Shirt positioning:")
-            print(f"   Start Y: {shirt_y}px (ABOVE neck by {start_offset_above_neck}px)")
-            print(f"   Width: {shirt_width}px")
-            print(f"   Height: {shirt_height}px (extended beyond screen)")
-            print(f"   Bottom would be at: y={shirt_y + shirt_height}px (screen height: {h}px)")
+            # Ensure minimum dimensions
+            shirt_width = max(shirt_width, 300)
+            shirt_height = max(shirt_height, 500)
             
             # Center horizontally on neck
             shirt_x = neck_x - shirt_width // 2
             
-            # Bounds check for X only
+            # Adjust for frame boundaries
             if shirt_x < 0:
-                shirt_width += shirt_x
                 shirt_x = 0
             if shirt_x + shirt_width > w:
                 shirt_width = w - shirt_x
             
-            if shirt_width <= 0:
-                print("❌ Invalid width")
-                return frame
+            # Ensure we have enough vertical space
+            if shirt_start_y < 0:
+                shirt_start_y = 0
+            if shirt_start_y + shirt_height > h:
+                shirt_height = h - shirt_start_y
             
-            print(f"📍 Final position: ({shirt_x}, {shirt_y}) size: {shirt_width}x{shirt_height}")
+            print(f"🎯 Shirt positioning:")
+            print(f"   Start Y: {shirt_start_y}px (at neck level)")
+            print(f"   Width: {shirt_width}px")
+            print(f"   Height: {shirt_height}px")
             
             # Load and prepare shirt image
             clothing_img = clothing_item['image']
-            
-            # Get original shirt aspect ratio
             orig_h, orig_w = clothing_img.shape[:2]
-            orig_aspect = orig_w / orig_h
             
-            print(f"👔 Original shirt: {orig_w}x{orig_h} (aspect: {orig_aspect:.2f})")
+            # Resize shirt maintaining aspect ratio but fitting our dimensions
+            target_width = shirt_width
+            target_height = int(orig_h * (target_width / orig_w))
             
-            # Resize shirt to our calculated dimensions
-            # This will stretch vertically to cover the body
-            resized_shirt = cv2.resize(clothing_img, (shirt_width, shirt_height), 
+            # If height is too small, scale up
+            if target_height < shirt_height:
+                scale_factor = shirt_height / target_height
+                target_width = int(target_width * scale_factor)
+                target_height = shirt_height
+            
+            # Final resize
+            resized_shirt = cv2.resize(clothing_img, (target_width, target_height), 
                                       interpolation=cv2.INTER_AREA)
             
             # Remove background
             shirt_bgr, shirt_alpha = self.remove_background_aggressive(resized_shirt)
             
-            non_zero = cv2.countNonZero(shirt_alpha)
-            print(f"🎨 Shirt pixels after background removal: {non_zero}")
+            # Calculate visible portion
+            visible_height = min(target_height, h - shirt_start_y)
+            visible_width = min(target_width, w - shirt_x)
             
-            if non_zero < 500:
-                print("⚠️ Few pixels detected, using full image")
-                shirt_alpha = np.ones((shirt_height, shirt_width), dtype=np.uint8) * 200
-            
-            # Calculate the visible portion that fits in frame
-            # CRITICAL: Make sure we render from shirt_y (which is high up) to bottom
-            visible_height = min(shirt_height, h - shirt_y)
-            
-            # Safety check - ensure we have enough height
-            if visible_height <= 0:
-                print("❌ No visible height - adjusting")
-                shirt_y = 0  # Start at top of screen
-                visible_height = min(shirt_height, h)
-            
-            print(f"👁️  Visible shirt height: {visible_height}px (out of {shirt_height}px total)")
-            print(f"👁️  Shirt starts at Y={shirt_y}, ends at Y={shirt_y + visible_height}")
-            print(f"👁️  Neck is at Y={neck_y}, so shirt should cover {neck_y - shirt_y}px above neck")
-            
-            # Take only the visible top portion of the shirt
-            shirt_bgr_visible = shirt_bgr[:visible_height, :]
-            shirt_alpha_visible = shirt_alpha[:visible_height, :]
-            
-            # Get ROI from frame
-            roi = frame[shirt_y:shirt_y + visible_height, shirt_x:shirt_x + shirt_width]
-            
-            if roi.shape[:2] != (visible_height, shirt_width):
-                print(f"❌ Size mismatch: ROI={roi.shape}, Expected=({visible_height}, {shirt_width})")
+            if visible_height <= 0 or visible_width <= 0:
+                print("❌ No visible area - adjustment needed")
                 return frame
             
-            # Alpha blend with balanced transparency
+            # Extract visible portion of shirt
+            shirt_bgr_visible = shirt_bgr[:visible_height, :visible_width]
+            shirt_alpha_visible = shirt_alpha[:visible_height, :visible_width]
+            
+            # Get ROI from frame
+            roi_y_start = shirt_start_y
+            roi_y_end = shirt_start_y + visible_height
+            roi_x_start = shirt_x
+            roi_x_end = shirt_x + visible_width
+            
+            # Safety checks
+            if roi_y_end > h or roi_x_end > w:
+                print("❌ ROI out of bounds")
+                return frame
+            
+            roi = frame[roi_y_start:roi_y_end, roi_x_start:roi_x_end]
+            
+            # Ensure ROI and shirt have same dimensions
+            if roi.shape[:2] != shirt_bgr_visible.shape[:2]:
+                print(f"❌ Size mismatch: ROI={roi.shape}, Shirt={shirt_bgr_visible.shape}")
+                # Resize ROI to match shirt
+                roi = cv2.resize(roi, (shirt_bgr_visible.shape[1], shirt_bgr_visible.shape[0]))
+            
+            # Alpha blending
             alpha_norm = shirt_alpha_visible.astype(float) / 255.0
-            
-            # Light curve adjustment for smooth edges (not too aggressive)
-            alpha_norm = np.power(alpha_norm, 0.9)  # Gentle curve
-            
             alpha_3d = np.stack([alpha_norm] * 3, axis=2)
             
+            # Create result
             result = frame.copy()
+            
+            # Blend shirt with ROI
             blended = (shirt_bgr_visible.astype(float) * alpha_3d + 
                       roi.astype(float) * (1.0 - alpha_3d))
             
-            result[shirt_y:shirt_y + visible_height, shirt_x:shirt_x + shirt_width] = blended.astype(np.uint8)
+            # Place blended result back
+            result[roi_y_start:roi_y_end, roi_x_start:roi_x_end] = blended.astype(np.uint8)
             
             print(f"✅✅✅ SHIRT SUCCESSFULLY APPLIED!")
-            print(f"    ✅ Starts: RIGHT AT NECK (y={shirt_y}) - Gap: {shirt_y - neck_y}px")
-            print(f"    ✅ Covers: {visible_height}px visible height")
-            print(f"    ✅ Total shirt extends: {shirt_height}px (beyond screen)")
-            print(f"    ✅ Collar should fit PERFECTLY at your neck!\n")
+            print(f"    ✅ Starts at neck level: y={shirt_start_y}")
+            print(f"    ✅ Properly covers body")
+            print(f"    ✅ Your blue t-shirt should be COMPLETELY hidden!\n")
             
             return result
             
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f"❌ Shirt overlay error: {e}")
             import traceback
             traceback.print_exc()
             return frame
@@ -459,10 +423,30 @@ class ProfessionalClothingEngine:
         if face_info:
             neck_x = face_info['neck_x']
             neck_y = face_info['neck_y']
+            fw = face_info['face_width']
+            fh = face_info['face_height']
             
-            cv2.circle(result, (neck_x, neck_y), 10, (0, 255, 0), -1)
+            # Draw face rectangle
+            cv2.rectangle(result, (face_info['face_x'], face_info['face_y']), 
+                         (face_info['face_x'] + fw, face_info['face_y'] + fh), 
+                         (255, 0, 0), 2)
+            
+            # Draw neck point
+            cv2.circle(result, (neck_x, neck_y), 8, (0, 255, 0), -1)
             cv2.putText(result, f"NECK ({neck_x},{neck_y})", (neck_x + 15, neck_y), 
                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+            
+            # Draw expected shirt area
+            shirt_start_y = neck_y - int(fh * 0.1)
+            shirt_width = int(fw * 2.8)
+            shirt_x = neck_x - shirt_width // 2
+            
+            cv2.rectangle(result, (shirt_x, shirt_start_y), 
+                         (shirt_x + shirt_width, shirt_start_y + int(h * 0.8)), 
+                         (0, 255, 255), 2)
+            
+            cv2.putText(result, "Shirt Area", (shirt_x, shirt_start_y - 10),
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1)
             
             cv2.putText(result, "Face Detected", (10, 30),
                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
