@@ -1,5 +1,6 @@
 """
-COMPLETELY FIXED SHIRT OVERLAY - HIDES ORIGINAL T-SHIRT AND COVERS PROPERLY
+SHIRT OVERLAY WITH PROPER SHOULDER COVERAGE
+Wide enough to cover shoulders completely
 """
 
 import cv2
@@ -15,7 +16,7 @@ class ProfessionalClothingEngine:
         
         self.face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
         self.load_clothing_images()
-        print("✅ COMPLETELY FIXED shirt engine ready!")
+        print("✅ Wide shoulder coverage shirt engine ready!")
     
     def load_clothing_images(self):
         clothing_types = ['tshirts', 'shirts', 'blazers', 'ties']
@@ -50,7 +51,7 @@ class ProfessionalClothingEngine:
         # Enhanced face detection
         faces = self.face_cascade.detectMultiScale(
             gray, 
-            scaleFactor=1.05,  # More precise
+            scaleFactor=1.05,
             minNeighbors=8, 
             minSize=(100, 100),
             maxSize=(300, 300)
@@ -79,7 +80,7 @@ class ProfessionalClothingEngine:
         # Fallback with better positioning
         return {
             'neck_x': w // 2,
-            'neck_y': int(h * 0.25),  # Much higher - top quarter
+            'neck_y': int(h * 0.25),
             'face_width': 120,
             'face_height': 120,
             'face_x': w // 2 - 60,
@@ -198,7 +199,7 @@ class ProfessionalClothingEngine:
             print(f"T-shirt error: {e}")
             return frame
     
-    # ============= SHIRT (COMPLETELY FIXED POSITIONING) =============
+    # ============= SHIRT (WIDE SHOULDER COVERAGE) =============
     
     def remove_background_completely(self, img):
         """Complete background removal"""
@@ -240,20 +241,20 @@ class ProfessionalClothingEngine:
             return bgr, shirt_mask
     
     def apply_shirt_overlay(self, frame, clothing_item):
-        """COMPLETELY FIXED: Shirt covers neck, chest, and hides original t-shirt"""
+        """WIDE SHIRT: Covers shoulders completely and fits body properly"""
         try:
             h, w = frame.shape[:2]
-            print(f"\n🎯 APPLYING SHIRT WITH COMPLETE COVERAGE...")
+            print(f"\n🎯 APPLYING WIDE SHIRT FOR SHOULDER COVERAGE...")
             
             # Get precise face/neck position
             face_info = self.detect_face_and_neck(frame)
             
             if not face_info:
-                print("❌ No face - using center positioning")
-                # Center the shirt in the frame
-                shirt_x = w // 4
-                shirt_y = h // 8  # Start high up
-                shirt_width = w // 2
+                print("❌ No face - using full width positioning")
+                # Cover almost entire width for fallback
+                shirt_x = w // 8
+                shirt_y = h // 8
+                shirt_width = w * 3 // 4  # 75% of screen width
                 shirt_height = h * 3 // 4
             else:
                 neck_x = face_info['neck_x']
@@ -264,50 +265,94 @@ class ProfessionalClothingEngine:
                 print(f"✅ Face: {fw}x{fh} at ({face_info['face_x']}, {face_info['face_y']})")
                 print(f"✅ Neck: ({neck_x}, {neck_y})")
                 
-                # CRITICAL FIX: Start shirt HIGHER - at chin/upper chest level
-                # This ensures it covers the neck area completely
-                shirt_y = neck_y - int(fh * 0.3)  # Start 30% above neck (at chin level)
+                # CRITICAL FIX: MUCH WIDER for shoulder coverage
+                # Shoulder width is typically 2.5-3x face width for proper coverage
+                shirt_width = int(fw * 4.0)  # 4x face width for complete shoulder coverage
                 
-                # WIDE coverage for shoulders
-                shirt_width = int(fw * 3.0)
+                # Start high for neck coverage
+                shirt_y = neck_y - int(fh * 0.3)
                 
-                # FULL length to bottom
+                # Full length to bottom
                 shirt_height = h - shirt_y
                 
                 # Center on neck
                 shirt_x = neck_x - shirt_width // 2
                 
-                print(f"📍 Shirt starts at: y={shirt_y} (above neck by {int(fh * 0.3)}px)")
-                print(f"📍 Shirt covers: {shirt_width}x{shirt_height}")
+                print(f"📍 Shoulder calculation:")
+                print(f"   Face width: {fw}px")
+                print(f"   Shirt width: {shirt_width}px (4x face width)")
+                print(f"   This should cover your shoulders completely!")
             
-            # Ensure minimum coverage
-            shirt_width = max(shirt_width, 350)
+            # ENSURE MINIMUM WIDTH FOR SHOULDER COVERAGE
+            min_width = 450  # Minimum width to cover average shoulders
+            if shirt_width < min_width:
+                print(f"🔧 Increasing width from {shirt_width} to {min_width} for shoulder coverage")
+                shirt_width = min_width
+                # Re-center with new width
+                if face_info:
+                    shirt_x = face_info['neck_x'] - shirt_width // 2
+            
+            # Also ensure maximum coverage without going off-screen
+            max_width = w - 20  # Leave small margins
+            if shirt_width > max_width:
+                print(f"🔧 Reducing width from {shirt_width} to {max_width} to fit screen")
+                shirt_width = max_width
+                shirt_x = 10  # Small margin
+            
             shirt_height = max(shirt_height, 500)
-            shirt_y = max(0, shirt_y)  # Don't go above frame
+            shirt_y = max(0, shirt_y)
             
-            # Boundary adjustments
+            # Boundary adjustments - prioritize width for shoulder coverage
             if shirt_x < 0:
-                shirt_width += shirt_x
+                print(f"🔧 Adjusting: shirt_x {shirt_x} -> 0")
                 shirt_x = 0
             if shirt_x + shirt_width > w:
-                shirt_width = w - shirt_x
+                overshoot = (shirt_x + shirt_width) - w
+                new_x = max(0, shirt_x - overshoot)
+                print(f"🔧 Adjusting: shirt_x {shirt_x} -> {new_x} to fit width {shirt_width}")
+                shirt_x = new_x
             
-            print(f"🎯 FINAL POSITION: ({shirt_x}, {shirt_y}) {shirt_width}x{shirt_height}")
+            print(f"🎯 FINAL SHIRT DIMENSIONS:")
+            print(f"   Position: ({shirt_x}, {shirt_y})")
+            print(f"   Size: {shirt_width}x{shirt_height}")
+            print(f"   This should cover your shoulders completely!")
             
-            # Load and resize shirt
+            # Load and resize shirt - MAINTAIN ASPECT RATIO but ensure width
             clothing_img = clothing_item['image']
             orig_h, orig_w = clothing_img.shape[:2]
+            orig_aspect = orig_h / orig_w
             
-            # Resize to cover our area
-            resized_shirt = cv2.resize(clothing_img, (shirt_width, shirt_height), 
+            print(f"👔 Original shirt: {orig_w}x{orig_h} (aspect: {orig_aspect:.2f})")
+            
+            # Calculate height based on width to maintain aspect ratio
+            target_height = int(shirt_width * orig_aspect)
+            
+            # If calculated height is less than needed, we might need to adjust
+            if target_height < shirt_height:
+                # Scale up to ensure minimum height
+                scale_factor = shirt_height / target_height
+                new_width = int(shirt_width * scale_factor)
+                print(f"🔧 Scaling up: {shirt_width} -> {new_width} for height")
+                shirt_width = new_width
+                target_height = shirt_height
+                # Re-center with new width
+                if face_info:
+                    shirt_x = face_info['neck_x'] - shirt_width // 2
+            
+            print(f"🔧 Resizing shirt to: {shirt_width}x{target_height}")
+            
+            resized_shirt = cv2.resize(clothing_img, (shirt_width, target_height), 
                                       interpolation=cv2.INTER_AREA)
             
             # Remove background
             shirt_bgr, shirt_alpha = self.remove_background_completely(resized_shirt)
             
             # Get visible portion
-            visible_height = min(shirt_height, h - shirt_y)
+            visible_height = min(target_height, h - shirt_y)
             visible_width = min(shirt_width, w - shirt_x)
+            
+            print(f"👁️  Visible area: {visible_width}x{visible_height}")
+            print(f"💪 Shoulder coverage: {visible_width}px width")
             
             if visible_height <= 0 or visible_width <= 0:
                 print("❌ No visible area")
@@ -323,7 +368,7 @@ class ProfessionalClothingEngine:
             if roi.shape[:2] != shirt_bgr_visible.shape[:2]:
                 roi = cv2.resize(roi, (shirt_bgr_visible.shape[1], shirt_bgr_visible.shape[0]))
             
-            # COMPLETE background removal during blending
+            # Alpha blending
             alpha_norm = shirt_alpha_visible.astype(float) / 255.0
             
             # Remove any remaining white pixels
@@ -333,31 +378,37 @@ class ProfessionalClothingEngine:
             
             alpha_3d = np.stack([alpha_norm] * 3, axis=2)
             
-            # Apply shirt - COMPLETELY HIDES original t-shirt
+            # Apply shirt
             result = frame.copy()
             
-            # Where shirt has pixels, show shirt; otherwise show original
             blended = np.where(alpha_3d > 0.1, 
                              shirt_bgr_visible.astype(float), 
                              roi.astype(float))
             
             result[shirt_y:shirt_y + visible_height, shirt_x:shirt_x + visible_width] = blended.astype(np.uint8)
             
-            # Draw debug info
+            # Draw shoulder coverage debug info
             if face_info:
-                cv2.circle(result, (face_info['neck_x'], face_info['neck_y']), 6, (0, 255, 0), -1)
-                cv2.rectangle(result, (shirt_x, shirt_y), 
-                            (shirt_x + visible_width, shirt_y + visible_height), 
-                            (0, 255, 255), 2)
-                cv2.putText(result, "SHIRT COVERAGE", (shirt_x, shirt_y - 10),
-                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1)
+                # Draw shoulder points (estimated)
+                shoulder_width = visible_width
+                left_shoulder_x = shirt_x
+                right_shoulder_x = shirt_x + visible_width
+                shoulder_y = shirt_y + visible_height // 4
+                
+                cv2.circle(result, (left_shoulder_x, shoulder_y), 8, (255, 255, 0), -1)
+                cv2.circle(result, (right_shoulder_x, shoulder_y), 8, (255, 255, 0), -1)
+                cv2.line(result, (left_shoulder_x, shoulder_y), (right_shoulder_x, shoulder_y), 
+                        (255, 255, 0), 2)
+                
+                cv2.putText(result, f"SHOULDER COVERAGE: {visible_width}px", 
+                           (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2)
             
-            print(f"✅✅✅ SHIRT SUCCESSFULLY APPLIED!")
-            print(f"    ✅ Starts HIGH at y={shirt_y} (covers neck)")
-            print(f"    ✅ Width: {visible_width}px (covers shoulders)") 
-            print(f"    ✅ Height: {visible_height}px (covers to bottom)")
-            print(f"    ✅ Your blue t-shirt should be COMPLETELY HIDDEN!")
-            print(f"    ✅ No gaps, no visible original t-shirt!\n")
+            print(f"✅✅✅ WIDE SHIRT APPLIED!")
+            print(f"    ✅ Shoulder coverage: {visible_width}px")
+            print(f"    ✅ Starts at neck: y={shirt_y}")
+            print(f"    ✅ Covers to bottom: {visible_height}px")
+            print(f"    ✅ Your shoulders should be COMPLETELY COVERED!")
+            print(f"    ✅ Shirt should fit your body properly!\n")
             
             return result
             
@@ -397,7 +448,7 @@ class ProfessionalClothingEngine:
             return frame
     
     def debug_draw_body_landmarks(self, frame):
-        """Enhanced debug view"""
+        """Enhanced debug view with shoulder markers"""
         result = frame.copy()
         face_info = self.detect_face_and_neck(frame)
         
@@ -411,25 +462,32 @@ class ProfessionalClothingEngine:
             cv2.rectangle(result, (face_info['face_x'], face_info['face_y']), 
                          (face_info['face_x'] + fw, face_info['face_y'] + fh), 
                          (255, 0, 0), 2)
-            cv2.putText(result, "FACE", (face_info['face_x'], face_info['face_y'] - 10),
-                       cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 0), 2)
             
             # Draw neck point
             cv2.circle(result, (neck_x, neck_y), 8, (0, 255, 0), -1)
             cv2.putText(result, f"NECK ({neck_x},{neck_y})", (neck_x + 15, neck_y), 
                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
             
-            # Draw where shirt should start
-            shirt_start_y = neck_y - int(fh * 0.3)
-            cv2.line(result, (0, shirt_start_y), (result.shape[1], shirt_start_y), 
-                    (0, 255, 255), 2)
-            cv2.putText(result, "SHIRT START", (10, shirt_start_y - 10),
-                       cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
+            # Draw shoulder area (estimated)
+            shoulder_width = int(fw * 4.0)
+            left_shoulder = neck_x - shoulder_width // 2
+            right_shoulder = neck_x + shoulder_width // 2
+            shoulder_y = neck_y + int(fh * 0.5)
             
-            cv2.putText(result, "FACE DETECTED - SHIRT SHOULD COVER FROM YELLOW LINE", 
-                       (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+            cv2.circle(result, (left_shoulder, shoulder_y), 6, (255, 255, 0), -1)
+            cv2.circle(result, (right_shoulder, shoulder_y), 6, (255, 255, 0), -1)
+            cv2.line(result, (left_shoulder, shoulder_y), (right_shoulder, shoulder_y), 
+                    (255, 255, 0), 2)
+            
+            cv2.putText(result, "SHOULDERS", (left_shoulder, shoulder_y - 10),
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 0), 1)
+            
+            cv2.putText(result, f"Shoulder width: {shoulder_width}px", 
+                       (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2)
+            cv2.putText(result, "Shirt will cover this entire area", 
+                       (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
         else:
-            cv2.putText(result, "NO FACE DETECTED - USING FALLBACK POSITIONING", 
+            cv2.putText(result, "NO FACE DETECTED", 
                        (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
         
         return result
