@@ -267,13 +267,13 @@ class ProfessionalClothingEngine:
                 
                 # CRITICAL FIX: Start shirt HIGHER - at chin/upper chest level
                 # This ensures it covers the neck area completely
-                shirt_y = neck_y - int(fh * 0.4)  # Start 40% above neck (higher for more length)
+                shirt_y = neck_y - int(fh * 0.3)  # Start 30% above neck (at chin level)
                 
                 # ⭐ INCREASED WIDTH: Changed from 3.0 to 3.6 for better coverage (adds ~1cm each side)
                 shirt_width = int(fw * 3.6)
                 
-                # FULL length to bottom
-                shirt_height = h - shirt_y
+                # FULL length to bottom - extend beyond screen to ensure coverage
+                shirt_height = h - shirt_y + 50  # Add 50 pixels to ensure it reaches bottom
                 
                 # Center on neck
                 shirt_x = neck_x - shirt_width // 2
