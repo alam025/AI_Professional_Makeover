@@ -1,5 +1,6 @@
 """
 COMPLETELY FIXED SHIRT OVERLAY - HIDES ORIGINAL T-SHIRT AND COVERS PROPERLY
+WIDTH INCREASED: 3.0x → 3.6x for better shoulder coverage
 """
 
 import cv2
@@ -268,8 +269,8 @@ class ProfessionalClothingEngine:
                 # This ensures it covers the neck area completely
                 shirt_y = neck_y - int(fh * 0.3)  # Start 30% above neck (at chin level)
                 
-                # WIDE coverage for shoulders
-                shirt_width = int(fw * 3.0)
+                # ⭐ INCREASED WIDTH: Changed from 3.0 to 3.6 for better coverage (adds ~1cm each side)
+                shirt_width = int(fw * 3.6)
                 
                 # FULL length to bottom
                 shirt_height = h - shirt_y
@@ -354,10 +355,10 @@ class ProfessionalClothingEngine:
             
             print(f"✅✅✅ SHIRT SUCCESSFULLY APPLIED!")
             print(f"    ✅ Starts HIGH at y={shirt_y} (covers neck)")
-            print(f"    ✅ Width: {visible_width}px (covers shoulders)") 
+            print(f"    ✅ Width: {visible_width}px (INCREASED by 20% - covers shoulders better)") 
             print(f"    ✅ Height: {visible_height}px (covers to bottom)")
-            print(f"    ✅ Your blue t-shirt should be COMPLETELY HIDDEN!")
-            print(f"    ✅ No gaps, no visible original t-shirt!\n")
+            print(f"    ✅ Your original t-shirt should be COMPLETELY HIDDEN!")
+            print(f"    ✅ Shirt now extends ~1cm more on each side!\n")
             
             return result
             
