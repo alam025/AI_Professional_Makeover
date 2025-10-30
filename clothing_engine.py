@@ -267,7 +267,7 @@ class ProfessionalClothingEngine:
                 
                 # CRITICAL FIX: Start shirt HIGHER - at chin/upper chest level
                 # This ensures it covers the neck area completely
-                shirt_y = neck_y - int(fh * 0.3)  # Start 30% above neck (at chin level)
+                shirt_y = neck_y - int(fh * 0.4)  # Start 40% above neck (higher for more length)
                 
                 # ⭐ INCREASED WIDTH: Changed from 3.0 to 3.6 for better coverage (adds ~1cm each side)
                 shirt_width = int(fw * 3.6)
@@ -344,14 +344,7 @@ class ProfessionalClothingEngine:
             
             result[shirt_y:shirt_y + visible_height, shirt_x:shirt_x + visible_width] = blended.astype(np.uint8)
             
-            # Draw debug info
-            if face_info:
-                cv2.circle(result, (face_info['neck_x'], face_info['neck_y']), 6, (0, 255, 0), -1)
-                cv2.rectangle(result, (shirt_x, shirt_y), 
-                            (shirt_x + visible_width, shirt_y + visible_height), 
-                            (0, 255, 255), 2)
-                cv2.putText(result, "SHIRT COVERAGE", (shirt_x, shirt_y - 10),
-                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1)
+            # Debug info removed - no visible markers on screen
             
             print(f"✅✅✅ SHIRT SUCCESSFULLY APPLIED!")
             print(f"    ✅ Starts HIGH at y={shirt_y} (covers neck)")
