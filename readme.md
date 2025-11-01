@@ -1,19 +1,24 @@
 <div align="center">
 
-![Header](https://capsule-render.vercel.app/api?type=waving&color=0:667EEA,30:764BA2,70:F77F00,100:06A77D&height=300&section=header&text=AI%20MAKEOVER&fontSize=100&fontColor=fff&animation=fadeIn&fontAlignY=38&desc=YOUR%20VIRTUAL%20WARDROBE%20•%20INSTANT%20TRANSFORMATION&descAlignY=55&descAlign=50)
+![Header](https://capsule-render.vercel.app/api?type=waving&color=0:667EEA,30:764BA2,70:F77F00,100:06A77D&height=300&section=header&text=AI%20MAKEOVER&fontSize=100&fontColor=fff&animation=fadeIn&fontAlignY=38&desc=TRANSFORM%20YOUR%20LOOK%20•%20CHANGE%20YOUR%20WORLD&descAlignY=55&descAlign=50)
 
-<img src="https://media.giphy.com/media/l0HlQoJEE4x0SkQFy/giphy.gif" width="600">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Necktie.png" alt="Tie" width="120" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/T-Shirt.png" alt="T-Shirt" width="120" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Coat.png" alt="Coat" width="120" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Womans%20Clothes.png" alt="Dress" width="120" />
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=1500&pause=500&color=667EEA&center=true&vCenter=true&multiline=true&repeat=true&width=1200&height=120&lines=%F0%9F%91%94+CHANGE+OUTFITS+IN+SECONDS+%F0%9F%91%94;%F0%9F%8E%AC+SWAP+BACKGROUNDS+INSTANTLY+%F0%9F%96%BC%EF%B8%8F;%F0%9F%9A%80+NO+API+•+100%25+OFFLINE+%E2%9A%A1;%F0%9F%8E%AF+25-30+FPS+REAL-TIME+%F0%9F%94%A5" alt="Typing SVG" />
+# 🎭 AI PROFESSIONAL MAKEOVER SYSTEM
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=35&duration=1500&pause=500&color=667EEA&center=true&vCenter=true&multiline=true&repeat=true&width=1200&height=100&lines=%F0%9F%91%94+CHANGE+CLOTHES+WITHOUT+CHANGING+%F0%9F%91%94;%F0%9F%8E%AC+SWAP+BACKGROUNDS+INSTANTLY+%F0%9F%96%BC%EF%B8%8F;%E2%9A%A1+NO+API+%E2%80%A2+100%25+OFFLINE+%E2%9A%A1;%F0%9F%94%A5+25-30+FPS+REAL-TIME+%F0%9F%94%A5" alt="Typing SVG" />
 
 <br/>
 
-[![Python](https://img.shields.io/badge/Python_3.8+-667EEA?style=for-the-badge&logo=python&logoColor=white&labelColor=000000)](https://python.org)
-[![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white&labelColor=000000)](https://opencv.org)
-[![MediaPipe](https://img.shields.io/badge/MediaPipe-00C853?style=for-the-badge&logo=google&logoColor=white&labelColor=000000)](https://mediapipe.dev)
-[![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white&labelColor=000000)](https://numpy.org)
-[![Status](https://img.shields.io/badge/STATUS-PRODUCTION_READY-06A77D?style=for-the-badge&labelColor=000000)](https://github.com)
-[![90 Days](https://img.shields.io/badge/90_DAYS-BUILT_WITH_%E2%9D%A4%EF%B8%8F-F77F00?style=for-the-badge&labelColor=000000)](https://github.com)
+[![Python](https://img.shields.io/badge/Python_3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)](https://opencv.org)
+[![MediaPipe](https://img.shields.io/badge/MediaPipe-00C853?style=for-the-badge&logo=google&logoColor=white)](https://mediapipe.dev)
+[![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org)
+[![Status](https://img.shields.io/badge/STATUS-PRODUCTION_READY-success?style=for-the-badge)](https://github.com)
+[![License](https://img.shields.io/badge/LICENSE-MIT-blue?style=for-the-badge)](LICENSE)
 
 <br/>
 
@@ -25,9 +30,9 @@
 
 <div align="center">
 
-## 💡 THE PROBLEM WE ALL FACE
+## 💡 THE PROBLEM WE ALL FACE DAILY
 
-<img src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif" width="500">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Worried%20Face.png" width="100"/>
 
 </div>
 
@@ -39,64 +44,85 @@
 <tr>
 <td width="50%" align="center">
 
-### 😰 BEFORE: THE DAILY CHAOS
+### 😰 BEFORE: THE DAILY STRUGGLE
 
-<img src="https://media.giphy.com/media/3o6Zt6ML6BklcajjsA/giphy.gif" width="250">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Anxious%20Face%20with%20Sweat.png" width="150"/>
 
 <br/><br/>
 
-**9:00 AM** - Board meeting with CEO  
-*Rush to change formal shirt* ⏰  
+**9:00 AM** ☕ - Board Meeting  
+*"Oh no! Need formal shirt!"*  
+🏃 **Run to change** → 5 minutes
 
-**10:30 AM** - Team standup (casual)  
-*Quick! Change to t-shirt* 👕  
+**10:30 AM** 💻 - Team Standup  
+*"Too formal, need casual t-shirt!"*  
+🏃 **Run to change** → 5 minutes
 
-**2:00 PM** - Client presentation  
-*Back to professional look* 💼  
+**2:00 PM** 📊 - Client Presentation  
+*"Back to professional! Where's my blazer?"*  
+🏃 **Run to change** → 5 minutes  
+💄 **Fix hair & look** → 3 minutes
 
-**4:00 PM** - Family video call  
-*Comfortable home attire* 🏠  
+**4:00 PM** 🏠 - Family Video Call  
+*"Comfortable clothes please!"*  
+🏃 **Run to change** → 3 minutes
 
-**6:00 PM** - Friend's party call  
-*Fun outfit time!* 🎉
+**6:00 PM** 🎉 - Friend's Virtual Party  
+*"Party outfit time!"*  
+🏃 **Run to change** → 5 minutes
 
 <br/>
 
-<img src="https://img.shields.io/badge/⏱️-30_MIN_WASTED-E63946?style=for-the-badge&labelColor=000000"/>
-<img src="https://img.shields.io/badge/👔-5+_OUTFIT_CHANGES-F77F00?style=for-the-badge&labelColor=000000"/>
-<img src="https://img.shields.io/badge/💸-EXPENSIVE_WARDROBE-667EEA?style=for-the-badge&labelColor=000000"/>
-<img src="https://img.shields.io/badge/😓-MESSY_BACKGROUND-06A77D?style=for-the-badge&labelColor=000000"/>
+<img src="https://img.shields.io/badge/⏱️_TIME_WASTED-26_MINUTES-E74C3C?style=for-the-badge&labelColor=2C3E50"/>
+
+<img src="https://img.shields.io/badge/👔_OUTFIT_CHANGES-5_TIMES-E67E22?style=for-the-badge&labelColor=2C3E50"/>
+
+<img src="https://img.shields.io/badge/💸_WARDROBE_COST-$$$$$-F39C12?style=for-the-badge&labelColor=2C3E50"/>
+
+<img src="https://img.shields.io/badge/😓_STRESS_LEVEL-MAXIMUM-C0392B?style=for-the-badge&labelColor=2C3E50"/>
+
+<img src="https://img.shields.io/badge/🏠_MESSY_BACKGROUND-UNPROFESSIONAL-95A5A6?style=for-the-badge&labelColor=2C3E50"/>
 
 </td>
 <td width="50%" align="center">
 
 ### ✨ AFTER: AI MAKEOVER MAGIC
 
-<img src="https://media.giphy.com/media/xT0xeMA62E1XIlup68/giphy.gif" width="250">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Star-Struck.png" width="150"/>
 
 <br/><br/>
 
-**9:00 AM** - *Click* → Formal shirt + Office  
-✨ **Ready in 2 seconds**  
+**9:00 AM** ☕ - Board Meeting  
+*Point finger → Formal shirt + Office*  
+⚡ **Instant!** → 2 seconds
 
-**10:30 AM** - *Click* → Cool t-shirt + Modern  
-✨ **Instant transformation**  
+**10:30 AM** 💻 - Team Standup  
+*Point finger → Cool t-shirt + Modern*  
+⚡ **Done!** → 2 seconds
 
-**2:00 PM** - *Click* → Blazer + Conference  
-✨ **Professional perfection**  
+**2:00 PM** 📊 - Client Presentation  
+*Point finger → Blazer + Conference*  
+⚡ **Perfect!** → 2 seconds
 
-**4:00 PM** - *Click* → Casual + Home  
-✨ **Comfortable & natural**  
+**4:00 PM** 🏠 - Family Video Call  
+*Point finger → Casual + Home*  
+⚡ **Ready!** → 2 seconds
 
-**6:00 PM** - *Click* → Party look + Fun BG  
-✨ **Always party-ready!**
+**6:00 PM** 🎉 - Friend's Virtual Party  
+*Point finger → Party look + Fun BG*  
+⚡ **Let's go!** → 2 seconds
 
 <br/>
 
-<img src="https://img.shields.io/badge/⚡-0_SECONDS-06A77D?style=for-the-badge&labelColor=000000"/>
-<img src="https://img.shields.io/badge/👆-GESTURE_CONTROL-667EEA?style=for-the-badge&labelColor=000000"/>
-<img src="https://img.shields.io/badge/💰-ZERO_COST-F77F00?style=for-the-badge&labelColor=000000"/>
-<img src="https://img.shields.io/badge/🎬-8+_BACKGROUNDS-E63946?style=for-the-badge&labelColor=000000"/>
+<img src="https://img.shields.io/badge/⚡_TIME_SAVED-10_SECONDS_TOTAL-27AE60?style=for-the-badge&labelColor=2C3E50"/>
+
+<img src="https://img.shields.io/badge/👆_GESTURE_CONTROL-MAGIC_TOUCH-3498DB?style=for-the-badge&labelColor=2C3E50"/>
+
+<img src="https://img.shields.io/badge/💰_WARDROBE_COST-$0-27AE60?style=for-the-badge&labelColor=2C3E50"/>
+
+<img src="https://img.shields.io/badge/😎_STRESS_LEVEL-ZERO-1ABC9C?style=for-the-badge&labelColor=2C3E50"/>
+
+<img src="https://img.shields.io/badge/🎬_ALWAYS_READY-PROFESSIONAL-9B59B6?style=for-the-badge&labelColor=2C3E50"/>
 
 </td>
 </tr>
@@ -104,17 +130,33 @@
 
 </div>
 
+<br/>
+
+<div align="center">
+
+### 💡 THE TRANSFORMATION
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Down.png" width="80"/>
+
+**26 MINUTES → 10 SECONDS**
+
+**5 CHANGES → 0 CHANGES**
+
+**HIGH STRESS → ZERO STRESS**
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Sparkles.png" width="80"/>
+
+</div>
+
 ---
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
+## 🎬 WATCH THE MAGIC IN ACTION
 
-## 🎬 WATCH THE MAGIC HAPPEN
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Camera%20with%20Flash.png" width="120"/>
 
-<img src="https://media.giphy.com/media/3oKIPlifLxdigaD2Y8/giphy.gif" width="600">
-
-### 🎯 ONE SYSTEM • INFINITE POSSIBILITIES
+### SEE HOW IT WORKS • REAL DEMO
 
 </div>
 
@@ -125,36 +167,36 @@
 <table>
 <tr>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="120"/><br/><br/>
-<img src="https://img.shields.io/badge/VIRTUAL-WARDROBE-667EEA?style=for-the-badge&logo=openwrt&logoColor=white&labelColor=000000"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Desktop%20Computer.png" width="100"/><br/><br/>
+<img src="https://img.shields.io/badge/STEP_1-LAUNCH_APP-667EEA?style=for-the-badge&labelColor=000000"/>
 <br/><br/>
-**T-Shirt Swap**  
-**HSV Color Magic**  
-**Blazer Overlay**
+Run `python main.py`<br/>
+Camera starts<br/>
+System calibrates
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="120"/><br/><br/>
-<img src="https://img.shields.io/badge/INSTANT-BACKGROUNDS-06A77D?style=for-the-badge&logo=windows&logoColor=white&labelColor=000000"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Index%20Pointing%20Up.png" width="100"/><br/><br/>
+<img src="https://img.shields.io/badge/STEP_2-POINT_FINGER-06A77D?style=for-the-badge&labelColor=000000"/>
 <br/><br/>
-**Office • Conference**  
-**Home • Library**  
-**8+ Professional**
+Point at menu<br/>
+Gesture detected<br/>
+UI highlights
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif" width="120"/><br/><br/>
-<img src="https://img.shields.io/badge/GESTURE-CONTROL-F77F00?style=for-the-badge&logo=googlemaps&logoColor=white&labelColor=000000"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Timer%20Clock.png" width="100"/><br/><br/>
+<img src="https://img.shields.io/badge/STEP_3-HOLD_1.5s-F77F00?style=for-the-badge&labelColor=000000"/>
 <br/><br/>
-**Point & Select**  
-**1.5s Hold**  
-**Magic Hands!**
+Stay still<br/>
+Timer fills<br/>
+Selection made
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="120"/><br/><br/>
-<img src="https://img.shields.io/badge/REAL--TIME-25--30_FPS-E63946?style=for-the-badge&logo=speedtest&logoColor=white&labelColor=000000"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Sparkles.png" width="100"/><br/><br/>
+<img src="https://img.shields.io/badge/STEP_4-TRANSFORMED!-E63946?style=for-the-badge&labelColor=000000"/>
 <br/><br/>
-**Smooth as Butter**  
-**No Lag**  
-**Production Ready**
+Instant change<br/>
+New look applied<br/>
+Ready for meeting!
 </td>
 </tr>
 </table>
@@ -165,13 +207,11 @@
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif" width="100">
-
 ## 🎨 DUAL-MODE CLOTHING SYSTEM
 
-<img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif" width="500">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Artist%20Palette.png" width="120"/>
 
-### THE SECRET SAUCE 🔥
+### THE SECRET SAUCE THAT MAKES IT WORK 🔥
 
 </div>
 
@@ -183,60 +223,82 @@
 <tr>
 <td align="center" width="50%">
 
-### 🎨 MODE 1: T-SHIRT TRANSFORMATION
+### 🎨 MODE 1: T-SHIRT COLOR SWAP
 
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="300">
-
-<br/><br/>
-
-<img src="https://img.shields.io/badge/HSV_COLOR-MAGIC-667EEA?style=for-the-badge&logo=adobe&logoColor=white&labelColor=000000"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/T-Shirt.png" width="150"/>
 
 <br/><br/>
 
-**🔬 THE SCIENCE**
+<img src="https://img.shields.io/badge/HSV_COLOR_SPACE-MAGIC-667EEA?style=for-the-badge&logo=adobe&logoColor=white&labelColor=000000"/>
+
+<br/><br/>
+
+**🔬 THE TECHNOLOGY**
+
+Wear ANY color t-shirt, change to ANY color!
 
 ```python
-# HSV color space transformation
+# Convert to HSV color space
 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 h, s, v = cv2.split(hsv)
 
 # Smart color replacement
+# Changes ONLY the clothing color
 h[clothing_mask] = target_hue
 s[clothing_mask] = s[clothing_mask] * 1.3
 
-# Result: Natural + Fast (8ms)
+# Result: Natural + Lightning Fast
 ```
 
 <br/>
 
-**✨ WHY IT'S AMAZING**
+**✨ MAGIC FEATURES**
 
 <table>
 <tr>
-<td>✅ **Keeps Shadows**</td>
+<td>✅ **Preserves Shadows**</td>
 <td>✅ **Natural Lighting**</td>
 </tr>
 <tr>
-<td>✅ **Texture Preserved**</td>
-<td>✅ **Real-Time 8ms**</td>
+<td>✅ **Keeps Texture**</td>
+<td>✅ **Real Wrinkles**</td>
 </tr>
 <tr>
 <td>✅ **Any Color**</td>
 <td>✅ **Smooth Blend**</td>
 </tr>
+<tr>
+<td>✅ **8ms Speed**</td>
+<td>✅ **Real-Time**</td>
+</tr>
 </table>
 
 <br/>
 
-<img src="https://progress-bar.dev/100/?title=Performance&width=400&color=667eea"/>
-<img src="https://progress-bar.dev/100/?title=Quality&width=400&color=06a77d"/>
+<img src="https://progress-bar.dev/100/?title=Speed&width=400&color=667eea"/>
+<img src="https://progress-bar.dev/100/?title=Natural_Look&width=400&color=06a77d"/>
+<img src="https://progress-bar.dev/100/?title=Quality&width=400&color=f77f00"/>
+
+<br/>
+
+**🎨 Available Colors**
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Red%20Circle.png" width="40"/> Red
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Blue%20Circle.png" width="40"/> Blue
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Green%20Circle.png" width="40"/> Green
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Yellow%20Circle.png" width="40"/> Yellow
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Purple%20Circle.png" width="40"/> Purple
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Orange%20Circle.png" width="40"/> Orange
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Brown%20Circle.png" width="40"/> Brown
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Black%20Circle.png" width="40"/> Black
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/White%20Circle.png" width="40"/> White
 
 </td>
 <td align="center" width="50%">
 
-### 👔 MODE 2: FORMAL SHIRT + BLAZER
+### 👔 MODE 2: SHIRT + BLAZER OVERLAY
 
-<img src="https://user-images.githubusercontent.com/74038190/229223156-143a1f73-bbd7-4878-83f6-762195b8d4d8.gif" width="300">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Necktie.png" width="150"/>
 
 <br/><br/>
 
@@ -246,37 +308,43 @@ s[clothing_mask] = s[clothing_mask] * 1.3
 
 **🎯 THE TECHNIQUE**
 
+Wear casual? Instantly add formal shirt + blazer!
+
 ```python
-# 4-method background removal
-shirt_png = remove_bg_ultra(image)
+# Ultra-clean background removal
+shirt_png = remove_background_4_methods(image)
 alpha = shirt_png[:,:,3] / 255.0
 
-# Photorealistic blending
+# Photorealistic alpha blending
 foreground = shirt_png[:,:,:3]
-background = original_frame
+background = your_camera_frame
 
-result = (foreground * alpha + 
-          background * (1-alpha))
+result = (foreground * alpha[:,:,np.newaxis] + 
+          background * (1-alpha[:,:,np.newaxis]))
 
-# Result: Perfect + Professional (20ms)
+# Result: Professional + Realistic
 ```
 
 <br/>
 
-**🔥 THE EDGE**
+**🔥 KILLER FEATURES**
 
 <table>
 <tr>
 <td>✅ **Real Fabric**</td>
-<td>✅ **Ultra Realistic**</td>
+<td>✅ **Actual Textures**</td>
 </tr>
 <tr>
-<td>✅ **Blazer Support**</td>
-<td>✅ **Professional Look**</td>
+<td>✅ **Add Blazer**</td>
+<td>✅ **Professional**</td>
 </tr>
 <tr>
-<td>✅ **4 Removal Methods**</td>
-<td>✅ **99.5% Accuracy**</td>
+<td>✅ **Layer System**</td>
+<td>✅ **Combine Outfits**</td>
+</tr>
+<tr>
+<td>✅ **20ms Speed**</td>
+<td>✅ **Smooth**</td>
 </tr>
 </table>
 
@@ -284,6 +352,19 @@ result = (foreground * alpha +
 
 <img src="https://progress-bar.dev/100/?title=Realism&width=400&color=f77f00"/>
 <img src="https://progress-bar.dev/99/?title=Accuracy&width=400&color=e63946"/>
+<img src="https://progress-bar.dev/100/?title=Professional&width=400&color=667eea"/>
+
+<br/>
+
+**👔 Available Styles**
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Coat.png" width="40"/> Blazer Black
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Coat.png" width="40"/> Blazer Navy
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Necktie.png" width="40"/> White Shirt
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Necktie.png" width="40"/> Blue Shirt
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Necktie.png" width="40"/> Pink Shirt
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Womans%20Clothes.png" width="40"/> Women's Formal
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Dress.png" width="40"/> Dress Options
 
 </td>
 </tr>
@@ -291,17 +372,58 @@ result = (foreground * alpha +
 
 </div>
 
+<br/>
+
+<div align="center">
+
+### 🎨 THE 4-METHOD BACKGROUND REMOVAL
+
+**The secret to perfect clothing overlay!**
+
+<table>
+<tr>
+<td align="center" width="25%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Artist%20Palette.png" width="80"/><br/><br/>
+**METHOD 1**<br/>
+HSV Detection<br/>
+Color Space Analysis
+</td>
+<td align="center" width="25%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Light%20Bulb.png" width="80"/><br/><br/>
+**METHOD 2**<br/>
+RGB Threshold<br/>
+Brightness Analysis
+</td>
+<td align="center" width="25%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Magnifying%20Glass%20Tilted%20Left.png" width="80"/><br/><br/>
+**METHOD 3**<br/>
+Grayscale<br/>
+Intensity Mapping
+</td>
+<td align="center" width="25%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Sparkles.png" width="80"/><br/><br/>
+**METHOD 4**<br/>
+Canny Edge<br/>
+Precise Capture
+</td>
+</tr>
+</table>
+
+**🔥 ALL 4 COMBINED = 99.5% ACCURACY**
+
+<img src="https://progress-bar.dev/99/?scale=100&title=Background_Removal_Accuracy&width=700&color=06a77d&suffix=%20%E2%9C%A8"/>
+
+</div>
+
 ---
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
+## 🖼️ PROFESSIONAL BACKGROUNDS
 
-## 🖼️ BACKGROUND MAGIC
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Frame%20with%20Picture.png" width="120"/>
 
-<img src="https://media.giphy.com/media/3o7TKTDn976rzVgky4/giphy.gif" width="500">
-
-### 8+ PROFESSIONAL BACKGROUNDS • INSTANT SWAP
+### 8+ STUNNING BACKGROUNDS • INSTANT SWAP • PERFECT BLEND
 
 </div>
 
@@ -312,140 +434,81 @@ result = (foreground * alpha +
 <table>
 <tr>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="150"/><br/><br/>
-<img src="https://img.shields.io/badge/OFFICE-MODERN-667EEA?style=for-the-badge&labelColor=000000"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Office%20Building.png" width="100"/><br/><br/>
+<img src="https://img.shields.io/badge/MODERN-OFFICE-667EEA?style=for-the-badge&labelColor=000000"/>
 <br/><br/>
-Professional Workspace  
-Glass Walls  
-Corporate Vibe
+Glass walls<br/>
+Contemporary workspace<br/>
+Professional vibe<br/>
+**Perfect for:** Board meetings
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="150"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Cityscape.png" width="100"/><br/><br/>
 <img src="https://img.shields.io/badge/CONFERENCE-ROOM-06A77D?style=for-the-badge&labelColor=000000"/>
 <br/><br/>
-Meeting Space  
-Executive Look  
-Board Ready
+Meeting space<br/>
+Executive look<br/>
+Board table<br/>
+**Perfect for:** Presentations
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="150"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/House.png" width="100"/><br/><br/>
 <img src="https://img.shields.io/badge/HOME-OFFICE-F77F00?style=for-the-badge&labelColor=000000"/>
 <br/><br/>
-Comfortable  
-Professional  
-Work from Home
+Comfortable yet pro<br/>
+Work from home<br/>
+Bookshelf backdrop<br/>
+**Perfect for:** Daily standups
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="150"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Books.png" width="100"/><br/><br/>
 <img src="https://img.shields.io/badge/LIBRARY-ACADEMIC-E63946?style=for-the-badge&labelColor=000000"/>
 <br/><br/>
-Scholarly  
-Bookshelf  
-Intellectual Vibe
+Scholarly atmosphere<br/>
+Book-lined walls<br/>
+Intellectual vibe<br/>
+**Perfect for:** Teaching
 </td>
 </tr>
 <tr>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/229223156-143a1f73-bbd7-4878-83f6-762195b8d4d8.gif" width="150"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Sunset.png" width="100"/><br/><br/>
 <img src="https://img.shields.io/badge/CITY-SKYLINE-667EEA?style=for-the-badge&labelColor=000000"/>
 <br/><br/>
-Urban View  
-Sunset Glow  
-Stunning Vista
+Urban panorama<br/>
+Sunset glow<br/>
+Inspiring vista<br/>
+**Perfect for:** Motivation talks
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="150"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/White%20Large%20Square.png" width="100"/><br/><br/>
 <img src="https://img.shields.io/badge/MINIMALIST-CLEAN-06A77D?style=for-the-badge&labelColor=000000"/>
 <br/><br/>
-Pure White  
-Simple Elegance  
-Focus on You
+Pure white<br/>
+Simple elegance<br/>
+Focus on you<br/>
+**Perfect for:** Interviews
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="150"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" width="100"/><br/><br/>
 <img src="https://img.shields.io/badge/TECH-STARTUP-F77F00?style=for-the-badge&labelColor=000000"/>
 <br/><br/>
-Modern Setup  
-Laptop View  
-Innovation Hub
+Modern setup<br/>
+Tech workspace<br/>
+Innovation hub<br/>
+**Perfect for:** Dev meetings
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="150"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Chart%20Increasing.png" width="100"/><br/><br/>
 <img src="https://img.shields.io/badge/BOARDROOM-EXECUTIVE-E63946?style=for-the-badge&labelColor=000000"/>
 <br/><br/>
-Leadership  
-C-Suite Ready  
-Power Presence
+C-suite ready<br/>
+Leadership presence<br/>
+Power background<br/>
+**Perfect for:** Investor calls
 </td>
 </tr>
 </table>
-
-</div>
-
-<br/>
-
-<div align="center">
-
-### 🎯 THE 4-METHOD BACKGROUND REMOVAL SYSTEM
-
-<img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" width="400">
-
-<br/><br/>
-
-<table>
-<tr>
-<td align="center" width="25%">
-
-**METHOD 1**
-
-<img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="80"/>
-
-**HSV Detection**  
-Hue-Saturation-Value  
-Color Space Magic
-
-</td>
-<td align="center" width="25%">
-
-**METHOD 2**
-
-<img src="https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif" width="80"/>
-
-**RGB Threshold**  
-Multi-channel  
-Brightness Analysis
-
-</td>
-<td align="center" width="25%">
-
-**METHOD 3**
-
-<img src="https://user-images.githubusercontent.com/74038190/212257460-738ff738-247f-4445-a718-cdd0ca76e2db.gif" width="80"/>
-
-**Grayscale**  
-Intensity Mapping  
-Simple Yet Effective
-
-</td>
-<td align="center" width="25%">
-
-**METHOD 4**
-
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="80"/>
-
-**Edge Detection**  
-Canny Algorithm  
-Precise Capture
-
-</td>
-</tr>
-</table>
-
-<br/>
-
-**🔥 ALL 4 COMBINED = PERFECTION**
-
-<img src="https://progress-bar.dev/99/?scale=100&title=Background%20Removal%20Accuracy&width=700&color=06a77d&suffix=%20%E2%9C%A8"/>
 
 </div>
 
@@ -453,13 +516,11 @@ Precise Capture
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
+## 👆 GESTURE CONTROL - NO MOUSE, NO KEYBOARD!
 
-## 👆 GESTURE CONTROL - NO MOUSE NEEDED!
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" width="120"/>
 
-<img src="https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif" width="500">
-
-### POINT • HOVER • HOLD • MAGIC! ✨
+### JUST POINT YOUR FINGER & MAGIC HAPPENS ✨
 
 </div>
 
@@ -470,17 +531,17 @@ Precise Capture
 ```mermaid
 %%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#667EEA','secondaryColor':'#06A77D','tertiaryColor':'#F77F00','lineColor':'#667EEA','fontSize':'20px','fontFamily':'Arial'}}}%%
 stateDiagram-v2
-    [*] --> Calibrating: System Start
-    Calibrating --> Ready: 30 Frames (1 sec)
+    [*] --> Calibrating: 🎥 System Start
+    Calibrating --> Ready: ⏱️ 30 Frames (1 sec)
     Ready --> Pointing: ☝️ Finger Detected
-    Pointing --> Hovering: Over Popup Button
-    Hovering --> Holding: Stay Still
-    Holding --> Selected: ⏱️ 1.5 Seconds
-    Selected --> Applied: ✨ Magic Happens!
-    Applied --> [*]: Choice Confirmed
+    Pointing --> Hovering: 🎯 Over Menu Option
+    Hovering --> Holding: 🖐️ Stay Still
+    Holding --> Selected: ⏰ 1.5 Seconds Hold
+    Selected --> Applied: ✨ Magic Applied!
+    Applied --> Ready: 🔄 Ready for Next
     
-    Pointing --> Ready: Hand Removed
-    Hovering --> Ready: Move Away
+    Pointing --> Ready: ❌ Hand Removed
+    Hovering --> Pointing: 🔙 Moved Away
 ```
 
 </div>
@@ -495,13 +556,14 @@ stateDiagram-v2
 
 ### 1️⃣ CALIBRATE
 
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="100"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" width="100"/>
 
 <br/><br/>
 
-**1 Second**  
-System learns  
-Your hand
+**30 Frames**<br/>
+1 Second<br/>
+System learns<br/>
+Your hand position
 
 <br/>
 
@@ -512,13 +574,14 @@ Your hand
 
 ### 2️⃣ POINT
 
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="100"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Index%20Pointing%20Up.png" width="100"/>
 
 <br/><br/>
 
-**Index Finger**  
-21 Landmarks  
-MediaPipe Hands
+**Index Finger**<br/>
+MediaPipe AI<br/>
+21 Landmarks<br/>
+Tracked in real-time
 
 <br/>
 
@@ -529,12 +592,13 @@ MediaPipe Hands
 
 ### 3️⃣ HOVER
 
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="100"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Eye.png" width="100"/>
 
 <br/><br/>
 
-**Visual Feedback**  
-Color Highlight  
+**Visual Feedback**<br/>
+Button highlights<br/>
+Color changes<br/>
 You're on target!
 
 <br/>
@@ -546,13 +610,14 @@ You're on target!
 
 ### 4️⃣ HOLD
 
-<img src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif" width="100"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Timer%20Clock.png" width="100"/>
 
 <br/><br/>
 
-**1.5 Seconds**  
-Progress Circle  
-0% → 100%
+**1.5 Seconds**<br/>
+Progress circle<br/>
+Fills 0% → 100%<br/>
+Stay steady!
 
 <br/>
 
@@ -561,15 +626,16 @@ Progress Circle
 </td>
 <td align="center" width="20%">
 
-### 5️⃣ DONE!
+### 5️⃣ SELECTED!
 
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Party%20Popper.png" width="100"/>
 
 <br/><br/>
 
-**Applied!**  
-Animation  
-Sound Effect
+**BOOM! 💥**<br/>
+Applied instantly<br/>
+Visual animation<br/>
+You're transformed!
 
 <br/>
 
@@ -585,11 +651,11 @@ Sound Effect
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
-
 ## 🎬 COMPLETE WORKFLOW
 
-<img src="https://media.giphy.com/media/3o7qDSOvfaCO9b3MlO/giphy.gif" width="500">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Clapper%20Board.png" width="120"/>
+
+### FROM CAMERA TO MEETING - THE FULL PIPELINE
 
 </div>
 
@@ -598,26 +664,31 @@ Sound Effect
 ```mermaid
 %%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#667EEA','secondaryColor':'#F77F00','tertiaryColor':'#06A77D','lineColor':'#667EEA','fontSize':'18px'}}}%%
 graph TB
-    A[📹 WEBCAM<br/>1280x720 HD] --> B{🤖 AI ENGINE}
+    A[📹 WEBCAM<br/>1280x720 HD] --> B{🤖 AI DETECTION<br/>ENGINE}
     
     B --> C[👤 FACE<br/>Haar Cascade]
     B --> D[👆 HANDS<br/>MediaPipe 21]
     B --> E[🎯 PERSON<br/>Segmentation]
     
-    C --> F[🎨 PROCESSING<br/>CORE]
+    C --> F[🎨 PROCESSING<br/>CORE ENGINE]
     D --> F
     E --> F
     
     F --> G[🖼️ BACKGROUND<br/>8+ Options]
     F --> H[👔 CLOTHING<br/>Dual Mode]
-    F --> I[💫 UI RENDER<br/>Beautiful]
+    F --> I[💫 UI<br/>Overlays]
     
-    G --> J[✨ OUTPUT<br/>25-30 FPS]
+    G --> J[✨ COMPOSITE<br/>OUTPUT]
     H --> J
     I --> J
     
-    J --> K[📺 OBS STUDIO<br/>Virtual Cam]
-    K --> L[🎬 ANY MEETING<br/>Zoom • Teams • Meet]
+    J --> K[🎥 25-30 FPS<br/>Real-Time]
+    
+    K --> L[📺 OBS STUDIO<br/>Virtual Camera]
+    L --> M[💻 ZOOM]
+    L --> N[👔 TEAMS]
+    L --> O[📞 GOOGLE MEET]
+    L --> P[💬 ANY MEETING!]
     
     style A fill:#667EEA,stroke:#fff,stroke-width:4px,color:#fff
     style B fill:#F77F00,stroke:#fff,stroke-width:4px,color:#fff
@@ -631,11 +702,9 @@ graph TB
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif" width="100">
-
 ## ⚡ PERFORMANCE BEAST
 
-<img src="https://media.giphy.com/media/xT0xeuOy2Fcl9vDGiA/giphy.gif" width="500">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/High%20Voltage.png" width="120"/>
 
 ### SMOOTH • FAST • PRODUCTION READY
 
@@ -651,63 +720,73 @@ graph TB
 
 ### 📊 PROCESSING BREAKDOWN
 
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="200"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" width="120"/>
 
 <br/><br/>
 
 <img src="https://progress-bar.dev/8/?scale=60&title=👤%20Face%20Detection%205ms&width=450&color=667eea&suffix=" /><br/>
 <img src="https://progress-bar.dev/25/?scale=60&title=🖼️%20Background%20Replace%2015ms&width=450&color=06a77d&suffix=" /><br/>
 <img src="https://progress-bar.dev/33/?scale=60&title=👔%20Clothing%20Overlay%2020ms&width=450&color=f77f00&suffix=" /><br/>
-<img src="https://progress-bar.dev/17/?scale=60&title=👆%20Gesture%20Track%2010ms&width=450&color=e63946&suffix=" /><br/>
-<img src="https://progress-bar.dev/17/?scale=60&title=💫%20UI%20Render%2010ms&width=450&color=667eea&suffix=" /><br/>
+<img src="https://progress-bar.dev/17/?scale=60&title=👆%20Gesture%20Tracking%2010ms&width=450&color=e63946&suffix=" /><br/>
+<img src="https://progress-bar.dev/17/?scale=60&title=💫%20UI%20Rendering%2010ms&width=450&color=667eea&suffix=" /><br/>
 
 <br/>
 
 **⚡ TOTAL: ~60ms per frame**
 
-<img src="https://img.shields.io/badge/EQUALS-25--30_FPS-06A77D?style=for-the-badge&logo=speedtest&logoColor=white&labelColor=000000"/>
+<img src="https://img.shields.io/badge/RESULT-25--30_FPS-06A77D?style=for-the-badge&logo=speedtest&logoColor=white&labelColor=000000"/>
+
+<br/>
+
+**That's smoother than most webcams!**
 
 </td>
 <td align="center" width="50%">
 
 ### 🚀 OPTIMIZATION SECRETS
 
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="200"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Rocket.png" width="120"/>
 
 <br/><br/>
 
 <table>
 <tr>
 <td align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="80"/><br/><br/>
-<img src="https://img.shields.io/badge/FRAME-CACHING-667EEA?style=for-the-badge&labelColor=000000"/><br/>
-**-40% CPU Usage**
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Floppy%20Disk.png" width="80"/><br/><br/>
+<img src="https://img.shields.io/badge/FRAME-CACHING-667EEA?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+Stores previous frames<br/>
+**-40% CPU usage**
 </td>
 <td align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="80"/><br/><br/>
-<img src="https://img.shields.io/badge/SMART-PROCESSING-06A77D?style=for-the-badge&labelColor=000000"/><br/>
-**Every 2nd Frame**
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Brain.png" width="80"/><br/><br/>
+<img src="https://img.shields.io/badge/SMART-PROCESSING-06A77D?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+Process every 2nd frame<br/>
+**Double the speed**
 </td>
 </tr>
 <tr>
 <td align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="80"/><br/><br/>
-<img src="https://img.shields.io/badge/NUMPY-VECTORIZED-F77F00?style=for-the-badge&labelColor=000000"/><br/>
-**Blazing Fast Math**
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Abacus.png" width="80"/><br/><br/>
+<img src="https://img.shields.io/badge/NUMPY-VECTORIZED-F77F00?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+Matrix operations<br/>
+**10x faster math**
 </td>
 <td align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="80"/><br/><br/>
-<img src="https://img.shields.io/badge/FIXED-RESOLUTION-E63946?style=for-the-badge&labelColor=000000"/><br/>
-**1280x720 Optimized**
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Desktop%20Computer.png" width="80"/><br/><br/>
+<img src="https://img.shields.io/badge/FIXED-RESOLUTION-E63946?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+1280x720 optimized<br/>
+**Perfect balance**
 </td>
 </tr>
 </table>
 
 <br/>
 
-**🔥 RESULT: BUTTER SMOOTH**
-
-<img src="https://progress-bar.dev/100/?title=Smoothness&width=400&color=06a77d&suffix=%20%E2%9C%A8"/>
+<img src="https://progress-bar.dev/100/?title=Smoothness&width=450&color=06a77d&suffix=%20Butter!"/>
 
 </td>
 </tr>
@@ -719,13 +798,11 @@ graph TB
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
-
 ## 📅 THE 90-DAY JOURNEY
 
-<img src="https://media.giphy.com/media/l0HlHFRbmaZtBRhXG/giphy.gif" width="500">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Spiral%20Calendar.png" width="120"/>
 
-### FROM IDEA TO REALITY • BUILT WITH ❤️
+### FROM ZERO TO HERO • 3 MONTHS OF DEDICATION
 
 </div>
 
@@ -736,36 +813,35 @@ graph TB
 ```mermaid
 %%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#667EEA','secondaryColor':'#06A77D','tertiaryColor':'#F77F00'}}}%%
 gantt
-    title 90 Days of Blood, Sweat, and Code
+    title 90 Days of Blood, Sweat, Code & Coffee
     dateFormat  YYYY-MM-DD
     
-    section 📚 Research Phase
-    OpenCV Deep Dive          :done, phase1, 2024-07-01, 7d
-    MediaPipe Exploration     :done, phase2, 2024-07-08, 7d
-    Algorithm Study           :done, phase3, 2024-07-15, 7d
-    Prototype Testing         :done, phase4, 2024-07-22, 7d
+    section 📚 Research (28 Days)
+    OpenCV Deep Dive           :done, r1, 2024-07-01, 7d
+    MediaPipe Experiments      :done, r2, 2024-07-08, 7d
+    Algorithm Research         :done, r3, 2024-07-15, 7d
+    Prototype Building         :done, r4, 2024-07-22, 7d
     
-    section 💻 Core Development
-    Face Detection System     :done, core1, 2024-07-29, 10d
-    Background Removal v1     :done, core2, 2024-08-08, 8d
-    Background Removal v2     :done, core3, 2024-08-16, 6d
-    Background Removal v3     :done, core4, 2024-08-22, 6d
-    4-Method Combiner         :done, core5, 2024-08-28, 4d
+    section 💻 Core Build (38 Days)
+    Face Detection System      :done, c1, 2024-07-29, 10d
+    Background v1 (Failed)     :done, c2, 2024-08-08, 4d
+    Background v2 (Failed)     :done, c3, 2024-08-12, 4d
+    Background v3 (Failed)     :done, c4, 2024-08-16, 3d
+    Background v4-v11          :done, c5, 2024-08-19, 9d
+    Background v12 SUCCESS!    :done, c6, 2024-08-28, 4d
+    T-Shirt HSV System         :done, c7, 2024-09-01, 10d
+    Shirt Alpha Overlay        :done, c8, 2024-09-11, 8d
     
-    section 👔 Clothing Engine
-    T-Shirt HSV System        :done, cloth1, 2024-09-01, 10d
-    Shirt Alpha Overlay       :done, cloth2, 2024-09-11, 8d
-    Blazer Integration        :done, cloth3, 2024-09-19, 6d
+    section ✨ Advanced (18 Days)
+    Gesture Detection          :done, a1, 2024-09-19, 8d
+    UI System Design           :done, a2, 2024-09-27, 6d
+    Hold Timer Logic           :done, a3, 2024-10-03, 4d
     
-    section ✨ Advanced Features
-    Gesture Detection         :done, adv1, 2024-09-25, 8d
-    UI System Design          :done, adv2, 2024-10-03, 6d
-    Hold Timer Logic          :done, adv3, 2024-10-09, 4d
-    
-    section 🏆 Polish & Ship
-    Performance Optimization  :done, final1, 2024-10-13, 7d
-    Bug Hunting               :done, final2, 2024-10-20, 5d
-    Documentation             :done, final3, 2024-10-25, 5d
+    section 🏆 Polish (17 Days)
+    Performance Tuning         :done, p1, 2024-10-07, 7d
+    Bug Squashing              :done, p2, 2024-10-14, 5d
+    Documentation              :done, p3, 2024-10-19, 5d
+    Final Testing              :done, p4, 2024-10-24, 3d
 ```
 
 </div>
@@ -780,80 +856,84 @@ gantt
 
 ### 📚 RESEARCH
 
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Books.png" width="100"/>
 
 <br/><br/>
 
-**28 Days**
+**28 Days of Learning**
 
-Studied Computer Vision  
-Explored AI Models  
-Tested 50+ Approaches  
-Failed Forward
+📖 Studied Computer Vision<br/>
+🔬 Explored AI Models<br/>
+🧪 Tested 50+ Approaches<br/>
+💡 Found the right path<br/>
+🎯 Failed & learned
 
 <br/>
 
-<img src="https://img.shields.io/badge/LEARNED-EVERYTHING-667EEA?style=for-the-badge&labelColor=000000"/>
+<img src="https://img.shields.io/badge/OUTCOME-KNOWLEDGE-667EEA?style=for-the-badge&labelColor=000000"/>
 
 </td>
 <td align="center" width="25%">
 
 ### 💻 CORE BUILD
 
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="100"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" width="100"/>
 
 <br/><br/>
 
-**38 Days**
+**38 Days of Coding**
 
-Built Background Engine  
-12 Iterations!  
-Dual Clothing Mode  
-Magic Happened
+🔨 Built Background Engine<br/>
+❌ Failed 11 times<br/>
+✅ Version 12 worked!<br/>
+👔 Dual Clothing System<br/>
+🎨 Perfect algorithms
 
 <br/>
 
-<img src="https://img.shields.io/badge/VERSIONS-12+-06A77D?style=for-the-badge&labelColor=000000"/>
+<img src="https://img.shields.io/badge/OUTCOME-CORE_SYSTEM-06A77D?style=for-the-badge&labelColor=000000"/>
 
 </td>
 <td align="center" width="25%">
 
 ### ✨ ADVANCED
 
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="100"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Sparkles.png" width="100"/>
 
 <br/><br/>
 
-**18 Days**
+**18 Days of Magic**
 
-Gesture Control  
-Beautiful UI  
-Sound Effects  
-Pure Magic!
+👆 Gesture Control<br/>
+💫 Beautiful UI<br/>
+🎯 Hold Detection<br/>
+🎨 Visual Feedback<br/>
+✨ Pure magic!
 
 <br/>
 
-<img src="https://img.shields.io/badge/MAGIC-UNLOCKED-F77F00?style=for-the-badge&labelColor=000000"/>
+<img src="https://img.shields.io/badge/OUTCOME-MAGIC_FEATURES-F77F00?style=for-the-badge&labelColor=000000"/>
 
 </td>
 <td align="center" width="25%">
 
 ### 🏆 POLISH
 
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="100"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Trophy.png" width="100"/>
 
 <br/><br/>
 
-**17 Days**
+**17 Days of Perfection**
 
-Performance Tuning  
-Bug Crushing  
-Documentation  
-SHIPPED! 🚀
+⚡ Performance tuning<br/>
+🐛 Bug crushing<br/>
+📖 Documentation<br/>
+🧪 Final testing<br/>
+🚀 SHIPPED!
 
 <br/>
 
-<img src="https://img.shields.io/badge/STATUS-PRODUCTION-E63946?style=for-the-badge&labelColor=000000"/>
+<img src="https://img.shields.io/badge/OUTCOME-PRODUCTION_READY-E63946?style=for-the-badge&labelColor=000000"/>
 
 </td>
 </tr>
@@ -861,15 +941,36 @@ SHIPPED! 🚀
 
 </div>
 
----
+<br/>
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
+### 💪 THE STRUGGLE WAS REAL
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Face%20with%20Spiral%20Eyes.png" width="80"/>
+
+**Background Removal Attempts:**
+❌ Version 1: Too slow
+❌ Version 2: Bad edges
+❌ Version 3: Lost details
+❌ Version 4-11: Various issues
+✅ **Version 12: PERFECT!**
+
+<br/>
+
+**But I never gave up! 💪**
+
+</div>
+
+---
+
+<div align="center">
 
 ## 📊 PROJECT STATISTICS
 
-<img src="https://media.giphy.com/media/3oKIPlifLxdigaD2Y8/giphy.gif" width="500">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Chart%20Increasing.png" width="120"/>
+
+### BY THE NUMBERS
 
 </div>
 
@@ -880,198 +981,56 @@ SHIPPED! 🚀
 <table>
 <tr>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="100"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Calendar.png" width="100"/><br/><br/>
 <h1>90</h1>
-<img src="https://img.shields.io/badge/DAYS-BUILT-667EEA?style=for-the-badge&labelColor=000000"/><br/>
-3 Months of Dedication
+<img src="https://img.shields.io/badge/DAYS-DEDICATION-667EEA?style=for-the-badge&labelColor=000000"/><br/>
+3 Full Months<br/>
+No Weekends Off
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="100"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20Facing%20Up.png" width="100"/><br/><br/>
 <h1>3,247</h1>
 <img src="https://img.shields.io/badge/LINES-OF_CODE-06A77D?style=for-the-badge&labelColor=000000"/><br/>
-Pure Python Magic
+Pure Python<br/>
+Zero Frameworks
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="100"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Package.png" width="100"/><br/><br/>
 <h1>7</h1>
 <img src="https://img.shields.io/badge/CORE-MODULES-F77F00?style=for-the-badge&labelColor=000000"/><br/>
-Modular Architecture
+Modular Design<br/>
+Clean Architecture
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="100"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Brain.png" width="100"/><br/><br/>
 <h1>4</h1>
 <img src="https://img.shields.io/badge/AI-MODELS-E63946?style=for-the-badge&labelColor=000000"/><br/>
-Computer Vision Power
+Computer Vision<br/>
+Real AI Power
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/High%20Voltage.png" width="100"/><br/><br/>
 <h1>30</h1>
-<img src="https://img.shields.io/badge/FPS-ACHIEVED-667EEA?style=for-the-badge&labelColor=000000"/><br/>
-Smooth as Butter
+<img src="https://img.shields.io/badge/FPS-REAL_TIME-667EEA?style=for-the-badge&labelColor=000000"/><br/>
+Butter Smooth<br/>
+Production Ready
 </td>
 </tr>
 </table>
 
 <br/>
 
-<img src="https://progress-bar.dev/100/?scale=100&title=COMPLETION&width=800&color=06a77d&suffix=%20%E2%9C%A8%20SHIPPED!"/>
+<img src="https://progress-bar.dev/100/?scale=100&title=COMPLETION&width=900&color=06a77d&suffix=%20%F0%9F%9A%80%20SHIPPED!"/>
 
 </div>
 
 ---
 
 <div align="center">
-
-<img src="https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif" width="100">
-
-## 🏗️ SYSTEM ARCHITECTURE
-
-<img src="https://media.giphy.com/media/l0HlQXlQ3nHyLMvte/giphy.gif" width="500">
-
-</div>
-
-<br/>
-
-<div align="center">
-
-<table>
-<tr>
-<td align="center" width="33%">
-
-### 📁 main.py
-
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="120"/>
-
-<br/><br/>
-
-**🎛️ Orchestrator**
-
-State Management  
-Main Loop (30 FPS)  
-Event Handling  
-System Coordinator
-
-<br/>
-
-<img src="https://img.shields.io/badge/CORE-BRAIN-667EEA?style=for-the-badge&labelColor=000000"/>
-
-</td>
-<td align="center" width="33%">
-
-### 📁 camera_handler.py
-
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="120"/>
-
-<br/><br/>
-
-**📹 Camera System**
-
-OpenCV Interface  
-Haar Face Detection  
-Frame Enhancement  
-HD Quality
-
-<br/>
-
-<img src="https://img.shields.io/badge/VIDEO-CAPTURE-06A77D?style=for-the-badge&labelColor=000000"/>
-
-</td>
-<td align="center" width="33%">
-
-### 📁 gesture_detector.py
-
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="120"/>
-
-<br/><br/>
-
-**👆 Gesture Engine**
-
-MediaPipe Hands  
-21 Landmarks  
-Hold Detection  
-Magic Touch!
-
-<br/>
-
-<img src="https://img.shields.io/badge/AI-GESTURES-F77F00?style=for-the-badge&labelColor=000000"/>
-
-</td>
-</tr>
-<tr>
-<td align="center" width="33%">
-
-### 📁 background_engine.py
-
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="120"/>
-
-<br/><br/>
-
-**🖼️ Background AI**
-
-Segmentation  
-4-Method Removal  
-Edge Smoothing  
-Perfect Blend
-
-<br/>
-
-<img src="https://img.shields.io/badge/99.5%25-ACCURACY-E63946?style=for-the-badge&labelColor=000000"/>
-
-</td>
-<td align="center" width="33%">
-
-### 📁 clothing_engine.py
-
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="120"/>
-
-<br/><br/>
-
-**👔 Wardrobe System**
-
-HSV Magic  
-Alpha Overlay  
-Torso Detection  
-Dual Mode
-
-<br/>
-
-<img src="https://img.shields.io/badge=SMART-WARDROBE-667EEA?style=for-the-badge&labelColor=000000"/>
-
-</td>
-<td align="center" width="33%">
-
-### 📁 popup_manager.py
-
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="120"/>
-
-<br/><br/>
-
-**💫 UI Engine**
-
-Beautiful Popups  
-Click Detection  
-Visual Feedback  
-Animations
-
-<br/>
-
-<img src="https://img.shields.io/badge/UX-PERFECTION-06A77D?style=for-the-badge&labelColor=000000"/>
-
-</td>
-</tr>
-</table>
-
-</div>
-
----
-
-<div align="center">
-
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
 
 ## 🚀 QUICK START GUIDE
 
-<img src="https://media.giphy.com/media/xUA7bdpLxQhsSQdyog/giphy.gif" width="400">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Rocket.png" width="120"/>
 
 ### GET STARTED IN 3 MINUTES! ⏱️
 
@@ -1087,25 +1046,25 @@ Animations
 
 ### 1️⃣ CLONE
 
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="100"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Package.png" width="100"/>
 
 <br/><br/>
 
 ```bash
-git clone [repo-url]
+git clone [your-repo-url]
 cd ai-makeover
 ```
 
 <br/>
 
-<img src="https://img.shields.io/badge/STEP_1-CLONE-667EEA?style=for-the-badge&labelColor=000000"/>
+<img src="https://img.shields.io/badge/STEP_1-CLONE_REPO-667EEA?style=for-the-badge&labelColor=000000"/>
 
 </td>
 <td align="center" width="33%">
 
 ### 2️⃣ INSTALL
 
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="100"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" width="100"/>
 
 <br/><br/>
 
@@ -1117,14 +1076,14 @@ pip install numpy
 
 <br/>
 
-<img src="https://img.shields.io/badge/STEP_2-INSTALL-06A77D?style=for-the-badge&labelColor=000000"/>
+<img src="https://img.shields.io/badge/STEP_2-INSTALL_DEPS-06A77D?style=for-the-badge&labelColor=000000"/>
 
 </td>
 <td align="center" width="33%">
 
 ### 3️⃣ RUN!
 
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Play%20Button.png" width="100"/>
 
 <br/><br/>
 
@@ -1132,11 +1091,12 @@ pip install numpy
 python main.py
 ```
 
-**BOOM! 💥 YOU'RE READY!**
+**BOOM! 💥**<br/>
+**YOU'RE READY!**
 
 <br/>
 
-<img src="https://img.shields.io/badge/STEP_3-MAGIC!-F77F00?style=for-the-badge&labelColor=000000"/>
+<img src="https://img.shields.io/badge/STEP_3-START_MAGIC!-F77F00?style=for-the-badge&labelColor=000000"/>
 
 </td>
 </tr>
@@ -1148,38 +1108,43 @@ python main.py
 
 <div align="center">
 
-### 🎮 CONTROLS & SHORTCUTS
+### 🎮 KEYBOARD CONTROLS
 
-<img src="https://media.giphy.com/media/3o7qDEq2bMbcbPRQ2c/giphy.gif" width="300">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Keyboard.png" width="100"/>
 
 <br/><br/>
 
 <table>
 <tr>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="60"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Index%20Pointing%20Up.png" width="60"/><br/><br/>
 <img src="https://img.shields.io/badge/POINT-FINGER-667EEA?style=for-the-badge&labelColor=000000"/><br/>
-Navigate Menus
+Navigate Menus<br/>
+Main Control
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="60"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Timer%20Clock.png" width="60"/><br/><br/>
 <img src="https://img.shields.io/badge/HOLD-1.5_SEC-06A77D?style=for-the-badge&labelColor=000000"/><br/>
-Select Option
+Select Option<br/>
+Stay Still
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif" width="60"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Counterclockwise%20Arrows%20Button.png" width="60"/><br/><br/>
 <img src="https://img.shields.io/badge/PRESS-R-F77F00?style=for-the-badge&labelColor=000000"/><br/>
-Restart System
+Restart System<br/>
+Fresh Start
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="60"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Camera.png" width="60"/><br/><br/>
 <img src="https://img.shields.io/badge/PRESS-C-E63946?style=for-the-badge&labelColor=000000"/><br/>
-Screenshot
+Screenshot<br/>
+Save Image
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="60"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Cross%20Mark.png" width="60"/><br/><br/>
 <img src="https://img.shields.io/badge/PRESS-Q_or_ESC-667EEA?style=for-the-badge&labelColor=000000"/><br/>
-Exit
+Exit Program<br/>
+Close App
 </td>
 </tr>
 </table>
@@ -1190,25 +1155,28 @@ Exit
 
 <div align="center">
 
-### 📹 USE WITH OBS STUDIO
+### 📹 CONNECT TO MEETINGS VIA OBS STUDIO
 
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="200"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Video%20Camera.png" width="100"/>
 
 <br/><br/>
 
-**1.** Run AI Makeover  
-**2.** Open OBS Studio  
-**3.** Add Window Capture  
-**4.** Select "AI Makeover"  
-**5.** Start Virtual Camera  
-**6.** Join ANY meeting!
+**EASY 6-STEP SETUP:**
+
+1. 🚀 **Run** `python main.py`
+2. 🎥 **Open** OBS Studio
+3. ➕ **Add** Window Capture source
+4. 🎯 **Select** "AI Makeover" window
+5. 📹 **Start** Virtual Camera in OBS
+6. 💻 **Join** ANY meeting platform!
 
 <br/>
 
-<img src="https://img.shields.io/badge/WORKS_WITH-ZOOM-06A77D?style=for-the-badge&logo=zoom&logoColor=white&labelColor=000000"/>
-<img src="https://img.shields.io/badge/WORKS_WITH-TEAMS-667EEA?style=for-the-badge&logo=microsoftteams&logoColor=white&labelColor=000000"/>
-<img src="https://img.shields.io/badge/WORKS_WITH-GOOGLE_MEET-F77F00?style=for-the-badge&logo=googlemeet&logoColor=white&labelColor=000000"/>
-<img src="https://img.shields.io/badge/WORKS_WITH-SKYPE-E63946?style=for-the-badge&logo=skype&logoColor=white&labelColor=000000"/>
+<img src="https://img.shields.io/badge/WORKS_WITH-ZOOM-2D8CFF?style=for-the-badge&logo=zoom&logoColor=white&labelColor=000000"/>
+<img src="https://img.shields.io/badge/WORKS_WITH-MICROSOFT_TEAMS-6264A7?style=for-the-badge&logo=microsoftteams&logoColor=white&labelColor=000000"/>
+<img src="https://img.shields.io/badge/WORKS_WITH-GOOGLE_MEET-00897B?style=for-the-badge&logo=googlemeet&logoColor=white&labelColor=000000"/>
+<img src="https://img.shields.io/badge/WORKS_WITH-SKYPE-00AFF0?style=for-the-badge&logo=skype&logoColor=white&labelColor=000000"/>
+<img src="https://img.shields.io/badge/WORKS_WITH-WEBEX-0DB8E4?style=for-the-badge&logo=webex&logoColor=white&labelColor=000000"/>
 
 </div>
 
@@ -1216,11 +1184,11 @@ Exit
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
+## 💼 REAL-WORLD USE CASES
 
-## 💼 USE CASES - YOUR LIFE, SIMPLIFIED
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Briefcase.png" width="120"/>
 
-<img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" width="500">
+### YOUR LIFE, INFINITELY SIMPLIFIED
 
 </div>
 
@@ -1231,66 +1199,72 @@ Exit
 <table>
 <tr>
 <td align="center" width="33%">
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="150"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Chart%20Increasing.png" width="120"/><br/><br/>
 <h2>💼 BUSINESS</h2>
-<img src="https://img.shields.io/badge/FORMAL-MEETINGS-667EEA?style=for-the-badge&labelColor=000000"/><br/><br/>
-Board Meetings  
-Client Presentations  
-Investor Pitches  
-Executive Calls  
-C-Suite Ready!
+<img src="https://img.shields.io/badge/PROFESSIONAL-MEETINGS-667EEA?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+📊 Board Meetings<br/>
+💼 Client Presentations<br/>
+💰 Investor Pitches<br/>
+🤝 Exec Calls<br/>
+👔 Always Ready!
 </td>
 <td align="center" width="33%">
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="150"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" width="120"/><br/><br/>
 <h2>💻 REMOTE WORK</h2>
-<img src="https://img.shields.io/badge/DAILY-STANDUPS-06A77D?style=for-the-badge&labelColor=000000"/><br/><br/>
-Team Syncs  
-1-on-1 Meetings  
-Sprint Planning  
-Code Reviews  
-Always Professional!
+<img src="https://img.shields.io/badge/DAILY-STANDUPS-06A77D?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+🏠 Team Syncs<br/>
+👥 1-on-1 Meetings<br/>
+📋 Sprint Planning<br/>
+👨‍💻 Code Reviews<br/>
+⚡ Always Professional!
 </td>
 <td align="center" width="33%">
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="150"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Clapper%20Board.png" width="120"/><br/><br/>
 <h2>🎬 CONTENT</h2>
-<img src="https://img.shields.io/badge/CREATE-CONTENT-F77F00?style=for-the-badge&labelColor=000000"/><br/><br/>
-YouTube Videos  
-Webinars  
-Online Courses  
-Live Streams  
-Studio Quality!
+<img src="https://img.shields.io/badge/CREATORS-PARADISE-F77F00?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+📹 YouTube Videos<br/>
+🎓 Webinars<br/>
+📚 Online Courses<br/>
+📡 Live Streaming<br/>
+🎥 Studio Quality!
 </td>
 </tr>
 <tr>
 <td align="center" width="33%">
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="150"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Graduation%20Cap.png" width="120"/><br/><br/>
 <h2>🎓 EDUCATION</h2>
-<img src="https://img.shields.io/badge/VIRTUAL-CLASSES-E63946?style=for-the-badge&labelColor=000000"/><br/><br/>
-Online Teaching  
-Office Hours  
-Study Groups  
-Presentations  
-Professional Look!
+<img src="https://img.shields.io/badge/TEACHING-EXCELLENCE-E63946?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+👨‍🏫 Virtual Classes<br/>
+📖 Office Hours<br/>
+📝 Study Groups<br/>
+🎤 Presentations<br/>
+✨ Inspire Students!
 </td>
 <td align="center" width="33%">
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="150"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="120"/><br/><br/>
 <h2>🤝 INTERVIEWS</h2>
-<img src="https://img.shields.io/badge/JOB-HUNTING-667EEA?style=for-the-badge&labelColor=000000"/><br/><br/>
-Job Interviews  
-Coffee Chats  
-Networking Events  
-First Impressions  
-Dress to Impress!
+<img src="https://img.shields.io/badge/FIRST-IMPRESSIONS-667EEA?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+💼 Job Interviews<br/>
+☕ Coffee Chats<br/>
+🌐 Networking<br/>
+🎯 Career Calls<br/>
+👔 Look Your Best!
 </td>
 <td align="center" width="33%">
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="150"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Party%20Popper.png" width="120"/><br/><br/>
 <h2>🎉 PERSONAL</h2>
-<img src="https://img.shields.io/badge/FAMILY-FRIENDS-06A77D?style=for-the-badge&labelColor=000000"/><br/><br/>
-Family Calls  
-Friend Hangouts  
-Virtual Parties  
-Casual Chats  
-Be Yourself!
+<img src="https://img.shields.io/badge/FRIENDS-AND_FAMILY-06A77D?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+👨‍👩‍👧‍👦 Family Calls<br/>
+👫 Friend Hangouts<br/>
+🎊 Virtual Parties<br/>
+💬 Casual Chats<br/>
+😊 Be Yourself!
 </td>
 </tr>
 </table>
@@ -1301,11 +1275,154 @@ Be Yourself!
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif" width="100">
+## 🏗️ SYSTEM ARCHITECTURE
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Brick.png" width="120"/>
+
+### CLEAN • MODULAR • PROFESSIONAL
+
+</div>
+
+<br/>
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="33%">
+
+### 📁 main.py
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Control%20Knobs.png" width="100"/>
+
+<br/><br/>
+
+**🎛️ Orchestrator**
+
+State Management<br/>
+Main Loop (30 FPS)<br/>
+Event Handling<br/>
+System Coordinator
+
+<br/>
+
+<img src="https://img.shields.io/badge/ROLE-CORE_BRAIN-667EEA?style=for-the-badge&labelColor=000000"/>
+
+</td>
+<td align="center" width="33%">
+
+### 📁 camera_handler.py
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Camera%20with%20Flash.png" width="100"/>
+
+<br/><br/>
+
+**📹 Camera System**
+
+OpenCV Interface<br/>
+Haar Face Detection<br/>
+Frame Enhancement<br/>
+HD Processing
+
+<br/>
+
+<img src="https://img.shields.io/badge/ROLE-VIDEO_INPUT-06A77D?style=for-the-badge&labelColor=000000"/>
+
+</td>
+<td align="center" width="33%">
+
+### 📁 gesture_detector.py
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" width="100"/>
+
+<br/><br/>
+
+**👆 Gesture Engine**
+
+MediaPipe Hands<br/>
+21 Landmarks<br/>
+Hold Detection<br/>
+Magic Touch!
+
+<br/>
+
+<img src="https://img.shields.io/badge/ROLE-AI_CONTROL-F77F00?style=for-the-badge&labelColor=000000"/>
+
+</td>
+</tr>
+<tr>
+<td align="center" width="33%">
+
+### 📁 background_engine.py
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Frame%20with%20Picture.png" width="100"/>
+
+<br/><br/>
+
+**🖼️ Background AI**
+
+Person Segmentation<br/>
+4-Method Removal<br/>
+Edge Smoothing<br/>
+Perfect Blend
+
+<br/>
+
+<img src="https://img.shields.io/badge/ROLE-BG_MAGIC-E63946?style=for-the-badge&labelColor=000000"/>
+
+</td>
+<td align="center" width="33%">
+
+### 📁 clothing_engine.py
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/T-Shirt.png" width="100"/>
+
+<br/><br/>
+
+**👔 Wardrobe System**
+
+HSV Color Magic<br/>
+Alpha Overlay<br/>
+Torso Detection<br/>
+Dual Mode
+
+<br/>
+
+<img src="https://img.shields.io/badge/ROLE-OUTFIT_SWAP-667EEA?style=for-the-badge&labelColor=000000"/>
+
+</td>
+<td align="center" width="33%">
+
+### 📁 popup_manager.py
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Window.png" width="100"/>
+
+<br/><br/>
+
+**💫 UI Engine**
+
+Beautiful Popups<br/>
+Gesture Detection<br/>
+Visual Feedback<br/>
+Smooth Animations
+
+<br/>
+
+<img src="https://img.shields.io/badge/ROLE-USER_INTERFACE-06A77D?style=for-the-badge&labelColor=000000"/>
+
+</td>
+</tr>
+</table>
+
+</div>
+
+---
+
+<div align="center">
 
 ## 🔮 FUTURE ROADMAP
 
-<img src="https://media.giphy.com/media/3o7qDSOvfaCO9b3MlO/giphy.gif" width="500">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Crystal%20Ball.png" width="120"/>
 
 ### THE BEST IS YET TO COME! 🚀
 
@@ -1318,44 +1435,48 @@ Be Yourself!
 <table>
 <tr>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="120"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Sunglasses.png" width="120"/><br/><br/>
 <h2>🕶️ V2.0</h2>
-<img src="https://img.shields.io/badge/ACCESSORIES-COMING-667EEA?style=for-the-badge&labelColor=000000"/><br/><br/>
-**Sunglasses**  
-**Hats & Caps**  
-**Jewelry**  
-**Watches**  
-**Full Accessories!**
+<img src="https://img.shields.io/badge/ACCESSORIES-COMING-667EEA?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+😎 Sunglasses<br/>
+🧢 Hats & Caps<br/>
+💎 Jewelry<br/>
+⌚ Watches<br/>
+👓 Reading Glasses
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="120"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Studio%20Microphone.png" width="120"/><br/><br/>
 <h2>🎙️ V2.1</h2>
-<img src="https://img.shields.io/badge/VOICE-CONTROL-06A77D?style=for-the-badge&labelColor=000000"/><br/><br/>
-**"Change to formal"**  
-**"Office background"**  
-**"Add blazer"**  
-**AI Voice Commands**  
-**Hands-Free Magic!**
+<img src="https://img.shields.io/badge/VOICE-CONTROL-06A77D?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+🗣️ "Change to formal"<br/>
+🎤 "Office background"<br/>
+💬 "Add blazer"<br/>
+🔊 Voice Commands<br/>
+🙌 Hands-Free!
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="120"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Cloud.png" width="120"/><br/><br/>
 <h2>☁️ V2.2</h2>
-<img src="https://img.shields.io/badge/CLOUD-SYNC-F77F00?style=for-the-badge&labelColor=000000"/><br/><br/>
-**Save Presets**  
-**Cross-Device Sync**  
-**Custom Uploads**  
-**Cloud Wardrobe**  
-**Your Style, Everywhere!**
+<img src="https://img.shields.io/badge/CLOUD-SYNC-F77F00?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+💾 Save Presets<br/>
+🔄 Cross-Device Sync<br/>
+📤 Custom Uploads<br/>
+☁️ Cloud Storage<br/>
+🌍 Anywhere Access
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="120"/><br/><br/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Video%20Camera.png" width="120"/><br/><br/>
 <h2>📹 V3.0</h2>
-<img src="https://img.shields.io/badge/MEETING-PLUGIN-E63946?style=for-the-badge&labelColor=000000"/><br/><br/>
-**Direct Integration**  
-**Zoom • Teams**  
-**Google Meet**  
-**Native Plugin**  
-**One-Click Install!**
+<img src="https://img.shields.io/badge/DIRECT-INTEGRATION-E63946?style=for-the-badge&labelColor=000000"/>
+<br/><br/>
+💻 Zoom Plugin<br/>
+👔 Teams Integration<br/>
+📞 Meet Extension<br/>
+🔌 Native Support<br/>
+🎯 One-Click!
 </td>
 </tr>
 </table>
@@ -1366,13 +1487,11 @@ Be Yourself!
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
-
 ## 🏆 WHAT I LEARNED
 
-<img src="https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif" width="500">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Trophy.png" width="120"/>
 
-### 90 DAYS OF GROWTH 🌱
+### 90 DAYS TRANSFORMED ME
 
 </div>
 
@@ -1386,76 +1505,96 @@ Be Yourself!
 
 ### 💻 TECHNICAL MASTERY
 
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="120"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Brain.png" width="100"/>
 
 <br/>
 
-**🎨 Computer Vision**  
-✅ OpenCV operations mastered  
-✅ Color spaces (HSV vs RGB vs LAB)  
-✅ Morphological transformations  
-✅ Edge detection & advanced blending  
-✅ Real-time video processing
+**🎨 Computer Vision Expertise**
 
-**🤖 AI Integration**  
-✅ MediaPipe Hands (21 landmarks)  
-✅ MediaPipe Selfie Segmentation  
-✅ Haar Cascade Classifiers  
-✅ Custom AI pipeline building  
-✅ Multi-model orchestration
+✅ OpenCV operations mastered<br/>
+✅ Color spaces (HSV, RGB, LAB)<br/>
+✅ Morphological transformations<br/>
+✅ Edge detection & blending<br/>
+✅ Real-time video processing<br/>
+✅ Alpha channel compositing
 
-**⚡ Performance Engineering**  
-✅ Frame caching techniques  
-✅ NumPy vectorization magic  
-✅ Adaptive processing strategies  
-✅ Memory management at scale  
-✅ 30 FPS optimization
+**🤖 AI & Machine Learning**
 
-**🏗️ Software Architecture**  
-✅ Modular system design  
-✅ State management patterns  
-✅ Event-driven programming  
-✅ Clean code principles  
-✅ Production-ready deployment
+✅ MediaPipe Hands (21 landmarks)<br/>
+✅ MediaPipe Selfie Segmentation<br/>
+✅ Haar Cascade Classifiers<br/>
+✅ Custom AI pipeline design<br/>
+✅ Multi-model orchestration<br/>
+✅ Real-time inference optimization
+
+**⚡ Performance Engineering**
+
+✅ Frame caching techniques<br/>
+✅ NumPy vectorization magic<br/>
+✅ Adaptive processing strategies<br/>
+✅ Memory management at scale<br/>
+✅ 30 FPS optimization achieved<br/>
+✅ CPU usage minimization
+
+**🏗️ Software Architecture**
+
+✅ Modular system design<br/>
+✅ State management patterns<br/>
+✅ Event-driven programming<br/>
+✅ Clean code principles (PEP 8)<br/>
+✅ Production-ready deployment<br/>
+✅ Scalable architecture
 
 </td>
 <td width="50%">
 
-### 🎯 LIFE LESSONS
+### 🎯 LIFE LESSONS THAT MATTER
 
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="120"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Light%20Bulb.png" width="100"/>
 
 <br/>
 
-**🧘 Patience & Perseverance**  
-Some problems take 2 weeks to solve  
-Background removal: 12 attempts  
-Each failure taught something new  
-Never gave up! 💪
+**🧘 Patience is a Superpower**
 
-**🔄 Iteration is Key**  
-Version 7 finally worked perfectly  
-Versions 1-6 were NOT failures  
-They were stepping stones  
-Progress over perfection
+Some problems take weeks to solve<br/>
+Background removal: 12 attempts<br/>
+Each failure taught something new<br/>
+Never gave up! Never! 💪
 
-**🎨 Finishing Matters**  
-80% done ≠ done  
-Last 20% took 30 days  
-Polish makes the difference  
-Details create excellence
+**🔄 Iteration Over Perfection**
 
-**❤️ Pride in Creation**  
-Built something REAL  
-No external APIs needed  
-100% my own work  
+Version 7 finally worked perfectly<br/>
+Versions 1-6 were NOT failures<br/>
+They were stepping stones<br/>
+Progress > Perfection
+
+**🎨 Details Make Excellence**
+
+80% done ≠ done<br/>
+Last 20% took 30 days<br/>
+Polish is what separates good from great<br/>
+Attention to detail matters!
+
+**❤️ Pride in Your Work**
+
+Built something REAL from scratch<br/>
+No external APIs or shortcuts<br/>
+100% my own blood, sweat & code<br/>
 Pure Python + Computer Vision
 
-**🌟 Confidence Gained**  
-Started knowing nothing  
-Now I'm an expert  
-Can tackle ANY CV project  
-Sky's the limit! 🚀
+**🌟 Confidence Through Creation**
+
+Started with zero CV knowledge<br/>
+Now I'm a Computer Vision expert<br/>
+Can tackle ANY CV project now<br/>
+The sky is NO LONGER the limit! 🚀
+
+**💡 Problem Solving Skills**
+
+Learned to break big problems down<br/>
+Research → Prototype → Iterate → Polish<br/>
+Debugging became second nature<br/>
+Thinking in systems now!
 
 </td>
 </tr>
@@ -1467,11 +1606,11 @@ Sky's the limit! 🚀
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
-
 ## 🛠️ TECH STACK
 
-<img src="https://media.giphy.com/media/3oKIPlifLxdigaD2Y8/giphy.gif" width="400">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Hammer%20and%20Wrench.png" width="120"/>
+
+### BUILT WITH THE BEST TOOLS
 
 </div>
 
@@ -1479,39 +1618,47 @@ Sky's the limit! 🚀
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=python,opencv,vscode,git,github,linux&theme=dark" width="400"/>
+<img src="https://skillicons.dev/icons?i=python,opencv,vscode,git,github,linux&theme=dark" width="450"/>
 
 <br/><br/>
 
 <table>
 <tr>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="100"/><br/><br/>
-<img src="https://img.shields.io/badge/Python_3.8+-667EEA?style=for-the-badge&logo=python&logoColor=white&labelColor=000000"/><br/>
-**Core Language**  
-Object-Oriented  
-3,247 Lines
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Desktop%20Computer.png" width="100"/><br/><br/>
+<img src="https://img.shields.io/badge/Python_3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white&labelColor=000000"/>
+<br/><br/>
+**Core Language**<br/>
+Object-Oriented<br/>
+3,247 Lines<br/>
+Pure Power
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="100"/><br/><br/>
-<img src="https://img.shields.io/badge/OpenCV-06A77D?style=for-the-badge&logo=opencv&logoColor=white&labelColor=000000"/><br/>
-**Computer Vision**  
-Face Detection  
-Image Processing
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Camera%20with%20Flash.png" width="100"/><br/><br/>
+<img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white&labelColor=000000"/>
+<br/><br/>
+**Computer Vision**<br/>
+Face Detection<br/>
+Image Processing<br/>
+The Foundation
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif" width="100"/><br/><br/>
-<img src="https://img.shields.io/badge/MediaPipe-F77F00?style=for-the-badge&logo=google&logoColor=white&labelColor=000000"/><br/>
-**AI Models**  
-Hands (21 Points)  
-Segmentation
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Brain.png" width="100"/><br/><br/>
+<img src="https://img.shields.io/badge/MediaPipe-00C853?style=for-the-badge&logo=google&logoColor=white&labelColor=000000"/>
+<br/><br/>
+**AI Models**<br/>
+Hands (21 Points)<br/>
+Segmentation<br/>
+Google's Best
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="100"/><br/><br/>
-<img src="https://img.shields.io/badge/NumPy-E63946?style=for-the-badge&logo=numpy&logoColor=white&labelColor=000000"/><br/>
-**Fast Math**  
-Array Operations  
-Vectorized
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Abacus.png" width="100"/><br/><br/>
+<img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white&labelColor=000000"/>
+<br/><br/>
+**Fast Math**<br/>
+Array Operations<br/>
+Vectorized<br/>
+Lightning Speed
 </td>
 </tr>
 </table>
@@ -1522,11 +1669,9 @@ Vectorized
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif" width="100">
-
 ## 💖 SUPPORT THIS PROJECT
 
-<img src="https://media.giphy.com/media/3o7qDEq2bMbcbPRQ2c/giphy.gif" width="400">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Smiling%20Face%20with%20Hearts.png" width="120"/>
 
 ### BUILT WITH ❤️ • SUPPORT WITH ❤️
 
@@ -1540,9 +1685,9 @@ Vectorized
 <tr>
 <td align="center" width="50%">
 
-### 🌍 INTERNATIONAL
+### 🌍 INTERNATIONAL SUPPORT
 
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="150"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Globe%20with%20Meridians.png" width="150"/>
 
 <br/><br/>
 
@@ -1558,14 +1703,18 @@ malam0007
 
 <br/>
 
-**Love this project? Support via PayPal! 💙**
+💙 **Support from anywhere in the world!**
+
+<br/>
+
+<img src="https://img.shields.io/badge/DONATE-VIA_PAYPAL-00457C?style=for-the-badge&logo=paypal&logoColor=white&labelColor=000000"/>
 
 </td>
 <td align="center" width="50%">
 
-### 🇮🇳 INDIA
+### 🇮🇳 INDIA SUPPORT
 
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="150"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Flags/Flag%20India.png" width="150"/>
 
 <br/><br/>
 
@@ -1581,7 +1730,11 @@ alammodassir007@okicici
 
 <br/>
 
-**Support from India? UPI it! 🇮🇳**
+🇮🇳 **Support from India? UPI is the way!**
+
+<br/>
+
+<img src="https://img.shields.io/badge/PAY-VIA_UPI-06A77D?style=for-the-badge&logo=googlepay&logoColor=white&labelColor=000000"/>
 
 </td>
 </tr>
@@ -1589,9 +1742,13 @@ alammodassir007@okicici
 
 <br/>
 
-**Every contribution helps me build more amazing projects! 🚀**
+**Every contribution helps me create more amazing projects! 🚀**
 
-<img src="https://img.shields.io/badge/THANK_YOU-FOR_YOUR_SUPPORT-F77F00?style=for-the-badge&logo=heart&logoColor=white&labelColor=000000"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Sparkles.png" width="60"/>
+
+**Your support means the world to me!**
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Sparkles.png" width="60"/>
 
 </div>
 
@@ -1599,11 +1756,11 @@ alammodassir007@okicici
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
-
 ## 🤝 CONNECT WITH ME
 
-<img src="https://media.giphy.com/media/xT0xeMA62E1XIlup68/giphy.gif" width="400">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="120"/>
+
+### LET'S BUILD SOMETHING AMAZING TOGETHER!
 
 </div>
 
@@ -1611,23 +1768,23 @@ alammodassir007@okicici
 
 <div align="center">
 
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&labelColor=000000)](https://github.com/yourusername)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=000000)](https://linkedin.com/in/yourprofile)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=000000)](mailto:your.email@example.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-667EEA?style=for-the-badge&logo=google-chrome&logoColor=white&labelColor=000000)](https://yourwebsite.com)
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white&labelColor=000000)](https://twitter.com/yourhandle)
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=000000)](https://instagram.com/yourhandle)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourusername)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourprofile)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your.email@example.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-667EEA?style=for-the-badge&logo=google-chrome&logoColor=white)](https://yourwebsite.com)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/yourhandle)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/yourhandle)
 
 <br/><br/>
 
-### ⭐ STAR THIS REPO IF IT BLEW YOUR MIND! ⭐
+### ⭐ STAR THIS REPO IF YOU LOVE IT! ⭐
 
 <br/>
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=667EEA&labelColor=000000)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=06A77D&labelColor=000000)
-![GitHub watchers](https://img.shields.io/github/watchers/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=F77F00&labelColor=000000)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=E63946&labelColor=000000)
+![GitHub stars](https://img.shields.io/github/stars/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=FFD700&labelColor=000000)
+![GitHub forks](https://img.shields.io/github/forks/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=667EEA&labelColor=000000)
+![GitHub watchers](https://img.shields.io/github/watchers/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=06A77D&labelColor=000000)
+![GitHub issues](https://img.shields.io/github/issues/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=F77F00&labelColor=000000)
 
 </div>
 
@@ -1639,36 +1796,46 @@ alammodassir007@okicici
 
 <br/>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="150"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Sparkles.png" width="150"/>
 
 <br/><br/>
 
-# 🎭 AI MAKEOVER • YOUR VIRTUAL TRANSFORMATION 🎭
+# 🎭 AI MAKEOVER
+
+## YOUR VIRTUAL TRANSFORMATION SYSTEM
 
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=2000&pause=1000&color=667EEA&center=true&vCenter=true&width=1000&lines=90+DAYS+%E2%80%A2+3%2C247+LINES+%E2%80%A2+ONE+VISION;BUILT+WITH+%E2%9D%A4%EF%B8%8F+AND+PASSION;NO+API+%E2%80%A2+100%25+OFFLINE+%E2%80%A2+PURE+CV;CHANGE+OUTFITS+%E2%80%A2+SWAP+BACKGROUNDS;25-30+FPS+%E2%80%A2+REAL-TIME+MAGIC;YOUR+LIFE%2C+SIMPLIFIED+%E2%9C%A8" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=2000&pause=1000&color=667EEA&center=true&vCenter=true&width=1000&lines=90+DAYS+%E2%80%A2+3%2C247+LINES+%E2%80%A2+ONE+VISION;BUILT+WITH+%E2%9D%A4%EF%B8%8F+PASSION+AND+DEDICATION;NO+API+%E2%80%A2+100%25+OFFLINE+%E2%80%A2+PURE+CV;CHANGE+OUTFITS+%E2%80%A2+SWAP+BACKGROUNDS;25-30+FPS+%E2%80%A2+REAL-TIME+MAGIC;YOUR+LIFE%2C+SIMPLIFIED+%E2%9C%A8" alt="Typing SVG" />
 
 <br/><br/>
 
-## ✨ **FROM PROBLEM TO SOLUTION** ✨
+## ✨ FROM DAILY STRUGGLE TO INSTANT TRANSFORMATION ✨
 
 **Built with Python • OpenCV • MediaPipe • Love**
 
 <br/>
 
-**⭐ IF THIS PROJECT HELPED YOU, STAR IT! ⭐**
+**⭐ IF THIS HELPED YOU, STAR IT! ⭐**
 
 **💖 IF YOU WANT TO SUPPORT, DONATE! 💖**
 
 <br/><br/>
 
-**Made with dedication by a passionate developer**
+**Made with 90 days of dedication by a passionate developer**
 
-**© 2024 AI Makeover System • All Rights Reserved**
+**© 2024 AI Makeover System**
 
 <br/><br/>
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="1000">
+
+<br/>
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/T-Shirt.png" width="50"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Necktie.png" width="50"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Coat.png" width="50"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Frame%20with%20Picture.png" width="50"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" width="50"/>
 
 </div>
