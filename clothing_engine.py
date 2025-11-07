@@ -1,6 +1,8 @@
 """
+
 COMPLETELY FIXED SHIRT OVERLAY - HIDES ORIGINAL T-SHIRT AND COVERS PROPERLY
 WIDTH INCREASED: 3.0x → 3.6x for better shoulder coverage
+
 """
 
 import cv2
