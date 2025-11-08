@@ -87,7 +87,7 @@ class ProfessionalClothingEngine:
             'face_y': int(h * 0.15)
         }
     
-    # ============= T-SHIRT (HSV) =============
+    # ============= T-SHIRT (HSV - UPDATED TRAPEZOIDAL LOGIC) =============
     
     def extract_dominant_color(self, clothing_img):
         try:
@@ -126,59 +126,82 @@ class ProfessionalClothingEngine:
             return result
         except:
             return frame
-    
-    def create_simple_torso_mask(self, frame):
+
+    def create_simple_upper_body_mask(self, frame):
+        """
+        FIXED: Create TRAPEZOIDAL mask for T-SHIRT ONLY
+        - Starts from NECK (below chin)
+        - Covers only TORSO (no face, no full arms)
+        - Trapezoidal shape (wider at bottom)
+        """
         h, w = frame.shape[:2]
+        
+        # Create empty mask
         mask = np.zeros((h, w), dtype=np.uint8)
         
-        face_info = self.detect_face_and_neck(frame)
+        # CRITICAL: Define T-SHIRT area ONLY (trapezoidal shape)
+        # Top edge: neck/shoulder line (below chin, excludes face)
+        top_y = int(h * 0.65)  # Start at 65% from top (AT NECK/COLLAR LEVEL!)
         
-        if face_info:
-            neck_x = face_info['neck_x']
-            neck_y = face_info['neck_y']
-            fw = face_info['face_width']
-            fh = face_info['face_height']
-            
-            shoulder_y = neck_y
-            waist_y = neck_y + int(fh * 4.5)
-            
-            shoulder_width = int(fw * 2.2)
-            waist_width = int(fw * 2.4)
-            
-            torso_points = np.array([
-                [neck_x - shoulder_width//2, shoulder_y],
-                [neck_x + shoulder_width//2, shoulder_y],
-                [neck_x + waist_width//2, waist_y],
-                [neck_x - waist_width//2, waist_y]
-            ], dtype=np.int32)
-            
-            cv2.fillPoly(mask, [torso_points], 255)
-            
-            face_mask = np.zeros((h, w), dtype=np.uint8)
-            cv2.ellipse(face_mask, (neck_x, neck_y - fh // 2), 
-                       (fw // 2 + 15, fh // 2 + 25), 0, 0, 360, 255, -1)
-            mask = cv2.subtract(mask, face_mask)
-        else:
-            top_y = int(h * 0.25)
-            bottom_y = int(h * 0.95)
-            top_left_x = int(w * 0.30)
-            top_right_x = int(w * 0.70)
-            bottom_left_x = int(w * 0.20)
-            bottom_right_x = int(w * 0.80)
-            
-            trapezoid_points = np.array([
-                [top_left_x, top_y],
-                [top_right_x, top_y],
-                [bottom_right_x, bottom_y],
-                [bottom_left_x, bottom_y]
-            ], dtype=np.int32)
-            
-            cv2.fillPoly(mask, [trapezoid_points], 255)
+        # Bottom edge: waist/hip area
+        bottom_y = int(h * 1.00)  # End at 100% = TOUCHES BOTTOM OF FRAME!
         
-        mask = cv2.GaussianBlur(mask, (21, 21), 0)
+        # Top width: NARROWER at shoulders (EXCLUDE ARMS!)
+        top_left_x = int(w * 0.40)   # MORE NARROW at top (exclude left arm)
+        top_right_x = int(w * 0.60)  # MORE NARROW at top (exclude right arm)
+        
+        # Bottom width: slightly wider at waist (but still exclude arms)
+        bottom_left_x = int(w * 0.35)   # Narrower than before
+        bottom_right_x = int(w * 0.65)  # Narrower than before
+        
+        # Create TRAPEZOIDAL polygon (4 points)
+        trapezoid_points = np.array([
+            [top_left_x, top_y],        # Top-left (shoulder)
+            [top_right_x, top_y],       # Top-right (shoulder)
+            [bottom_right_x, bottom_y], # Bottom-right (waist)
+            [bottom_left_x, bottom_y]   # Bottom-left (waist)
+        ], dtype=np.int32)
+        
+        # Fill trapezoid
+        cv2.fillPoly(mask, [trapezoid_points], 255)
+        
+        # CRITICAL: Exclude face/head region explicitly
+        # Create a circle mask for head/face area to subtract
+        face_center_x = w // 2
+        face_center_y = int(h * 0.20)  # Face center (top 20%)
+        face_radius = int(h * 0.15)     # Larger face radius
+        
+        # Create face exclusion mask
+        face_mask = np.zeros((h, w), dtype=np.uint8)
+        cv2.circle(face_mask, (face_center_x, face_center_y), face_radius, 255, -1)
+        
+        # Subtract face area from t-shirt mask
+        mask = cv2.subtract(mask, face_mask)
+        
+        # OPTIONAL: Exclude arms (side regions) - create narrower mask
+        # This prevents color change on arms
+        arm_exclusion_left = np.zeros((h, w), dtype=np.uint8)
+        arm_exclusion_right = np.zeros((h, w), dtype=np.uint8)
+        
+        # Left arm exclusion (far left side) - MORE AGGRESSIVE
+        cv2.rectangle(arm_exclusion_left, (0, 0), (int(w * 0.32), h), 255, -1)
+        
+        # Right arm exclusion (far right side) - MORE AGGRESSIVE
+        cv2.rectangle(arm_exclusion_right, (int(w * 0.68), 0), (w, h), 255, -1)
+        
+        # Subtract arm regions
+        mask = cv2.subtract(mask, arm_exclusion_left)
+        mask = cv2.subtract(mask, arm_exclusion_right)
+        
+        # Smooth edges for natural blending
+        mask = cv2.GaussianBlur(mask, (31, 31), 0)
+        
+        # Optional: Erode slightly to avoid edge artifacts
         kernel = np.ones((5, 5), np.uint8)
         mask = cv2.erode(mask, kernel, iterations=1)
-        mask = cv2.GaussianBlur(mask, (15, 15), 0)
+        
+        # Smooth again after erosion
+        mask = cv2.GaussianBlur(mask, (21, 21), 0)
         
         return mask
     
@@ -190,7 +213,9 @@ class ProfessionalClothingEngine:
                 clothing_item['color_hue'] = self.extract_dominant_color(clothing_img)
             
             target_hue = clothing_item['color_hue']
-            mask = self.create_simple_torso_mask(frame)
+            
+            # Use the trapezoidal mask logic from the first code
+            mask = self.create_simple_upper_body_mask(frame)
             self.tshirt_mask = mask
             
             result = self.replace_color_simple(frame, mask, target_hue)
