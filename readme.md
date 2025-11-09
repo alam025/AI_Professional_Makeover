@@ -1,23 +1,23 @@
 <div align="center">
 
-![Header](https://capsule-render.vercel.app/api?type=waving&color=0:667EEA,30:764BA2,70:F77F00,100:06A77D&height=300&section=header&text=AI%20MAKEOVER&fontSize=100&fontColor=fff&animation=fadeIn&fontAlignY=38&desc=YOUR%20VIRTUAL%20WARDROBE%20•%20INSTANT%20TRANSFORMATION&descAlignY=55&descAlign=50)
+![Header](https://capsule-render.vercel.app/api?type=waving&color=0:667EEA,30:764BA2,70:F87171,100:06A77D&height=300&section=header&text=AI%20MAKEOVER&fontSize=100&fontColor=fff&animation=twinkling&fontAlignY=38&desc=Transform%20Your%20Professional%20Presence%20%E2%80%A2%20Instantly&descAlignY=55&descAlign=50)
 
-<img src="https://media.giphy.com/media/l0HlQoJEE4x0SkQFy/giphy.gif" width="600">
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=1500&pause=500&color=667EEA&center=true&vCenter=true&multiline=true&repeat=true&width=1200&height=120&lines=%F0%9F%91%94+CHANGE+OUTFITS+IN+SECONDS+%F0%9F%91%94;%F0%9F%8E%AC+SWAP+BACKGROUNDS+INSTANTLY+%F0%9F%96%BC%EF%B8%8F;%F0%9F%9A%80+NO+API+•+100%25+OFFLINE+%E2%9A%A1;%F0%9F%8E%AF+25-30+FPS+REAL-TIME+%F0%9F%94%A5" alt="Typing SVG" />
-
-<br/>
-
-[![Python](https://img.shields.io/badge/Python_3.8+-667EEA?style=for-the-badge&logo=python&logoColor=white&labelColor=000000)](https://python.org)
-[![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white&labelColor=000000)](https://opencv.org)
-[![MediaPipe](https://img.shields.io/badge/MediaPipe-00C853?style=for-the-badge&logo=google&logoColor=white&labelColor=000000)](https://mediapipe.dev)
-[![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white&labelColor=000000)](https://numpy.org)
-[![Status](https://img.shields.io/badge/STATUS-PRODUCTION_READY-06A77D?style=for-the-badge&labelColor=000000)](https://github.com)
-[![90 Days](https://img.shields.io/badge/90_DAYS-BUILT_WITH_%E2%9D%A4%EF%B8%8F-F77F00?style=for-the-badge&labelColor=000000)](https://github.com)
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=32&duration=2800&pause=1000&color=667EEA&center=true&vCenter=true&multiline=true&repeat=true&width=1000&height=100&lines=%F0%9F%91%94+Change+Outfits+in+Real-Time+%E2%9C%A8;%F0%9F%8E%AC+Swap+Backgrounds+Instantly+%F0%9F%96%BC%EF%B8%8F;%F0%9F%9A%80+100%25+Offline+%E2%80%A2+No+API+Needed+%E2%9A%A1;%F0%9F%8E%AF+Smooth+25-30+FPS+Performance+%F0%9F%94%A5" alt="Typing SVG" />
+</p>
 
 <br/>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="1000">
+[![Python](https://img.shields.io/badge/Python_3.8+-667EEA?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)](https://opencv.org)
+[![MediaPipe](https://img.shields.io/badge/MediaPipe-00C853?style=for-the-badge&logo=google&logoColor=white)](https://mediapipe.dev)
+[![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org)
+[![License](https://img.shields.io/badge/License-MIT-06A77D?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
+[![Status](https://img.shields.io/badge/STATUS-Production_Ready-06A77D?style=for-the-badge)](https://github.com)
+
+<br/>
+
+![Divider](https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif)
 
 </div>
 
@@ -25,78 +25,72 @@
 
 <div align="center">
 
-## 💡 THE PROBLEM WE ALL FACE
-
-<img src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif" width="500">
-
-</div>
+## 🎯 THE PROBLEM EVERY PROFESSIONAL FACES
 
 <br/>
-
-<div align="center">
 
 <table>
 <tr>
 <td width="50%" align="center">
 
-### 😰 BEFORE: THE DAILY CHAOS
+### 😰 BEFORE: The Daily Struggle
 
-<img src="https://media.giphy.com/media/3o6Zt6ML6BklcajjsA/giphy.gif" width="250">
+<img src="https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif" width="300">
 
 <br/><br/>
 
-**9:00 AM** - Board meeting with CEO  
-*Rush to change formal shirt* ⏰  
+**9:00 AM** - CEO Board Meeting  
+*Rush to change formal attire* ⏰  
 
-**10:30 AM** - Team standup (casual)  
-*Quick! Change to t-shirt* 👕  
+**10:30 AM** - Casual Team Standup  
+*Quick outfit swap to t-shirt* 👕  
 
-**2:00 PM** - Client presentation  
+**2:00 PM** - Client Presentation  
 *Back to professional look* 💼  
 
-**4:00 PM** - Family video call  
-*Comfortable home attire* 🏠  
+**4:00 PM** - Family Video Call  
+*Change to comfortable home wear* 🏠  
 
-**6:00 PM** - Friend's party call  
-*Fun outfit time!* 🎉
+**6:00 PM** - Friends Party Call  
+*Switch to casual fun outfit* 🎉
 
 <br/>
 
-<img src="https://img.shields.io/badge/⏱️-30_MIN_WASTED-E63946?style=for-the-badge&labelColor=000000"/>
-<img src="https://img.shields.io/badge/👔-5+_OUTFIT_CHANGES-F77F00?style=for-the-badge&labelColor=000000"/>
-<img src="https://img.shields.io/badge/💸-EXPENSIVE_WARDROBE-667EEA?style=for-the-badge&labelColor=000000"/>
-<img src="https://img.shields.io/badge/😓-MESSY_BACKGROUND-06A77D?style=for-the-badge&labelColor=000000"/>
+![Problem Stats](https://img.shields.io/badge/⏱️_30_MIN-WASTED_DAILY-E63946?style=for-the-badge)
+![Outfit Changes](https://img.shields.io/badge/👔_5+-OUTFIT_CHANGES-F87171?style=for-the-badge)
+![Wardrobe Cost](https://img.shields.io/badge/💸_$1000+-WARDROBE_COST-667EEA?style=for-the-badge)
+![Background Mess](https://img.shields.io/badge/😓_MESSY-BACKGROUNDS-06A77D?style=for-the-badge)
 
 </td>
 <td width="50%" align="center">
 
-### ✨ AFTER: AI MAKEOVER MAGIC
+### ✨ AFTER: AI Makeover Magic
 
-<img src="https://media.giphy.com/media/xT0xeMA62E1XIlup68/giphy.gif" width="250">
+<img src="https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif" width="300">
 
 <br/><br/>
 
-**9:00 AM** - *Click* → Formal shirt + Office  
-✨ **Ready in 2 seconds**  
+**9:00 AM** - *One Click* → Formal + Office  
+✨ **Transformed in 2 seconds**  
 
-**10:30 AM** - *Click* → Cool t-shirt + Modern  
-✨ **Instant transformation**  
+**10:30 AM** - *One Click* → T-Shirt + Modern Space  
+✨ **Instant professional change**  
 
-**2:00 PM** - *Click* → Blazer + Conference  
-✨ **Professional perfection**  
+**2:00 PM** - *One Click* → Blazer + Conference Room  
+✨ **Perfect presentation look**  
 
-**4:00 PM** - *Click* → Casual + Home  
+**4:00 PM** - *One Click* → Casual + Home Background  
 ✨ **Comfortable & natural**  
 
-**6:00 PM** - *Click* → Party look + Fun BG  
-✨ **Always party-ready!**
+**6:00 PM** - *One Click* → Party Look + Fun BG  
+✨ **Always ready to celebrate!**
 
 <br/>
 
-<img src="https://img.shields.io/badge/⚡-0_SECONDS-06A77D?style=for-the-badge&labelColor=000000"/>
-<img src="https://img.shields.io/badge/👆-GESTURE_CONTROL-667EEA?style=for-the-badge&labelColor=000000"/>
-<img src="https://img.shields.io/badge/💰-ZERO_COST-F77F00?style=for-the-badge&labelColor=000000"/>
-<img src="https://img.shields.io/badge/🎬-8+_BACKGROUNDS-E63946?style=for-the-badge&labelColor=000000"/>
+![Time Saved](https://img.shields.io/badge/⚡_INSTANT-0_SECONDS-06A77D?style=for-the-badge)
+![Gesture Control](https://img.shields.io/badge/👆_GESTURE-CONTROL-667EEA?style=for-the-badge)
+![Zero Cost](https://img.shields.io/badge/💰_ZERO-ADDITIONAL_COST-F87171?style=for-the-badge)
+![Backgrounds](https://img.shields.io/badge/🎬_8+-BACKGROUNDS-E63946?style=for-the-badge)
 
 </td>
 </tr>
@@ -108,13 +102,13 @@
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
+![Divider](https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif)
 
-## 🎬 WATCH THE MAGIC HAPPEN
+## 🚀 WHAT MAKES THIS SPECIAL
 
-<img src="https://media.giphy.com/media/3oKIPlifLxdigaD2Y8/giphy.gif" width="600">
+<br/>
 
-### 🎯 ONE SYSTEM • INFINITE POSSIBILITIES
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=3000&pause=1000&color=06A77D&center=true&vCenter=true&width=800&lines=90+Days+of+Passionate+Development;3%2C247+Lines+of+Pure+Python+Magic;Zero+External+APIs+%E2%80%A2+100%25+Offline;Real-Time+AI+%E2%80%A2+25-30+FPS+Smooth" alt="What Makes Special" />
 
 </div>
 
@@ -125,36 +119,67 @@
 <table>
 <tr>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="120"/><br/><br/>
-<img src="https://img.shields.io/badge/VIRTUAL-WARDROBE-667EEA?style=for-the-badge&logo=openwrt&logoColor=white&labelColor=000000"/>
-<br/><br/>
-**T-Shirt Swap**  
-**HSV Color Magic**  
-**Blazer Overlay**
+
+![Icon](https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif)
+
+### 🎨 Dual Clothing System
+
+**Smart HSV Color Magic**  
+Change t-shirt colors instantly  
+**Alpha Overlay Technology**  
+Real fabric shirts & blazers  
+**Natural Shadows & Lighting**  
+Photorealistic results
+
+![Mode](https://img.shields.io/badge/2_MODES-HSV_+_OVERLAY-667EEA?style=for-the-badge)
+
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="120"/><br/><br/>
-<img src="https://img.shields.io/badge/INSTANT-BACKGROUNDS-06A77D?style=for-the-badge&logo=windows&logoColor=white&labelColor=000000"/>
-<br/><br/>
-**Office • Conference**  
-**Home • Library**  
-**8+ Professional**
+
+![Icon](https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif)
+
+### 🖼️ 8+ Backgrounds
+
+**Office • Conference Room**  
+**Home Office • Library**  
+**City Skyline • Minimalist**  
+**Tech Startup • Boardroom**  
+One-click transformations
+
+![Backgrounds](https://img.shields.io/badge/8+_PROFESSIONAL-BACKGROUNDS-06A77D?style=for-the-badge)
+
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif" width="120"/><br/><br/>
-<img src="https://img.shields.io/badge/GESTURE-CONTROL-F77F00?style=for-the-badge&logo=googlemaps&logoColor=white&labelColor=000000"/>
-<br/><br/>
-**Point & Select**  
-**1.5s Hold**  
-**Magic Hands!**
+
+![Icon](https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif)
+
+### 👆 Gesture Control
+
+**MediaPipe Hands AI**  
+21-point hand tracking  
+**1.5s Hold-to-Select**  
+No mouse needed  
+**Visual Feedback**  
+Intuitive interface
+
+![Gesture](https://img.shields.io/badge/HANDS_FREE-CONTROL-F87171?style=for-the-badge)
+
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="120"/><br/><br/>
-<img src="https://img.shields.io/badge/REAL--TIME-25--30_FPS-E63946?style=for-the-badge&logo=speedtest&logoColor=white&labelColor=000000"/>
-<br/><br/>
-**Smooth as Butter**  
-**No Lag**  
-**Production Ready**
+
+![Icon](https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif)
+
+### ⚡ Real-Time Performance
+
+**25-30 FPS Smooth**  
+Optimized processing  
+**Smart Frame Caching**  
+40% less CPU usage  
+**Production Ready**  
+Built for daily use
+
+![Performance](https://img.shields.io/badge/REAL_TIME-25--30_FPS-E63946?style=for-the-badge)
+
 </td>
 </tr>
 </table>
@@ -165,13 +190,9 @@
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif" width="100">
+![Divider](https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif)
 
-## 🎨 DUAL-MODE CLOTHING SYSTEM
-
-<img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif" width="500">
-
-### THE SECRET SAUCE 🔥
+## 🎨 THE TECHNOLOGY BEHIND THE MAGIC
 
 </div>
 
@@ -179,111 +200,86 @@
 
 <div align="center">
 
+### 🔬 Dual-Mode Clothing Engine
+
 <table>
 <tr>
-<td align="center" width="50%">
+<td width="50%" align="center">
 
-### 🎨 MODE 1: T-SHIRT TRANSFORMATION
+#### 🎨 MODE 1: HSV Color Transformation
 
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="300">
-
-<br/><br/>
-
-<img src="https://img.shields.io/badge/HSV_COLOR-MAGIC-667EEA?style=for-the-badge&logo=adobe&logoColor=white&labelColor=000000"/>
+<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="250">
 
 <br/><br/>
-
-**🔬 THE SCIENCE**
 
 ```python
-# HSV color space transformation
+# HSV Color Space Magic
 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 h, s, v = cv2.split(hsv)
 
 # Smart color replacement
 h[clothing_mask] = target_hue
 s[clothing_mask] = s[clothing_mask] * 1.3
+v[clothing_mask] = v[clothing_mask] * 0.95
 
-# Result: Natural + Fast (8ms)
+# Perfect blend: Fast (8ms) + Natural
+result = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
 ```
 
 <br/>
 
-**✨ WHY IT'S AMAZING**
+**✨ Why It's Amazing**
 
-<table>
-<tr>
-<td>✅ **Keeps Shadows**</td>
-<td>✅ **Natural Lighting**</td>
-</tr>
-<tr>
-<td>✅ **Texture Preserved**</td>
-<td>✅ **Real-Time 8ms**</td>
-</tr>
-<tr>
-<td>✅ **Any Color**</td>
-<td>✅ **Smooth Blend**</td>
-</tr>
-</table>
+✅ Preserves natural shadows  
+✅ Maintains fabric texture  
+✅ Real-time lighting adaptation  
+✅ Ultra-fast 8ms processing  
+✅ Any color imaginable  
+✅ Photorealistic results
 
 <br/>
 
-<img src="https://progress-bar.dev/100/?title=Performance&width=400&color=667eea"/>
-<img src="https://progress-bar.dev/100/?title=Quality&width=400&color=06a77d"/>
+![Progress](https://img.shields.io/badge/PERFORMANCE-100%25-06A77D?style=for-the-badge)
+![Quality](https://img.shields.io/badge/QUALITY-99%25-667EEA?style=for-the-badge)
 
 </td>
-<td align="center" width="50%">
+<td width="50%" align="center">
 
-### 👔 MODE 2: FORMAL SHIRT + BLAZER
+#### 👔 MODE 2: Alpha Overlay System
 
-<img src="https://user-images.githubusercontent.com/74038190/229223156-143a1f73-bbd7-4878-83f6-762195b8d4d8.gif" width="300">
-
-<br/><br/>
-
-<img src="https://img.shields.io/badge/ALPHA_OVERLAY-PERFECTION-06A77D?style=for-the-badge&logo=imdb&logoColor=white&labelColor=000000"/>
+<img src="https://user-images.githubusercontent.com/74038190/229223156-143a1f73-bbd7-4878-83f6-762195b8d4d8.gif" width="250">
 
 <br/><br/>
-
-**🎯 THE TECHNIQUE**
 
 ```python
-# 4-method background removal
+# 4-Method Background Removal
 shirt_png = remove_bg_ultra(image)
 alpha = shirt_png[:,:,3] / 255.0
 
-# Photorealistic blending
+# Professional blending
 foreground = shirt_png[:,:,:3]
 background = original_frame
 
-result = (foreground * alpha + 
-          background * (1-alpha))
-
-# Result: Perfect + Professional (20ms)
+# Photorealistic composition
+result = (foreground * alpha[:,:,np.newaxis] + 
+          background * (1-alpha[:,:,np.newaxis]))
 ```
 
 <br/>
 
-**🔥 THE EDGE**
+**🔥 The Professional Edge**
 
-<table>
-<tr>
-<td>✅ **Real Fabric**</td>
-<td>✅ **Ultra Realistic**</td>
-</tr>
-<tr>
-<td>✅ **Blazer Support**</td>
-<td>✅ **Professional Look**</td>
-</tr>
-<tr>
-<td>✅ **4 Removal Methods**</td>
-<td>✅ **99.5% Accuracy**</td>
-</tr>
-</table>
+✅ Real fabric materials  
+✅ Blazer & formal shirt support  
+✅ 4 background removal methods  
+✅ 99.5% accuracy  
+✅ Perfect edge blending  
+✅ Corporate-ready quality
 
 <br/>
 
-<img src="https://progress-bar.dev/100/?title=Realism&width=400&color=f77f00"/>
-<img src="https://progress-bar.dev/99/?title=Accuracy&width=400&color=e63946"/>
+![Realism](https://img.shields.io/badge/REALISM-100%25-F87171?style=for-the-badge)
+![Accuracy](https://img.shields.io/badge/ACCURACY-99.5%25-E63946?style=for-the-badge)
 
 </td>
 </tr>
@@ -295,349 +291,57 @@ result = (foreground * alpha +
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
+![Divider](https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif)
 
-## 🖼️ BACKGROUND MAGIC
-
-<img src="https://media.giphy.com/media/3o7TKTDn976rzVgky4/giphy.gif" width="500">
-
-### 8+ PROFESSIONAL BACKGROUNDS • INSTANT SWAP
-
-</div>
-
-<br/>
-
-<div align="center">
-
-<table>
-<tr>
-<td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="150"/><br/><br/>
-<img src="https://img.shields.io/badge/OFFICE-MODERN-667EEA?style=for-the-badge&labelColor=000000"/>
-<br/><br/>
-Professional Workspace  
-Glass Walls  
-Corporate Vibe
-</td>
-<td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="150"/><br/><br/>
-<img src="https://img.shields.io/badge/CONFERENCE-ROOM-06A77D?style=for-the-badge&labelColor=000000"/>
-<br/><br/>
-Meeting Space  
-Executive Look  
-Board Ready
-</td>
-<td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="150"/><br/><br/>
-<img src="https://img.shields.io/badge/HOME-OFFICE-F77F00?style=for-the-badge&labelColor=000000"/>
-<br/><br/>
-Comfortable  
-Professional  
-Work from Home
-</td>
-<td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="150"/><br/><br/>
-<img src="https://img.shields.io/badge/LIBRARY-ACADEMIC-E63946?style=for-the-badge&labelColor=000000"/>
-<br/><br/>
-Scholarly  
-Bookshelf  
-Intellectual Vibe
-</td>
-</tr>
-<tr>
-<td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/229223156-143a1f73-bbd7-4878-83f6-762195b8d4d8.gif" width="150"/><br/><br/>
-<img src="https://img.shields.io/badge/CITY-SKYLINE-667EEA?style=for-the-badge&labelColor=000000"/>
-<br/><br/>
-Urban View  
-Sunset Glow  
-Stunning Vista
-</td>
-<td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="150"/><br/><br/>
-<img src="https://img.shields.io/badge/MINIMALIST-CLEAN-06A77D?style=for-the-badge&labelColor=000000"/>
-<br/><br/>
-Pure White  
-Simple Elegance  
-Focus on You
-</td>
-<td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="150"/><br/><br/>
-<img src="https://img.shields.io/badge/TECH-STARTUP-F77F00?style=for-the-badge&labelColor=000000"/>
-<br/><br/>
-Modern Setup  
-Laptop View  
-Innovation Hub
-</td>
-<td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="150"/><br/><br/>
-<img src="https://img.shields.io/badge/BOARDROOM-EXECUTIVE-E63946?style=for-the-badge&labelColor=000000"/>
-<br/><br/>
-Leadership  
-C-Suite Ready  
-Power Presence
-</td>
-</tr>
-</table>
-
-</div>
-
-<br/>
-
-<div align="center">
-
-### 🎯 THE 4-METHOD BACKGROUND REMOVAL SYSTEM
-
-<img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" width="400">
-
-<br/><br/>
-
-<table>
-<tr>
-<td align="center" width="25%">
-
-**METHOD 1**
-
-<img src="https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif" width="80"/>
-
-**HSV Detection**  
-Hue-Saturation-Value  
-Color Space Magic
-
-</td>
-<td align="center" width="25%">
-
-**METHOD 2**
-
-<img src="https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif" width="80"/>
-
-**RGB Threshold**  
-Multi-channel  
-Brightness Analysis
-
-</td>
-<td align="center" width="25%">
-
-**METHOD 3**
-
-<img src="https://user-images.githubusercontent.com/74038190/212257460-738ff738-247f-4445-a718-cdd0ca76e2db.gif" width="80"/>
-
-**Grayscale**  
-Intensity Mapping  
-Simple Yet Effective
-
-</td>
-<td align="center" width="25%">
-
-**METHOD 4**
-
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="80"/>
-
-**Edge Detection**  
-Canny Algorithm  
-Precise Capture
-
-</td>
-</tr>
-</table>
-
-<br/>
-
-**🔥 ALL 4 COMBINED = PERFECTION**
-
-<img src="https://progress-bar.dev/99/?scale=100&title=Background%20Removal%20Accuracy&width=700&color=06a77d&suffix=%20%E2%9C%A8"/>
-
-</div>
-
----
-
-<div align="center">
-
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
-
-## 👆 GESTURE CONTROL - NO MOUSE NEEDED!
-
-<img src="https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif" width="500">
-
-### POINT • HOVER • HOLD • MAGIC! ✨
-
-</div>
-
-<br/>
-
-<div align="center">
-
-```mermaid
-%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#667EEA','secondaryColor':'#06A77D','tertiaryColor':'#F77F00','lineColor':'#667EEA','fontSize':'20px','fontFamily':'Arial'}}}%%
-stateDiagram-v2
-    [*] --> Calibrating: System Start
-    Calibrating --> Ready: 30 Frames (1 sec)
-    Ready --> Pointing: ☝️ Finger Detected
-    Pointing --> Hovering: Over Popup Button
-    Hovering --> Holding: Stay Still
-    Holding --> Selected: ⏱️ 1.5 Seconds
-    Selected --> Applied: ✨ Magic Happens!
-    Applied --> [*]: Choice Confirmed
-    
-    Pointing --> Ready: Hand Removed
-    Hovering --> Ready: Move Away
-```
-
-</div>
-
-<br/>
-
-<div align="center">
-
-<table>
-<tr>
-<td align="center" width="20%">
-
-### 1️⃣ CALIBRATE
-
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="100"/>
-
-<br/><br/>
-
-**1 Second**  
-System learns  
-Your hand
-
-<br/>
-
-<img src="https://img.shields.io/badge/TIME-1_SEC-667EEA?style=for-the-badge&labelColor=000000"/>
-
-</td>
-<td align="center" width="20%">
-
-### 2️⃣ POINT
-
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="100"/>
-
-<br/><br/>
-
-**Index Finger**  
-21 Landmarks  
-MediaPipe Hands
-
-<br/>
-
-<img src="https://img.shields.io/badge/ACCURACY-99%25-06A77D?style=for-the-badge&labelColor=000000"/>
-
-</td>
-<td align="center" width="20%">
-
-### 3️⃣ HOVER
-
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="100"/>
-
-<br/><br/>
-
-**Visual Feedback**  
-Color Highlight  
-You're on target!
-
-<br/>
-
-<img src="https://img.shields.io/badge/FEEDBACK-INSTANT-F77F00?style=for-the-badge&labelColor=000000"/>
-
-</td>
-<td align="center" width="20%">
-
-### 4️⃣ HOLD
-
-<img src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif" width="100"/>
-
-<br/><br/>
-
-**1.5 Seconds**  
-Progress Circle  
-0% → 100%
-
-<br/>
-
-<img src="https://img.shields.io/badge/TIMER-1.5_SEC-E63946?style=for-the-badge&labelColor=000000"/>
-
-</td>
-<td align="center" width="20%">
-
-### 5️⃣ DONE!
-
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100"/>
-
-<br/><br/>
-
-**Applied!**  
-Animation  
-Sound Effect
-
-<br/>
-
-<img src="https://img.shields.io/badge/RESULT-PERFECT-667EEA?style=for-the-badge&labelColor=000000"/>
-
-</td>
-</tr>
-</table>
-
-</div>
-
----
-
-<div align="center">
-
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
-
-## 🎬 COMPLETE WORKFLOW
-
-<img src="https://media.giphy.com/media/3o7qDSOvfaCO9b3MlO/giphy.gif" width="500">
-
-</div>
+## 🎬 COMPLETE SYSTEM WORKFLOW
 
 <br/>
 
 ```mermaid
-%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#667EEA','secondaryColor':'#F77F00','tertiaryColor':'#06A77D','lineColor':'#667EEA','fontSize':'18px'}}}%%
+%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#667EEA','secondaryColor':'#F87171','tertiaryColor':'#06A77D','lineColor':'#667EEA','fontSize':'16px'}}}%%
 graph TB
-    A[📹 WEBCAM<br/>1280x720 HD] --> B{🤖 AI ENGINE}
+    A[📹 HD Webcam Input<br/>1280x720] --> B{🤖 AI Processing Engine}
     
-    B --> C[👤 FACE<br/>Haar Cascade]
-    B --> D[👆 HANDS<br/>MediaPipe 21]
-    B --> E[🎯 PERSON<br/>Segmentation]
+    B --> C[👤 Face Detection<br/>Haar Cascade]
+    B --> D[👆 Hand Tracking<br/>MediaPipe 21 Points]
+    B --> E[🎯 Person Segmentation<br/>Remove Background]
     
-    C --> F[🎨 PROCESSING<br/>CORE]
+    C --> F[🎨 Processing Hub]
     D --> F
     E --> F
     
-    F --> G[🖼️ BACKGROUND<br/>8+ Options]
-    F --> H[👔 CLOTHING<br/>Dual Mode]
-    F --> I[💫 UI RENDER<br/>Beautiful]
+    F --> G[🖼️ Background Engine<br/>8+ Professional Options]
+    F --> H[👔 Clothing Engine<br/>HSV + Alpha Overlay]
+    F --> I[💫 UI Renderer<br/>Gesture Interface]
     
-    G --> J[✨ OUTPUT<br/>25-30 FPS]
+    G --> J[✨ Final Composition<br/>25-30 FPS Output]
     H --> J
     I --> J
     
-    J --> K[📺 OBS STUDIO<br/>Virtual Cam]
-    K --> L[🎬 ANY MEETING<br/>Zoom • Teams • Meet]
+    J --> K[📺 OBS Virtual Camera]
+    K --> L[🎬 Any Video Platform<br/>Zoom • Teams • Meet]
     
-    style A fill:#667EEA,stroke:#fff,stroke-width:4px,color:#fff
-    style B fill:#F77F00,stroke:#fff,stroke-width:4px,color:#fff
-    style F fill:#06A77D,stroke:#fff,stroke-width:4px,color:#fff
-    style J fill:#E63946,stroke:#fff,stroke-width:4px,color:#fff
-    style K fill:#667EEA,stroke:#fff,stroke-width:4px,color:#fff
-    style L fill:#06A77D,stroke:#fff,stroke-width:4px,color:#fff
+    style A fill:#667EEA,stroke:#fff,stroke-width:3px,color:#fff
+    style B fill:#F87171,stroke:#fff,stroke-width:3px,color:#fff
+    style F fill:#06A77D,stroke:#fff,stroke-width:3px,color:#fff
+    style J fill:#E63946,stroke:#fff,stroke-width:3px,color:#fff
+    style K fill:#667EEA,stroke:#fff,stroke-width:3px,color:#fff
+    style L fill:#06A77D,stroke:#fff,stroke-width:3px,color:#fff
 ```
 
+</div>
+
 ---
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif" width="100">
+![Divider](https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif)
 
-## ⚡ PERFORMANCE BEAST
+## 🖐️ GESTURE CONTROL - HANDS-FREE MAGIC
 
-<img src="https://media.giphy.com/media/xT0xeuOy2Fcl9vDGiA/giphy.gif" width="500">
+<br/>
 
-### SMOOTH • FAST • PRODUCTION READY
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=667EEA&center=true&vCenter=true&width=900&lines=Point+%E2%80%A2+Hover+%E2%80%A2+Hold+%E2%80%A2+Transform;No+Mouse+%E2%80%A2+No+Keyboard+%E2%80%A2+Pure+Magic;MediaPipe+AI+%E2%80%A2+99%25+Accuracy" alt="Gesture Control" />
 
 </div>
 
@@ -645,87 +349,77 @@ graph TB
 
 <div align="center">
 
-<table>
-<tr>
-<td align="center" width="50%">
-
-### 📊 PROCESSING BREAKDOWN
-
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="200"/>
-
-<br/><br/>
-
-<img src="https://progress-bar.dev/8/?scale=60&title=👤%20Face%20Detection%205ms&width=450&color=667eea&suffix=" /><br/>
-<img src="https://progress-bar.dev/25/?scale=60&title=🖼️%20Background%20Replace%2015ms&width=450&color=06a77d&suffix=" /><br/>
-<img src="https://progress-bar.dev/33/?scale=60&title=👔%20Clothing%20Overlay%2020ms&width=450&color=f77f00&suffix=" /><br/>
-<img src="https://progress-bar.dev/17/?scale=60&title=👆%20Gesture%20Track%2010ms&width=450&color=e63946&suffix=" /><br/>
-<img src="https://progress-bar.dev/17/?scale=60&title=💫%20UI%20Render%2010ms&width=450&color=667eea&suffix=" /><br/>
-
-<br/>
-
-**⚡ TOTAL: ~60ms per frame**
-
-<img src="https://img.shields.io/badge/EQUALS-25--30_FPS-06A77D?style=for-the-badge&logo=speedtest&logoColor=white&labelColor=000000"/>
-
-</td>
-<td align="center" width="50%">
-
-### 🚀 OPTIMIZATION SECRETS
-
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="200"/>
-
-<br/><br/>
+### 🎯 How It Works
 
 <table>
 <tr>
-<td align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="80"/><br/><br/>
-<img src="https://img.shields.io/badge/FRAME-CACHING-667EEA?style=for-the-badge&labelColor=000000"/><br/>
-**-40% CPU Usage**
+<td align="center" width="20%">
+
+![Step 1](https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif)
+
+### 1️⃣ Calibrate
+
+**1 Second Setup**  
+System learns your hand  
+30 frames analysis  
+
+![Badge](https://img.shields.io/badge/STEP_1-READY-667EEA?style=for-the-badge)
+
 </td>
-<td align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="80"/><br/><br/>
-<img src="https://img.shields.io/badge/SMART-PROCESSING-06A77D?style=for-the-badge&labelColor=000000"/><br/>
-**Every 2nd Frame**
+<td align="center" width="20%">
+
+![Step 2](https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif)
+
+### 2️⃣ Point
+
+**Index Finger Up**  
+21 landmark tracking  
+Precise detection  
+
+![Badge](https://img.shields.io/badge/STEP_2-POINT-06A77D?style=for-the-badge)
+
 </td>
-</tr>
-<tr>
-<td align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="80"/><br/><br/>
-<img src="https://img.shields.io/badge/NUMPY-VECTORIZED-F77F00?style=for-the-badge&labelColor=000000"/><br/>
-**Blazing Fast Math**
+<td align="center" width="20%">
+
+![Step 3](https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif)
+
+### 3️⃣ Hover
+
+**Visual Feedback**  
+Button highlights  
+You're on target  
+
+![Badge](https://img.shields.io/badge/STEP_3-HOVER-F87171?style=for-the-badge)
+
 </td>
-<td align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="80"/><br/><br/>
-<img src="https://img.shields.io/badge/FIXED-RESOLUTION-E63946?style=for-the-badge&labelColor=000000"/><br/>
-**1280x720 Optimized**
+<td align="center" width="20%">
+
+![Step 4](https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif)
+
+### 4️⃣ Hold
+
+**1.5 Seconds**  
+Progress circle fills  
+Almost there  
+
+![Badge](https://img.shields.io/badge/STEP_4-HOLD-E63946?style=for-the-badge)
+
+</td>
+<td align="center" width="20%">
+
+![Step 5](https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif)
+
+### 5️⃣ Done!
+
+**Instant Apply**  
+Smooth animation  
+Perfect result  
+
+![Badge](https://img.shields.io/badge/STEP_5-MAGIC!-667EEA?style=for-the-badge)
+
 </td>
 </tr>
 </table>
-
-<br/>
-
-**🔥 RESULT: BUTTER SMOOTH**
-
-<img src="https://progress-bar.dev/100/?title=Smoothness&width=400&color=06a77d&suffix=%20%E2%9C%A8"/>
-
-</td>
-</tr>
-</table>
-
-</div>
-
----
-
-<div align="center">
-
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
-
-## 📅 THE 90-DAY JOURNEY
-
-<img src="https://media.giphy.com/media/l0HlHFRbmaZtBRhXG/giphy.gif" width="500">
-
-### FROM IDEA TO REALITY • BUILT WITH ❤️
 
 </div>
 
@@ -734,38 +428,372 @@ graph TB
 <div align="center">
 
 ```mermaid
-%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#667EEA','secondaryColor':'#06A77D','tertiaryColor':'#F77F00'}}}%%
+%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#667EEA','secondaryColor':'#06A77D','tertiaryColor':'#F87171','fontSize':'18px'}}}%%
+stateDiagram-v2
+    [*] --> Calibrating: 🚀 System Start
+    Calibrating --> Ready: ✅ 1 Second Complete
+    Ready --> Pointing: ☝️ Finger Detected
+    Pointing --> Hovering: 🎯 Over Button
+    Hovering --> Holding: ⏱️ Stay Still
+    Holding --> Selected: ✨ 1.5s Complete
+    Selected --> Applied: 🎉 Transformation!
+    Applied --> Ready: 🔄 Ready for Next
+    
+    Pointing --> Ready: ✋ Hand Removed
+    Hovering --> Pointing: 👆 Moved Away
+```
+
+</div>
+
+---
+
+<div align="center">
+
+![Divider](https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif)
+
+## 🖼️ PROFESSIONAL BACKGROUND COLLECTION
+
+<br/>
+
+### 8+ Stunning Environments • One-Click Swap
+
+</div>
+
+<br/>
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="25%">
+
+![BG1](https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif)
+
+**🏢 Modern Office**
+
+Glass walls  
+Professional setup  
+Corporate vibes  
+
+![Badge](https://img.shields.io/badge/OFFICE-MODERN-667EEA?style=for-the-badge)
+
+</td>
+<td align="center" width="25%">
+
+![BG2](https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif)
+
+**🎙️ Conference Room**
+
+Meeting space  
+Executive look  
+Board ready  
+
+![Badge](https://img.shields.io/badge/CONFERENCE-EXECUTIVE-06A77D?style=for-the-badge)
+
+</td>
+<td align="center" width="25%">
+
+![BG3](https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif)
+
+**🏠 Home Office**
+
+Comfortable  
+Professional  
+Work from home  
+
+![Badge](https://img.shields.io/badge/HOME-OFFICE-F87171?style=for-the-badge)
+
+</td>
+<td align="center" width="25%">
+
+![BG4](https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif)
+
+**📚 Library**
+
+Scholarly  
+Bookshelf  
+Academic vibe  
+
+![Badge](https://img.shields.io/badge/LIBRARY-ACADEMIC-E63946?style=for-the-badge)
+
+</td>
+</tr>
+<tr>
+<td align="center" width="25%">
+
+![BG5](https://user-images.githubusercontent.com/74038190/229223156-143a1f73-bbd7-4878-83f6-762195b8d4d8.gif)
+
+**🌆 City Skyline**
+
+Urban view  
+Sunset glow  
+Stunning vista  
+
+![Badge](https://img.shields.io/badge/CITY-SKYLINE-667EEA?style=for-the-badge)
+
+</td>
+<td align="center" width="25%">
+
+![BG6](https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif)
+
+**⚪ Minimalist**
+
+Pure white  
+Simple elegance  
+Focus on you  
+
+![Badge](https://img.shields.io/badge/MINIMAL-CLEAN-06A77D?style=for-the-badge)
+
+</td>
+<td align="center" width="25%">
+
+![BG7](https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif)
+
+**💻 Tech Startup**
+
+Modern setup  
+Laptop view  
+Innovation hub  
+
+![Badge](https://img.shields.io/badge/TECH-STARTUP-F87171?style=for-the-badge)
+
+</td>
+<td align="center" width="25%">
+
+![BG8](https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif)
+
+**🎯 Boardroom**
+
+Leadership  
+C-Suite ready  
+Power presence  
+
+![Badge](https://img.shields.io/badge/BOARD-EXECUTIVE-E63946?style=for-the-badge)
+
+</td>
+</tr>
+</table>
+
+</div>
+
+<br/>
+
+<div align="center">
+
+### 🎨 The 4-Method Background Removal System
+
+<table>
+<tr>
+<td align="center" width="25%">
+
+![Method1](https://user-images.githubusercontent.com/74038190/212257465-7ce8d493-cac5-494e-982a-5a9deb852c4b.gif)
+
+**METHOD 1**  
+HSV Detection  
+Color space magic  
+
+</td>
+<td align="center" width="25%">
+
+![Method2](https://user-images.githubusercontent.com/74038190/212257467-871d32b7-e401-42e8-a166-fcfd7baa4c6b.gif)
+
+**METHOD 2**  
+RGB Threshold  
+Multi-channel analysis  
+
+</td>
+<td align="center" width="25%">
+
+![Method3](https://user-images.githubusercontent.com/74038190/212257460-738ff738-247f-4445-a718-cdd0ca76e2db.gif)
+
+**METHOD 3**  
+Grayscale  
+Intensity mapping  
+
+</td>
+<td align="center" width="25%">
+
+![Method4](https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif)
+
+**METHOD 4**  
+Edge Detection  
+Canny algorithm  
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+**🔥 ALL 4 COMBINED = 99.5% ACCURACY**
+
+![Progress](https://img.shields.io/badge/ACCURACY-99.5%25-06A77D?style=for-the-badge&logo=target)
+
+</div>
+
+---
+
+<div align="center">
+
+![Divider](https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif)
+
+## ⚡ PERFORMANCE ENGINEERING
+
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&duration=3000&pause=1000&color=06A77D&center=true&vCenter=true&width=800&lines=25-30+FPS+Real-Time+Processing;Smart+Frame+Caching+%E2%80%A2+40%25+Less+CPU;NumPy+Vectorized+Operations;Production-Ready+Optimization" alt="Performance" />
+
+</div>
+
+<br/>
+
+<div align="center">
+
+<table>
+<tr>
+<td width="50%" align="center">
+
+### 📊 Processing Breakdown
+
+<br/>
+
+![Processing](https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif)
+
+<br/><br/>
+
+| Component | Time | Bar |
+|-----------|------|-----|
+| 👤 Face Detection | 5ms | ![Bar](https://img.shields.io/badge/●●●○○○○○○○-667EEA?style=flat-square) |
+| 🖼️ Background Replace | 15ms | ![Bar](https://img.shields.io/badge/●●●●●○○○○○-06A77D?style=flat-square) |
+| 👔 Clothing Overlay | 20ms | ![Bar](https://img.shields.io/badge/●●●●●●●○○○-F87171?style=flat-square) |
+| 👆 Gesture Tracking | 10ms | ![Bar](https://img.shields.io/badge/●●●●○○○○○○-E63946?style=flat-square) |
+| 💫 UI Rendering | 10ms | ![Bar](https://img.shields.io/badge/●●●●○○○○○○-667EEA?style=flat-square) |
+
+<br/>
+
+**⚡ TOTAL: ~60ms per frame = 25-30 FPS**
+
+<br/>
+
+![FPS](https://img.shields.io/badge/SUSTAINED-25--30_FPS-06A77D?style=for-the-badge&logo=speedtest)
+
+</td>
+<td width="50%" align="center">
+
+### 🚀 Optimization Secrets
+
+<br/>
+
+![Optimization](https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif)
+
+<br/><br/>
+
+<table>
+<tr>
+<td align="center">
+
+![Icon1](https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif)
+
+**Frame Caching**  
+-40% CPU usage  
+Smart reuse  
+
+</td>
+<td align="center">
+
+![Icon2](https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif)
+
+**Skip Frames**  
+Process every 2nd  
+Still smooth  
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+![Icon3](https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif)
+
+**NumPy Vectorized**  
+Blazing fast math  
+GPU-like speed  
+
+</td>
+<td align="center">
+
+![Icon4](https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif)
+
+**Fixed Resolution**  
+1280x720 HD  
+Optimized pipeline  
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+**🔥 RESULT: BUTTER SMOOTH EXPERIENCE**
+
+<br/>
+
+![Smoothness](https://img.shields.io/badge/SMOOTHNESS-100%25-06A77D?style=for-the-badge)
+
+</td>
+</tr>
+</table>
+
+</div>
+
+---
+
+<div align="center">
+
+![Divider](https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif)
+
+## 📅 THE 90-DAY EPIC JOURNEY
+
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=3500&pause=1000&color=F87171&center=true&vCenter=true&width=900&lines=From+Zero+to+Hero+%E2%80%A2+90+Days;3%2C247+Lines+of+Passionate+Code;12+Iterations+%E2%80%A2+Never+Gave+Up;Built+With+Love+and+Dedication+%E2%9D%A4%EF%B8%8F" alt="Journey" />
+
+</div>
+
+<br/>
+
+<div align="center">
+
+```mermaid
+%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#667EEA','secondaryColor':'#06A77D','tertiaryColor':'#F87171'}}}%%
 gantt
-    title 90 Days of Blood, Sweat, and Code
-    dateFormat  YYYY-MM-DD
+    title 🚀 90 Days of Passion & Perseverance
+    dateFormat YYYY-MM-DD
     
-    section 📚 Research Phase
-    OpenCV Deep Dive          :done, phase1, 2024-07-01, 7d
-    MediaPipe Exploration     :done, phase2, 2024-07-08, 7d
-    Algorithm Study           :done, phase3, 2024-07-15, 7d
-    Prototype Testing         :done, phase4, 2024-07-22, 7d
+    section 📚 Research (28 Days)
+    OpenCV Deep Dive          :done, r1, 2024-07-01, 7d
+    MediaPipe Study           :done, r2, 2024-07-08, 7d
+    Algorithm Research        :done, r3, 2024-07-15, 7d
+    Prototype Testing         :done, r4, 2024-07-22, 7d
     
-    section 💻 Core Development
-    Face Detection System     :done, core1, 2024-07-29, 10d
-    Background Removal v1     :done, core2, 2024-08-08, 8d
-    Background Removal v2     :done, core3, 2024-08-16, 6d
-    Background Removal v3     :done, core4, 2024-08-22, 6d
-    4-Method Combiner         :done, core5, 2024-08-28, 4d
+    section 💻 Core Build (38 Days)
+    Face Detection System     :done, c1, 2024-07-29, 10d
+    Background Removal v1-v4  :done, c2, 2024-08-08, 20d
+    4-Method Combiner         :done, c3, 2024-08-28, 8d
     
-    section 👔 Clothing Engine
-    T-Shirt HSV System        :done, cloth1, 2024-09-01, 10d
-    Shirt Alpha Overlay       :done, cloth2, 2024-09-11, 8d
-    Blazer Integration        :done, cloth3, 2024-09-19, 6d
+    section 👔 Clothing (24 Days)
+    T-Shirt HSV Engine        :done, cl1, 2024-09-05, 10d
+    Shirt Alpha Overlay       :done, cl2, 2024-09-15, 8d
+    Blazer Integration        :done, cl3, 2024-09-23, 6d
     
-    section ✨ Advanced Features
-    Gesture Detection         :done, adv1, 2024-09-25, 8d
-    UI System Design          :done, adv2, 2024-10-03, 6d
-    Hold Timer Logic          :done, adv3, 2024-10-09, 4d
+    section ✨ Advanced (18 Days)
+    Gesture Detection         :done, a1, 2024-09-29, 8d
+    UI System Design          :done, a2, 2024-10-07, 6d
+    Hold Timer Logic          :done, a3, 2024-10-13, 4d
     
-    section 🏆 Polish & Ship
-    Performance Optimization  :done, final1, 2024-10-13, 7d
-    Bug Hunting               :done, final2, 2024-10-20, 5d
-    Documentation             :done, final3, 2024-10-25, 5d
+    section 🏆 Polish (17 Days)
+    Performance Tuning        :done, p1, 2024-10-17, 7d
+    Bug Squashing             :done, p2, 2024-10-24, 5d
+    Documentation             :done, p3, 2024-10-29, 5d
 ```
 
 </div>
@@ -778,82 +806,62 @@ gantt
 <tr>
 <td align="center" width="25%">
 
+![Phase1](https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif)
+
 ### 📚 RESEARCH
-
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100"/>
-
-<br/><br/>
-
 **28 Days**
 
-Studied Computer Vision  
-Explored AI Models  
-Tested 50+ Approaches  
-Failed Forward
+Studied CV fundamentals  
+Explored 50+ approaches  
+Failed forward daily  
+Built foundation  
 
-<br/>
-
-<img src="https://img.shields.io/badge/LEARNED-EVERYTHING-667EEA?style=for-the-badge&labelColor=000000"/>
+![Badge](https://img.shields.io/badge/PHASE_1-LEARN-667EEA?style=for-the-badge)
 
 </td>
 <td align="center" width="25%">
+
+![Phase2](https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif)
 
 ### 💻 CORE BUILD
-
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="100"/>
-
-<br/><br/>
-
 **38 Days**
 
-Built Background Engine  
-12 Iterations!  
-Dual Clothing Mode  
-Magic Happened
+12 iterations!  
+Background engine built  
+Dual clothing mode  
+System came alive  
 
-<br/>
-
-<img src="https://img.shields.io/badge/VERSIONS-12+-06A77D?style=for-the-badge&labelColor=000000"/>
+![Badge](https://img.shields.io/badge/PHASE_2-BUILD-06A77D?style=for-the-badge)
 
 </td>
 <td align="center" width="25%">
+
+![Phase3](https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif)
 
 ### ✨ ADVANCED
-
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="100"/>
-
-<br/><br/>
-
 **18 Days**
 
-Gesture Control  
-Beautiful UI  
-Sound Effects  
-Pure Magic!
+Gesture control magic  
+Beautiful UI design  
+Sound & animations  
+Pure innovation  
 
-<br/>
-
-<img src="https://img.shields.io/badge/MAGIC-UNLOCKED-F77F00?style=for-the-badge&labelColor=000000"/>
+![Badge](https://img.shields.io/badge/PHASE_3-INNOVATE-F87171?style=for-the-badge)
 
 </td>
 <td align="center" width="25%">
 
+![Phase4](https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif)
+
 ### 🏆 POLISH
-
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="100"/>
-
-<br/><br/>
-
 **17 Days**
 
-Performance Tuning  
-Bug Crushing  
+Performance tuning  
+Bug crushing  
 Documentation  
-SHIPPED! 🚀
+Shipped to production!  
 
-<br/>
-
-<img src="https://img.shields.io/badge/STATUS-PRODUCTION-E63946?style=for-the-badge&labelColor=000000"/>
+![Badge](https://img.shields.io/badge/PHASE_4-SHIP-E63946?style=for-the-badge)
 
 </td>
 </tr>
@@ -865,11 +873,9 @@ SHIPPED! 🚀
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
+![Divider](https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif)
 
-## 📊 PROJECT STATISTICS
-
-<img src="https://media.giphy.com/media/3oKIPlifLxdigaD2Y8/giphy.gif" width="500">
+## 📊 PROJECT BY THE NUMBERS
 
 </div>
 
@@ -880,41 +886,66 @@ SHIPPED! 🚀
 <table>
 <tr>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="100"/><br/><br/>
+
+![Stat1](https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif)
+
 <h1>90</h1>
-<img src="https://img.shields.io/badge/DAYS-BUILT-667EEA?style=for-the-badge&labelColor=000000"/><br/>
-3 Months of Dedication
+
+![Badge](https://img.shields.io/badge/DAYS-DEVELOPED-667EEA?style=for-the-badge)
+
+3 months of dedication
+
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="100"/><br/><br/>
+
+![Stat2](https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif)
+
 <h1>3,247</h1>
-<img src="https://img.shields.io/badge/LINES-OF_CODE-06A77D?style=for-the-badge&labelColor=000000"/><br/>
-Pure Python Magic
+
+![Badge](https://img.shields.io/badge/LINES-OF_CODE-06A77D?style=for-the-badge)
+
+Pure Python magic
+
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="100"/><br/><br/>
+
+![Stat3](https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif)
+
 <h1>7</h1>
-<img src="https://img.shields.io/badge/CORE-MODULES-F77F00?style=for-the-badge&labelColor=000000"/><br/>
-Modular Architecture
+
+![Badge](https://img.shields.io/badge=CORE-MODULES-F87171?style=for-the-badge)
+
+Modular architecture
+
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="100"/><br/><br/>
+
+![Stat4](https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif)
+
 <h1>4</h1>
-<img src="https://img.shields.io/badge/AI-MODELS-E63946?style=for-the-badge&labelColor=000000"/><br/>
-Computer Vision Power
+
+![Badge](https://img.shields.io/badge/AI-MODELS-E63946?style=for-the-badge)
+
+Computer vision power
+
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100"/><br/><br/>
+
+![Stat5](https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif)
+
 <h1>30</h1>
-<img src="https://img.shields.io/badge/FPS-ACHIEVED-667EEA?style=for-the-badge&labelColor=000000"/><br/>
-Smooth as Butter
+
+![Badge](https://img.shields.io/badge/FPS-ACHIEVED-667EEA?style=for-the-badge)
+
+Smooth as butter
+
 </td>
 </tr>
 </table>
 
 <br/>
 
-<img src="https://progress-bar.dev/100/?scale=100&title=COMPLETION&width=800&color=06a77d&suffix=%20%E2%9C%A8%20SHIPPED!"/>
+![Completion](https://img.shields.io/badge/COMPLETION-100%25_SHIPPED-06A77D?style=for-the-badge&logo=rocket)
 
 </div>
 
@@ -922,11 +953,13 @@ Smooth as Butter
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif" width="100">
+![Divider](https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif)
 
 ## 🏗️ SYSTEM ARCHITECTURE
 
-<img src="https://media.giphy.com/media/l0HlQXlQ3nHyLMvte/giphy.gif" width="500">
+<br/>
+
+### 📂 Modular Design • Production Ready
 
 </div>
 
@@ -938,124 +971,94 @@ Smooth as Butter
 <tr>
 <td align="center" width="33%">
 
+![Module1](https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif)
+
 ### 📁 main.py
+**Orchestrator**
 
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="120"/>
+State management  
+Main 30 FPS loop  
+Event handling  
+System coordinator  
 
-<br/><br/>
-
-**🎛️ Orchestrator**
-
-State Management  
-Main Loop (30 FPS)  
-Event Handling  
-System Coordinator
-
-<br/>
-
-<img src="https://img.shields.io/badge/CORE-BRAIN-667EEA?style=for-the-badge&labelColor=000000"/>
+![Badge](https://img.shields.io/badge/MAIN-BRAIN-667EEA?style=for-the-badge)
 
 </td>
 <td align="center" width="33%">
+
+![Module2](https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif)
 
 ### 📁 camera_handler.py
+**Video System**
 
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="120"/>
+OpenCV interface  
+Haar face detection  
+Frame enhancement  
+HD quality control  
 
-<br/><br/>
-
-**📹 Camera System**
-
-OpenCV Interface  
-Haar Face Detection  
-Frame Enhancement  
-HD Quality
-
-<br/>
-
-<img src="https://img.shields.io/badge/VIDEO-CAPTURE-06A77D?style=for-the-badge&labelColor=000000"/>
+![Badge](https://img.shields.io/badge/VIDEO-CAPTURE-06A77D?style=for-the-badge)
 
 </td>
 <td align="center" width="33%">
 
+![Module3](https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif)
+
 ### 📁 gesture_detector.py
-
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="120"/>
-
-<br/><br/>
-
-**👆 Gesture Engine**
+**Gesture AI**
 
 MediaPipe Hands  
-21 Landmarks  
-Hold Detection  
-Magic Touch!
+21 landmarks  
+Hold detection  
+Touch-free magic  
 
-<br/>
-
-<img src="https://img.shields.io/badge/AI-GESTURES-F77F00?style=for-the-badge&labelColor=000000"/>
+![Badge](https://img.shields.io/badge/AI-GESTURE-F87171?style=for-the-badge)
 
 </td>
 </tr>
 <tr>
 <td align="center" width="33%">
 
+![Module4](https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif)
+
 ### 📁 background_engine.py
+**Background AI**
 
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="120"/>
+Person segmentation  
+4-method removal  
+Edge smoothing  
+Perfect blend  
 
-<br/><br/>
-
-**🖼️ Background AI**
-
-Segmentation  
-4-Method Removal  
-Edge Smoothing  
-Perfect Blend
-
-<br/>
-
-<img src="https://img.shields.io/badge/99.5%25-ACCURACY-E63946?style=for-the-badge&labelColor=000000"/>
+![Badge](https://img.shields.io/badge/99.5%25-ACCURACY-E63946?style=for-the-badge)
 
 </td>
 <td align="center" width="33%">
+
+![Module5](https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif)
 
 ### 📁 clothing_engine.py
+**Wardrobe System**
 
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="120"/>
+HSV color magic  
+Alpha overlay tech  
+Torso detection  
+Dual mode engine  
 
-<br/><br/>
-
-**👔 Wardrobe System**
-
-HSV Magic  
-Alpha Overlay  
-Torso Detection  
-Dual Mode
-
-<br/>
-
-<img src="https://img.shields.io/badge=SMART-WARDROBE-667EEA?style=for-the-badge&labelColor=000000"/>
+![Badge](https://img.shields.io/badge/SMART-WARDROBE-667EEA?style=for-the-badge)
 
 </td>
 <td align="center" width="33%">
 
+![Module6](https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif)
+
 ### 📁 popup_manager.py
+**UI Engine**
 
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="120"/>
+Beautiful popups  
+Click detection  
+Visual feedback  
+Smooth animations  
 
-<br/><br/>
-
-**💫 UI Engine**
-
-Beautiful Popups  
-Click Detection  
-Visual Feedback  
-Animations
-
-<br/>
-
-<img src="https://img.shields.io/badge/UX-PERFECTION-06A77D?style=for-the-badge&labelColor=000000"/>
+![Badge](https://img.shields.io/badge/UX-PERFECT-06A77D?style=for-the-badge)
 
 </td>
 </tr>
@@ -1067,13 +1070,13 @@ Animations
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
+![Divider](https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif)
 
-## 🚀 QUICK START GUIDE
+## 🚀 QUICK START - 3 MINUTES SETUP
 
-<img src="https://media.giphy.com/media/xUA7bdpLxQhsSQdyog/giphy.gif" width="400">
+<br/>
 
-### GET STARTED IN 3 MINUTES! ⏱️
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=667EEA&center=true&vCenter=true&width=700&lines=Clone+%E2%80%A2+Install+%E2%80%A2+Run+%E2%80%A2+Transform;Get+Started+in+Under+3+Minutes!" alt="Quick Start" />
 
 </div>
 
@@ -1085,29 +1088,23 @@ Animations
 <tr>
 <td align="center" width="33%">
 
+![Step1](https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif)
+
 ### 1️⃣ CLONE
 
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="100"/>
-
-<br/><br/>
-
 ```bash
-git clone [repo-url]
+git clone [your-repo]
 cd ai-makeover
 ```
 
-<br/>
-
-<img src="https://img.shields.io/badge/STEP_1-CLONE-667EEA?style=for-the-badge&labelColor=000000"/>
+![Badge](https://img.shields.io/badge/STEP_1-CLONE-667EEA?style=for-the-badge)
 
 </td>
 <td align="center" width="33%">
 
+![Step2](https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif)
+
 ### 2️⃣ INSTALL
-
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="100"/>
-
-<br/><br/>
 
 ```bash
 pip install opencv-python
@@ -1115,28 +1112,22 @@ pip install mediapipe
 pip install numpy
 ```
 
-<br/>
-
-<img src="https://img.shields.io/badge/STEP_2-INSTALL-06A77D?style=for-the-badge&labelColor=000000"/>
+![Badge](https://img.shields.io/badge/STEP_2-INSTALL-06A77D?style=for-the-badge)
 
 </td>
 <td align="center" width="33%">
 
+![Step3](https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif)
+
 ### 3️⃣ RUN!
-
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="100"/>
-
-<br/><br/>
 
 ```bash
 python main.py
 ```
 
-**BOOM! 💥 YOU'RE READY!**
+**✨ YOU'RE LIVE!**
 
-<br/>
-
-<img src="https://img.shields.io/badge/STEP_3-MAGIC!-F77F00?style=for-the-badge&labelColor=000000"/>
+![Badge](https://img.shields.io/badge/STEP_3-MAGIC!-F87171?style=for-the-badge)
 
 </td>
 </tr>
@@ -1148,38 +1139,54 @@ python main.py
 
 <div align="center">
 
-### 🎮 CONTROLS & SHORTCUTS
-
-<img src="https://media.giphy.com/media/3o7qDEq2bMbcbPRQ2c/giphy.gif" width="300">
-
-<br/><br/>
+### 🎮 CONTROLS & KEYBOARD SHORTCUTS
 
 <table>
 <tr>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="60"/><br/><br/>
-<img src="https://img.shields.io/badge/POINT-FINGER-667EEA?style=for-the-badge&labelColor=000000"/><br/>
-Navigate Menus
+
+![Control1](https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif)
+
+![Badge](https://img.shields.io/badge/👆_POINT-NAVIGATE-667EEA?style=for-the-badge)
+
+Point finger to navigate
+
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="60"/><br/><br/>
-<img src="https://img.shields.io/badge/HOLD-1.5_SEC-06A77D?style=for-the-badge&labelColor=000000"/><br/>
-Select Option
+
+![Control2](https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif)
+
+![Badge](https://img.shields.io/badge/⏱️_HOLD-SELECT-06A77D?style=for-the-badge)
+
+Hold 1.5s to select
+
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif" width="60"/><br/><br/>
-<img src="https://img.shields.io/badge/PRESS-R-F77F00?style=for-the-badge&labelColor=000000"/><br/>
-Restart System
+
+![Control3](https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif)
+
+![Badge](https://img.shields.io/badge/R_KEY-RESTART-F87171?style=for-the-badge)
+
+Press R to restart
+
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="60"/><br/><br/>
-<img src="https://img.shields.io/badge/PRESS-C-E63946?style=for-the-badge&labelColor=000000"/><br/>
-Screenshot
+
+![Control4](https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif)
+
+![Badge](https://img.shields.io/badge/C_KEY-SCREENSHOT-E63946?style=for-the-badge)
+
+Press C to capture
+
 </td>
 <td align="center" width="20%">
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="60"/><br/><br/>
-<img src="https://img.shields.io/badge/PRESS-Q_or_ESC-667EEA?style=for-the-badge&labelColor=000000"/><br/>
-Exit
+
+![Control5](https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif)
+
+![Badge](https://img.shields.io/badge/Q/ESC-EXIT-667EEA?style=for-the-badge)
+
+Press Q or ESC
+
 </td>
 </tr>
 </table>
@@ -1190,25 +1197,25 @@ Exit
 
 <div align="center">
 
-### 📹 USE WITH OBS STUDIO
+### 📹 INTEGRATION WITH OBS STUDIO
 
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="200"/>
-
-<br/><br/>
-
-**1.** Run AI Makeover  
-**2.** Open OBS Studio  
-**3.** Add Window Capture  
-**4.** Select "AI Makeover"  
-**5.** Start Virtual Camera  
-**6.** Join ANY meeting!
+![OBS](https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif)
 
 <br/>
 
-<img src="https://img.shields.io/badge/WORKS_WITH-ZOOM-06A77D?style=for-the-badge&logo=zoom&logoColor=white&labelColor=000000"/>
-<img src="https://img.shields.io/badge/WORKS_WITH-TEAMS-667EEA?style=for-the-badge&logo=microsoftteams&logoColor=white&labelColor=000000"/>
-<img src="https://img.shields.io/badge/WORKS_WITH-GOOGLE_MEET-F77F00?style=for-the-badge&logo=googlemeet&logoColor=white&labelColor=000000"/>
-<img src="https://img.shields.io/badge/WORKS_WITH-SKYPE-E63946?style=for-the-badge&logo=skype&logoColor=white&labelColor=000000"/>
+**Step 1:** Run AI Makeover  
+**Step 2:** Open OBS Studio  
+**Step 3:** Add Window Capture source  
+**Step 4:** Select "AI Makeover" window  
+**Step 5:** Start Virtual Camera  
+**Step 6:** Use in ANY video platform!  
+
+<br/>
+
+![Zoom](https://img.shields.io/badge/WORKS_WITH-ZOOM-06A77D?style=for-the-badge&logo=zoom&logoColor=white)
+![Teams](https://img.shields.io/badge/WORKS_WITH-TEAMS-667EEA?style=for-the-badge&logo=microsoftteams&logoColor=white)
+![Meet](https://img.shields.io/badge/WORKS_WITH-GOOGLE_MEET-F87171?style=for-the-badge&logo=googlemeet&logoColor=white)
+![Skype](https://img.shields.io/badge/WORKS_WITH-SKYPE-E63946?style=for-the-badge&logo=skype&logoColor=white)
 
 </div>
 
@@ -1216,11 +1223,9 @@ Exit
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
+![Divider](https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif)
 
-## 💼 USE CASES - YOUR LIFE, SIMPLIFIED
-
-<img src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" width="500">
+## 💼 USE CASES - TRANSFORM YOUR PROFESSIONAL LIFE
 
 </div>
 
@@ -1231,66 +1236,96 @@ Exit
 <table>
 <tr>
 <td align="center" width="33%">
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="150"/><br/><br/>
-<h2>💼 BUSINESS</h2>
-<img src="https://img.shields.io/badge/FORMAL-MEETINGS-667EEA?style=for-the-badge&labelColor=000000"/><br/><br/>
-Board Meetings  
-Client Presentations  
-Investor Pitches  
-Executive Calls  
-C-Suite Ready!
+
+![UseCase1](https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif)
+
+### 💼 BUSINESS MEETINGS
+
+![Badge](https://img.shields.io/badge/FORMAL-READY-667EEA?style=for-the-badge)
+
+Board meetings  
+Client presentations  
+Investor pitches  
+Executive calls  
+C-Suite ready instantly!
+
 </td>
 <td align="center" width="33%">
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="150"/><br/><br/>
-<h2>💻 REMOTE WORK</h2>
-<img src="https://img.shields.io/badge/DAILY-STANDUPS-06A77D?style=for-the-badge&labelColor=000000"/><br/><br/>
-Team Syncs  
-1-on-1 Meetings  
-Sprint Planning  
-Code Reviews  
-Always Professional!
+
+![UseCase2](https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif)
+
+### 💻 REMOTE WORK
+
+![Badge](https://img.shields.io/badge/DAILY-STANDUPS-06A77D?style=for-the-badge)
+
+Team sync-ups  
+1-on-1 meetings  
+Sprint planning  
+Code reviews  
+Always professional!
+
 </td>
 <td align="center" width="33%">
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="150"/><br/><br/>
-<h2>🎬 CONTENT</h2>
-<img src="https://img.shields.io/badge/CREATE-CONTENT-F77F00?style=for-the-badge&labelColor=000000"/><br/><br/>
-YouTube Videos  
+
+![UseCase3](https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif)
+
+### 🎬 CONTENT CREATION
+
+![Badge](https://img.shields.io/badge/CREATE-CONTENT-F87171?style=for-the-badge)
+
+YouTube videos  
 Webinars  
-Online Courses  
-Live Streams  
-Studio Quality!
+Online courses  
+Live streaming  
+Studio quality!
+
 </td>
 </tr>
 <tr>
 <td align="center" width="33%">
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="150"/><br/><br/>
-<h2>🎓 EDUCATION</h2>
-<img src="https://img.shields.io/badge/VIRTUAL-CLASSES-E63946?style=for-the-badge&labelColor=000000"/><br/><br/>
-Online Teaching  
-Office Hours  
-Study Groups  
+
+![UseCase4](https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif)
+
+### 🎓 EDUCATION
+
+![Badge](https://img.shields.io/badge/VIRTUAL-CLASSES-E63946?style=for-the-badge)
+
+Online teaching  
+Office hours  
+Study groups  
 Presentations  
-Professional Look!
+Professional educator!
+
 </td>
 <td align="center" width="33%">
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="150"/><br/><br/>
-<h2>🤝 INTERVIEWS</h2>
-<img src="https://img.shields.io/badge/JOB-HUNTING-667EEA?style=for-the-badge&labelColor=000000"/><br/><br/>
-Job Interviews  
-Coffee Chats  
-Networking Events  
-First Impressions  
-Dress to Impress!
+
+![UseCase5](https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif)
+
+### 🤝 JOB INTERVIEWS
+
+![Badge](https://img.shields.io/badge/CAREER-READY-667EEA?style=for-the-badge)
+
+Job interviews  
+Coffee chats  
+Networking events  
+First impressions  
+Always impressive!
+
 </td>
 <td align="center" width="33%">
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="150"/><br/><br/>
-<h2>🎉 PERSONAL</h2>
-<img src="https://img.shields.io/badge/FAMILY-FRIENDS-06A77D?style=for-the-badge&labelColor=000000"/><br/><br/>
-Family Calls  
-Friend Hangouts  
-Virtual Parties  
-Casual Chats  
-Be Yourself!
+
+![UseCase6](https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif)
+
+### 🎉 PERSONAL LIFE
+
+![Badge](https://img.shields.io/badge/FAMILY-FRIENDS-06A77D?style=for-the-badge)
+
+Family video calls  
+Friend hangouts  
+Virtual parties  
+Casual conversations  
+Be yourself!
+
 </td>
 </tr>
 </table>
@@ -1301,13 +1336,13 @@ Be Yourself!
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif" width="100">
+![Divider](https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif)
 
-## 🔮 FUTURE ROADMAP
+## 🔮 FUTURE ROADMAP - THE BEST IS YET TO COME
 
-<img src="https://media.giphy.com/media/3o7qDSOvfaCO9b3MlO/giphy.gif" width="500">
+<br/>
 
-### THE BEST IS YET TO COME! 🚀
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=3500&pause=1000&color=F87171&center=true&vCenter=true&width=900&lines=Version+2.0+%E2%80%A2+Accessories+Coming+Soon;Voice+Control+%E2%80%A2+Cloud+Sync+%E2%80%A2+More+Magic;Never+Stop+Innovating+%F0%9F%9A%80" alt="Future" />
 
 </div>
 
@@ -1318,44 +1353,68 @@ Be Yourself!
 <table>
 <tr>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="120"/><br/><br/>
-<h2>🕶️ V2.0</h2>
-<img src="https://img.shields.io/badge/ACCESSORIES-COMING-667EEA?style=for-the-badge&labelColor=000000"/><br/><br/>
-**Sunglasses**  
-**Hats & Caps**  
-**Jewelry**  
-**Watches**  
-**Full Accessories!**
+
+![Future1](https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif)
+
+### 🕶️ V2.0
+**ACCESSORIES**
+
+![Badge](https://img.shields.io/badge/COMING-SOON-667EEA?style=for-the-badge)
+
+Sunglasses 🕶️  
+Hats & caps 🧢  
+Jewelry 💍  
+Watches ⌚  
+Full accessory suite!
+
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="120"/><br/><br/>
-<h2>🎙️ V2.1</h2>
-<img src="https://img.shields.io/badge/VOICE-CONTROL-06A77D?style=for-the-badge&labelColor=000000"/><br/><br/>
-**"Change to formal"**  
-**"Office background"**  
-**"Add blazer"**  
-**AI Voice Commands**  
-**Hands-Free Magic!**
+
+![Future2](https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif)
+
+### 🎙️ V2.1
+**VOICE CONTROL**
+
+![Badge](https://img.shields.io/badge/IN-DEVELOPMENT-06A77D?style=for-the-badge)
+
+"Change to formal"  
+"Office background"  
+"Add blazer"  
+AI voice commands  
+Hands-free magic!
+
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif" width="120"/><br/><br/>
-<h2>☁️ V2.2</h2>
-<img src="https://img.shields.io/badge/CLOUD-SYNC-F77F00?style=for-the-badge&labelColor=000000"/><br/><br/>
-**Save Presets**  
-**Cross-Device Sync**  
-**Custom Uploads**  
-**Cloud Wardrobe**  
-**Your Style, Everywhere!**
+
+![Future3](https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif)
+
+### ☁️ V2.2
+**CLOUD SYNC**
+
+![Badge](https://img.shields.io/badge/PLANNED-2025-F87171?style=for-the-badge)
+
+Save presets  
+Cross-device sync  
+Custom uploads  
+Cloud wardrobe  
+Everywhere access!
+
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif" width="120"/><br/><br/>
-<h2>📹 V3.0</h2>
-<img src="https://img.shields.io/badge/MEETING-PLUGIN-E63946?style=for-the-badge&labelColor=000000"/><br/><br/>
-**Direct Integration**  
-**Zoom • Teams**  
-**Google Meet**  
-**Native Plugin**  
-**One-Click Install!**
+
+![Future4](https://user-images.githubusercontent.com/74038190/212749695-a6817c5a-a794-462b-afca-1b5ce6ec1370.gif)
+
+### 📹 V3.0
+**DIRECT INTEGRATION**
+
+![Badge](https://img.shields.io/badge/VISION-2026-E63946?style=for-the-badge)
+
+Zoom plugin  
+Teams integration  
+Google Meet native  
+One-click install  
+Seamless experience!
+
 </td>
 </tr>
 </table>
@@ -1366,13 +1425,9 @@ Be Yourself!
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
+![Divider](https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif)
 
-## 🏆 WHAT I LEARNED
-
-<img src="https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif" width="500">
-
-### 90 DAYS OF GROWTH 🌱
+## 🎓 LESSONS LEARNED - 90 DAYS OF GROWTH
 
 </div>
 
@@ -1382,79 +1437,79 @@ Be Yourself!
 
 <table>
 <tr>
-<td width="50%">
+<td width="50%" align="center">
+
+![Tech](https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif)
 
 ### 💻 TECHNICAL MASTERY
 
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="120"/>
-
 <br/>
 
-**🎨 Computer Vision**  
-✅ OpenCV operations mastered  
-✅ Color spaces (HSV vs RGB vs LAB)  
-✅ Morphological transformations  
-✅ Edge detection & advanced blending  
-✅ Real-time video processing
+**🎨 Computer Vision Expertise**  
+✅ OpenCV advanced operations  
+✅ Color space transformations (HSV, RGB, LAB)  
+✅ Morphological operations  
+✅ Edge detection & alpha blending  
+✅ Real-time video optimization
 
-**🤖 AI Integration**  
+**🤖 AI Model Integration**  
 ✅ MediaPipe Hands (21 landmarks)  
 ✅ MediaPipe Selfie Segmentation  
 ✅ Haar Cascade Classifiers  
-✅ Custom AI pipeline building  
+✅ Custom ML pipeline design  
 ✅ Multi-model orchestration
 
 **⚡ Performance Engineering**  
-✅ Frame caching techniques  
-✅ NumPy vectorization magic  
-✅ Adaptive processing strategies  
-✅ Memory management at scale  
-✅ 30 FPS optimization
+✅ Frame caching strategies  
+✅ NumPy vectorization  
+✅ Adaptive processing  
+✅ Memory optimization  
+✅ 30 FPS achievement
 
 **🏗️ Software Architecture**  
-✅ Modular system design  
-✅ State management patterns  
+✅ Modular design patterns  
+✅ State management  
 ✅ Event-driven programming  
 ✅ Clean code principles  
-✅ Production-ready deployment
+✅ Production deployment
 
 </td>
-<td width="50%">
+<td width="50%" align="center">
 
-### 🎯 LIFE LESSONS
+![Life](https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif)
 
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="120"/>
+### 🌟 LIFE LESSONS
 
 <br/>
 
 **🧘 Patience & Perseverance**  
-Some problems take 2 weeks to solve  
-Background removal: 12 attempts  
-Each failure taught something new  
+Some problems take weeks  
+Background removal: 12 iterations  
+Each failure taught lessons  
 Never gave up! 💪
 
-**🔄 Iteration is Key**  
-Version 7 finally worked perfectly  
-Versions 1-6 were NOT failures  
+**🔄 Iteration is Everything**  
+Version 7 was the breakthrough  
+Versions 1-6 weren't failures  
 They were stepping stones  
 Progress over perfection
 
-**🎨 Finishing Matters**  
+**🎨 The Final 20% Matters**  
 80% done ≠ done  
 Last 20% took 30 days  
-Polish makes the difference  
-Details create excellence
+Polish creates excellence  
+Details make the difference
 
 **❤️ Pride in Creation**  
 Built something REAL  
-No external APIs needed  
-100% my own work  
-Pure Python + Computer Vision
+Zero external dependencies  
+100% original work  
+Pure passion project
 
-**🌟 Confidence Gained**  
-Started knowing nothing  
-Now I'm an expert  
-Can tackle ANY CV project  
+**🌟 Confidence Through Building**  
+Started as a beginner  
+Now an expert  
+Can tackle anything  
 Sky's the limit! 🚀
 
 </td>
@@ -1467,11 +1522,13 @@ Sky's the limit! 🚀
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="100">
+![Divider](https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif)
 
-## 🛠️ TECH STACK
+## 🛠️ TECH STACK & TOOLS
 
-<img src="https://media.giphy.com/media/3oKIPlifLxdigaD2Y8/giphy.gif" width="400">
+<br/>
+
+![Skills](https://skillicons.dev/icons?i=python,opencv,vscode,git,github,linux&theme=dark)
 
 </div>
 
@@ -1479,39 +1536,51 @@ Sky's the limit! 🚀
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=python,opencv,vscode,git,github,linux&theme=dark" width="400"/>
-
-<br/><br/>
-
 <table>
 <tr>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif" width="100"/><br/><br/>
-<img src="https://img.shields.io/badge/Python_3.8+-667EEA?style=for-the-badge&logo=python&logoColor=white&labelColor=000000"/><br/>
+
+![Python](https://user-images.githubusercontent.com/74038190/212257454-16e3712e-945a-4ca2-b238-408ad0bf87e6.gif)
+
+![Badge](https://img.shields.io/badge/Python_3.8+-667EEA?style=for-the-badge&logo=python&logoColor=white)
+
 **Core Language**  
-Object-Oriented  
-3,247 Lines
+3,247 lines of code  
+Object-oriented design
+
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif" width="100"/><br/><br/>
-<img src="https://img.shields.io/badge/OpenCV-06A77D?style=for-the-badge&logo=opencv&logoColor=white&labelColor=000000"/><br/>
+
+![OpenCV](https://user-images.githubusercontent.com/74038190/212257472-08e52665-c503-4bd9-aa20-f5a4dae769b5.gif)
+
+![Badge](https://img.shields.io/badge/OpenCV-06A77D?style=for-the-badge&logo=opencv&logoColor=white)
+
 **Computer Vision**  
-Face Detection  
-Image Processing
+Image processing  
+Face detection
+
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif" width="100"/><br/><br/>
-<img src="https://img.shields.io/badge/MediaPipe-F77F00?style=for-the-badge&logo=google&logoColor=white&labelColor=000000"/><br/>
+
+![MediaPipe](https://user-images.githubusercontent.com/74038190/212257468-1e9a91f1-b626-4baa-b15d-5c385dfa7ed2.gif)
+
+![Badge](https://img.shields.io/badge/MediaPipe-F87171?style=for-the-badge&logo=google&logoColor=white)
+
 **AI Models**  
-Hands (21 Points)  
+Hand tracking  
 Segmentation
+
 </td>
 <td align="center" width="25%">
-<img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" width="100"/><br/><br/>
-<img src="https://img.shields.io/badge/NumPy-E63946?style=for-the-badge&logo=numpy&logoColor=white&labelColor=000000"/><br/>
+
+![NumPy](https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif)
+
+![Badge](https://img.shields.io/badge/NumPy-E63946?style=for-the-badge&logo=numpy&logoColor=white)
+
 **Fast Math**  
-Array Operations  
-Vectorized
+Array operations  
+Vectorized code
+
 </td>
 </tr>
 </table>
@@ -1522,13 +1591,13 @@ Vectorized
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif" width="100">
+![Divider](https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif)
 
-## 💖 SUPPORT THIS PROJECT
+## 💖 SUPPORT THIS PASSION PROJECT
 
-<img src="https://media.giphy.com/media/3o7qDEq2bMbcbPRQ2c/giphy.gif" width="400">
+<br/>
 
-### BUILT WITH ❤️ • SUPPORT WITH ❤️
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=3000&pause=1000&color=F87171&center=true&vCenter=true&width=800&lines=Built+With+Love+%E2%9D%A4%EF%B8%8F+%E2%80%A2+90+Days+of+Dedication;Your+Support+Means+Everything;Help+Me+Build+More+Magic+%E2%9C%A8" alt="Support" />
 
 </div>
 
@@ -1540,17 +1609,17 @@ Vectorized
 <tr>
 <td align="center" width="50%">
 
-### 🌍 INTERNATIONAL
+### 🌍 INTERNATIONAL SUPPORT
 
-<img src="https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif" width="150"/>
+![PayPal](https://user-images.githubusercontent.com/74038190/212281763-e6ecd7ef-c4aa-45b6-a97c-f33f6bb592bd.gif)
+
+<br/>
+
+![Badge](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)
 
 <br/><br/>
 
-<img src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white&labelColor=000000"/>
-
-<br/><br/>
-
-**PayPal ID**
+**PayPal ID:**
 
 ```
 malam0007
@@ -1558,22 +1627,22 @@ malam0007
 
 <br/>
 
-**Love this project? Support via PayPal! 💙**
+💙 **Support via PayPal from anywhere in the world!**
 
 </td>
 <td align="center" width="50%">
 
-### 🇮🇳 INDIA
+### 🇮🇳 INDIA SUPPORT
 
-<img src="https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif" width="150"/>
+![UPI](https://user-images.githubusercontent.com/74038190/212281780-0afd9616-8310-46e9-a898-c4f5269f1387.gif)
+
+<br/>
+
+![Badge](https://img.shields.io/badge/UPI-06A77D?style=for-the-badge&logo=googlepay&logoColor=white)
 
 <br/><br/>
 
-<img src="https://img.shields.io/badge/UPI-Payment-06A77D?style=for-the-badge&logo=googlepay&logoColor=white&labelColor=000000"/>
-
-<br/><br/>
-
-**UPI ID**
+**UPI ID:**
 
 ```
 alammodassir007@okicici
@@ -1581,7 +1650,7 @@ alammodassir007@okicici
 
 <br/>
 
-**Support from India? UPI it! 🇮🇳**
+🇮🇳 **Easy UPI payment for supporters in India!**
 
 </td>
 </tr>
@@ -1589,9 +1658,11 @@ alammodassir007@okicici
 
 <br/>
 
-**Every contribution helps me build more amazing projects! 🚀**
+**Every contribution helps me continue building amazing open-source projects! 🚀**
 
-<img src="https://img.shields.io/badge/THANK_YOU-FOR_YOUR_SUPPORT-F77F00?style=for-the-badge&logo=heart&logoColor=white&labelColor=000000"/>
+<br/>
+
+![Badge](https://img.shields.io/badge/THANK_YOU-FOR_YOUR_SUPPORT-F87171?style=for-the-badge&logo=heart&logoColor=white)
 
 </div>
 
@@ -1599,35 +1670,31 @@ alammodassir007@okicici
 
 <div align="center">
 
-<img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" width="400">
+![Divider](https://user-images.githubusercontent.com/74038190/212284136-03988914-d899-44b4-b1d9-4eeccf656e44.gif)
 
 ## 🤝 CONNECT WITH ME
 
-<img src="https://media.giphy.com/media/xT0xeMA62E1XIlup68/giphy.gif" width="400">
+<br/>
 
-</div>
+![Connect](https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif)
 
 <br/>
 
-<div align="center">
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&labelColor=000000)](https://github.com/yourusername)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=000000)](https://linkedin.com/in/yourprofile)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white&labelColor=000000)](mailto:your.email@example.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-667EEA?style=for-the-badge&logo=google-chrome&logoColor=white&labelColor=000000)](https://yourwebsite.com)
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white&labelColor=000000)](https://twitter.com/yourhandle)
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=000000)](https://instagram.com/yourhandle)
-
-<br/><br/>
-
-### ⭐ STAR THIS REPO IF IT BLEW YOUR MIND! ⭐
+[![GitHub](https://img.shields.io/badge/GitHub-@alam025-667EEA?style=for-the-badge&logo=github&logoColor=white)](https://github.com/alam025)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-alammodassir-06A77D?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/alammodassir)
+[![Email](https://img.shields.io/badge/Email-Contact_Me-F87171?style=for-the-badge&logo=gmail&logoColor=white)](mailto:alammodassir007@gmail.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-E63946?style=for-the-badge&logo=google-chrome&logoColor=white)](https://yourportfolio.com)
 
 <br/>
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=667EEA&labelColor=000000)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=06A77D&labelColor=000000)
-![GitHub watchers](https://img.shields.io/github/watchers/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=F77F00&labelColor=000000)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=E63946&labelColor=000000)
+### ⭐ STAR THIS REPO IF IT AMAZED YOU! ⭐
+
+<br/>
+
+![Stars](https://img.shields.io/github/stars/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=667EEA)
+![Forks](https://img.shields.io/github/forks/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=06A77D)
+![Watchers](https://img.shields.io/github/watchers/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=F87171)
+![Issues](https://img.shields.io/github/issues/yourusername/ai-makeover?style=for-the-badge&logo=github&logoColor=white&color=E63946)
 
 </div>
 
@@ -1635,40 +1702,48 @@ alammodassir007@okicici
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:667EEA,30:764BA2,70:F77F00,100:06A77D&height=200&section=footer&text=THANK%20YOU&fontSize=50&fontColor=fff&animation=fadeIn&fontAlignY=65" />
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=0:667EEA,30:764BA2,70:F87171,100:06A77D&height=200&section=footer&text=THANK%20YOU%20FOR%20VISITING&fontSize=40&fontColor=fff&animation=twinkling&fontAlignY=70)
 
 <br/>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif" width="150"/>
+![Outro](https://user-images.githubusercontent.com/74038190/212284087-bbe7e430-757e-4901-90bf-4cd2ce3e1852.gif)
 
-<br/><br/>
+<br/>
 
 # 🎭 AI MAKEOVER • YOUR VIRTUAL TRANSFORMATION 🎭
 
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=2000&pause=1000&color=667EEA&center=true&vCenter=true&width=1000&lines=90+DAYS+%E2%80%A2+3%2C247+LINES+%E2%80%A2+ONE+VISION;BUILT+WITH+%E2%9D%A4%EF%B8%8F+AND+PASSION;NO+API+%E2%80%A2+100%25+OFFLINE+%E2%80%A2+PURE+CV;CHANGE+OUTFITS+%E2%80%A2+SWAP+BACKGROUNDS;25-30+FPS+%E2%80%A2+REAL-TIME+MAGIC;YOUR+LIFE%2C+SIMPLIFIED+%E2%9C%A8" alt="Typing SVG" />
-
-<br/><br/>
-
-## ✨ **FROM PROBLEM TO SOLUTION** ✨
-
-**Built with Python • OpenCV • MediaPipe • Love**
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=667EEA&center=true&vCenter=true&width=900&lines=90+Days+%E2%80%A2+3%2C247+Lines+%E2%80%A2+One+Vision;Built+With+%E2%9D%A4%EF%B8%8F+Passion+and+Dedication;100%25+Offline+%E2%80%A2+Zero+APIs+%E2%80%A2+Pure+CV;Transform+Your+Professional+Presence;Real-Time+AI+%E2%80%A2+25-30+FPS+Magic;Your+Life%2C+Simplified+%E2%9C%A8" alt="Outro Typing" />
+</p>
 
 <br/>
 
-**⭐ IF THIS PROJECT HELPED YOU, STAR IT! ⭐**
+## ✨ FROM PROBLEM TO SOLUTION ✨
 
-**💖 IF YOU WANT TO SUPPORT, DONATE! 💖**
+**Built with Python • OpenCV • MediaPipe • Dedication**
 
-<br/><br/>
+<br/>
 
-**Made with dedication by a passionate developer**
+**⭐ IF THIS PROJECT INSPIRED YOU, GIVE IT A STAR! ⭐**
 
-**© 2024 AI Makeover System • All Rights Reserved**
+**💖 IF YOU WANT TO SUPPORT MY WORK, CONSIDER DONATING! 💖**
 
-<br/><br/>
+<br/>
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="1000">
+![Badge](https://img.shields.io/badge/MADE_WITH-❤️_AND_CODE-667EEA?style=for-the-badge)
+![Badge](https://img.shields.io/badge/90_DAYS-OF_PASSION-06A77D?style=for-the-badge)
+![Badge](https://img.shields.io/badge/100%25-ORIGINAL-F87171?style=for-the-badge)
+
+<br/>
+
+**© 2024 AI Makeover System • Built by a Passionate Developer**
+
+**Licensed under MIT • Free to Use • Attribute & Share**
+
+<br/>
+
+![Divider](https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif)
 
 </div>
